@@ -1,0 +1,76 @@
+# Markovian Resolution Limit
+
+This repository establishes a matching operational approximation law for
+bounded microscopic realizations of centered, drift-free Lindblad processes.
+The complete scientific account is organized by topic under science/.
+
+Canonical entrypoints:
+- README.md: question, exact result, scope, reading routes and reproduction.
+- science/model.md: microscopic model class, admissible testers, fixed final
+  time, resource accounting, Delta_N, signed universal Gamma_N, and theorems.
+- science/intervention_bounds.md: memory-only controller normal form,
+  conditional survival, bath-parity Dyson cancellation, Markov cell estimate,
+  and the physical-prefix adaptive hybrid.
+- science/amplitude_damping.md: explicit qubit exchange construction,
+  5/64 lower coefficient, norm bound, exact zero-contact result, midpoint echo.
+- science/dissipators.md: inherited maximum jump variance and minimax identity,
+  centered-generator scope, exact generator diamond norm, survival witness,
+  positive no-jump Kraus operator and exact parity-odd channel completion,
+  dimension-independent law, examples and coherent-shift counterexample.
+- science/interpretation.md: controlled process versus endpoint channel,
+  coupling-strength cost at accuracy epsilon, timing and instrument robustness,
+  and the physical resources required by both constructions.
+- references/RELATED_WORK.md: precise source-model comparison and inherited
+  ingredients, with stable citation anchors matching the bibliography keys.
+- references/references.bib: primary-source metadata and versioned links.
+- verification/README.md: finite checks, dependencies, numerical tolerances,
+  reference outputs and the distinction between computation and proof.
+- verification/run_all.py: executes both checks without rewriting expected
+  outputs unless --record is explicitly passed.
+
+Reader routes:
+- For the physical story: model -> amplitude damping -> interpretation.
+- For the general theorem: model -> intervention bounds -> dissipators.
+- For the all-testers converse: read the parity lemma, exact-cell construction,
+  controller normal form and physical-prefix activity-weighted hybrid together.
+- For the universal witness: read the inherited maximum-variance rate,
+  conditional subspace leakage and all-success recorded event.
+- For reproduction: use verification/README.md and the single documented
+  runner; inspect both the equation and the independent numerical construction.
+
+Preserve these distinctions:
+- Delta_N is infimum over devices followed by supremum over testers.
+  Gamma_N is supremum over one oriented binary test followed by infimum over
+  devices. Both obey the same scaling; equality of their exact values is not
+  asserted.
+- The generic theorem requires an optimally centered jump representation with
+  zero coherent term. Merely shifting jumps changes the Hamiltonian gauge and
+  does not physically compensate an arbitrary drift.
+- nu is the maximum initial entanglement-infidelity rate. In the stated
+  centered drift-free class, ||L||_diamond = 2 nu.
+- Lambda bounds all system-affecting Hamiltonian terms. Bath-only evolution
+  may be removed in an interaction picture. Per-term bounds do not replace
+  a bound on their complete sum.
+- Initial preparation and final readout at fixed T=1/nu are free; early
+  system readout, reset, swap or pulse consumes a contact. Free memory-only
+  processing does not create continuous access to the system.
+- Classical adaptive timing is allowed through the specified operational
+  closure of finite controllers. Coherent superpositions of contact times
+  and uncounted continuous system monitoring are outside the model.
+- The universal witness retains failure outcomes; it is not postselection.
+- All bath cells are initialized at time zero, retained, and used once.
+  Analytical tracing of spent cells is not a physical reset assumption.
+- Exact zero-contact equality concerns the fixed terminal channel. It does
+  not assert exact semigroup dynamics at every intermediate time.
+- The simulator is independent of the tester and the contact budget, but
+  depends on the target, strength bound and horizon. Large bath size and an
+  external switching schedule are allowed.
+- Timing tolerance and instrument perturbation bounds do not implement
+  finite-duration pulses or pay for a clock.
+- The law concerns one use of the process. Unlimited independent repetitions,
+  parameter estimation and microscopic Hamiltonian identification are
+  distinct questions.
+- The Zeno scale, collision framework, maximum-variance probe, no-jump
+  decomposition and channel extension costs are attributed prior ingredients.
+- Numerical checks are finite examples, not optimizations over all testers
+  or substitutes for the uniform analytical bounds.

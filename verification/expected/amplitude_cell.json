@@ -1,0 +1,61 @@
+{
+  "seed": 726104,
+  "internal_interventions": 3,
+  "outcome_branches": 8,
+  "checks": [
+    {
+      "theta": 0.005,
+      "endpoint_basis_residual": 7.223496974184673e-18,
+      "echo_distance": 2.499979166731173e-05,
+      "echo_over_theta_squared": 0.9999916666924691,
+      "adaptive_record_distance": 6.784477853887718e-06,
+      "adaptive_over_theta_squared": 0.2713791141555087,
+      "uniform_cell_bound": 5.000031250139394e-05
+    },
+    {
+      "theta": 0.01,
+      "endpoint_basis_residual": 1.1099519740820352e-17,
+      "echo_distance": 9.999666671113073e-05,
+      "echo_over_theta_squared": 0.9999666671113072,
+      "adaptive_record_distance": 2.713760293921148e-05,
+      "adaptive_over_theta_squared": 0.27137602939211475,
+      "uniform_cell_bound": 0.0002000050000889194
+    },
+    {
+      "theta": 0.02,
+      "endpoint_basis_residual": 1.2197274440461925e-17,
+      "echo_distance": 0.00039994666951116903,
+      "echo_over_theta_squared": 0.9998666737779225,
+      "adaptive_record_distance": 0.00010854547650578162,
+      "adaptive_over_theta_squared": 0.27136369126445403,
+      "uniform_cell_bound": 0.0008000800056893599
+    },
+    {
+      "theta": 0.05,
+      "endpoint_basis_residual": 8.283304597789254e-17,
+      "echo_distance": 0.002497917360987317,
+      "echo_over_theta_squared": 0.9991669443949266,
+      "adaptive_record_distance": 0.0006781934152470085,
+      "adaptive_over_theta_squared": 0.2712773660988034,
+      "uniform_cell_bound": 0.005003126389540299
+    },
+    {
+      "theta": 0.1,
+      "endpoint_basis_residual": 2.4748248725324424e-16,
+      "echo_distance": 0.009966711079379076,
+      "echo_over_theta_squared": 0.9966711079379074,
+      "adaptive_record_distance": 0.002709696576488649,
+      "adaptive_over_theta_squared": 0.2709696576488649,
+      "uniform_cell_bound": 0.020050089056008434
+    },
+    {
+      "theta": 0.2,
+      "endpoint_basis_residual": 2.0816681711721685e-17,
+      "echo_distance": 0.03946950299855746,
+      "echo_over_theta_squared": 0.9867375749639363,
+      "adaptive_record_distance": 0.010789924289500711,
+      "adaptive_over_theta_squared": 0.26974810723751774,
+      "uniform_cell_bound": 0.08080573202404412
+    }
+  ]
+}
