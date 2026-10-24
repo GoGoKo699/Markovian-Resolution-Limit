@@ -51,6 +51,18 @@ Start with [the operational model](science/model.md), then follow the constructi
 
 The [LLM reading guide](llms.txt) maps these routes and records the distinctions that must survive a summary.
 
+## Learn the project
+
+The single educational anchor is **Ángel Rivas and Susana F. Huelga, _Open Quantum Systems: An Introduction_ (2012)**, using the [open author version, arXiv:1104.5242v2](https://arxiv.org/abs/1104.5242v2). It supplies the dynamical-map, semigroup and microscopic-model foundations. The learning route connects those foundations to the operational law proved here.
+
+| Reading need | Route |
+|---|---|
+| Follow the physical mechanism through a complete example | [From a decay curve to an intervention law](learning/TUTORIAL.md), including a one-pulse experiment with equal uncontrolled endpoints. |
+| Connect the selected source to this project's notation and assumptions | [Rivas–Huelga anchor bridge](learning/ANCHOR.md). Section numbers refer to the specified open version. |
+| Study the full conceptual structure | [30-milestone map](learning/MILESTONES.md): 11 background/preliminary targets and 19 narrative/innovation targets, each with dependencies and scientific sources. |
+
+The map is common to every reader. The exact theorem statements and complete proofs remain in the scientific pages above.
+
 ## Reproduce the finite checks
 
 With Python 3.12 and the pinned dependencies, run from the repository root:

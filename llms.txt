@@ -20,6 +20,15 @@ Canonical entrypoints:
 - science/interpretation.md: controlled process versus endpoint channel,
   coupling-strength cost at accuracy epsilon, timing and instrument robustness,
   and the physical resources required by both constructions.
+- learning/ANCHOR.md: the single educational anchor, Rivas and Huelga's
+  Open Quantum Systems: An Introduction, using arXiv:1104.5242v2 (2012);
+  verified section pointers, notation translation, assumptions and local bridge.
+- learning/MILESTONES.md: exactly 30 project-intrinsic understanding targets,
+  M01-M11 background/preliminaries and M12-M30 narrative/innovation;
+  stable m01-m30 anchors, dependencies, conceptual connections and sources.
+- learning/TUTORIAL.md: a connected physical explanation, the complete
+  one-pulse qubit example, universal survival witness and adaptive converse;
+  links the settled milestone map to canonical scientific proofs.
 - references/RELATED_WORK.md: precise source-model comparison and inherited
   ingredients, with stable citation anchors matching the bibliography keys.
 - references/references.bib: primary-source metadata and versioned links.
@@ -30,6 +39,10 @@ Canonical entrypoints:
 
 Reader routes:
 - For the physical story: model -> amplitude damping -> interpretation.
+- For study: anchor bridge -> tutorial -> milestone map -> linked science.
+  The milestone map is independent of any reader's background or progress.
+- For a first worked example: tutorial's complete one-pulse example, then
+  amplitude damping's exact endpoint, strength and echo calculations.
 - For the general theorem: model -> intervention bounds -> dissipators.
 - For the all-testers converse: read the parity lemma, exact-cell construction,
   controller normal form and physical-prefix activity-weighted hybrid together.
@@ -39,6 +52,9 @@ Reader routes:
   runner; inspect both the equation and the independent numerical construction.
 
 Preserve these distinctions:
+- Rivas and Huelga is the sole educational anchor. Other cited papers supply
+  research attribution. The anchor's map and semigroup foundations do not
+  themselves establish this project's controlled-process comparison.
 - Delta_N is infimum over devices followed by supremum over testers.
   Gamma_N is supremum over one oriented binary test followed by infimum over
   devices. Both obey the same scaling; equality of their exact values is not
