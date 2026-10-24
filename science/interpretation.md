@@ -141,9 +141,13 @@ p_{\mathrm M}(\tau)
 ```
 
 The first inequality follows from
-$`\|\mathcal D\|_\diamond\le2\nu`$ and
-$e^{t\mathcal D}-I-t\mathcal D
-=\int_0^t(t-s)\mathcal D^2e^{s\mathcal D}\,ds$.
+$`\|\mathcal L\|_\diamond\le2\nu`$ and
+
+```math
+e^{t\mathcal L}-I-t\mathcal L
+=\int_0^t(t-s)\mathcal L^2e^{s\mathcal L}\,ds.
+```
+
 Therefore the all-success probability gap is at least
 
 ```math

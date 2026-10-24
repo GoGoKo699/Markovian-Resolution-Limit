@@ -19,8 +19,8 @@ We assume that this jump representation is **optimally centered**, meaning
 ```math
 \nu:=\|Q\|
 =\max_{\rho\in\mathsf D(S)}
-\sum_a\left(\operatorname{Tr}(\rho M_a^\dagger M_a)
--|\operatorname{Tr}(\rho M_a)|^2\right)>0,
+\sum_a\left(\mathrm{Tr}(\rho M_a^\dagger M_a)
+-|\mathrm{Tr}(\rho M_a)|^2\right)>0,
 ```
 
 and that there is **no coherent Hamiltonian term in this centered representation**. This is a physical restriction on the generator, or an explicit assumption of compensated drift. It is not a choice of notation that can be made without changing every generator; Section 8 gives a counterexample to that interpretation.
@@ -31,8 +31,8 @@ For arbitrary jumps $`L_a`$, the rate has the equivalent form
 \begin{aligned}
 \nu
 &=\max_\rho\sum_a\left(
-\operatorname{Tr}(\rho L_a^\dagger L_a)
--|\operatorname{Tr}(\rho L_a)|^2\right)\\
+\mathrm{Tr}(\rho L_a^\dagger L_a)
+-|\mathrm{Tr}(\rho L_a)|^2\right)\\
 &=\min_{\alpha\in\mathbb C^r}
 \left\|\sum_a(L_a-\alpha_aI)^\dagger(L_a-\alpha_aI)\right\|.
 \end{aligned}
@@ -43,16 +43,16 @@ The maximum-variance formula, its minimax form, and the associated optimal measu
 For completeness, define
 
 ```math
-F(\rho,\alpha)=\operatorname{Tr}\left[
+F(\rho,\alpha)=\mathrm{Tr}\left[
 \rho\sum_a(L_a-\alpha_aI)^\dagger(L_a-\alpha_aI)\right].
 ```
 
-This function is affine in $`\rho`$, convex in $`\alpha`$, and coercive in $`\alpha`$. Minimizing at fixed $`\rho`$ gives $`\alpha_a=\operatorname{Tr}(\rho L_a)`$. Finite-dimensional convex minimax then permits exchanging the maximum and minimum. At an optimal pair, with $`M_a=L_a-\alpha_aI`$, there is a state $`\rho_*`$ such that
+This function is affine in $`\rho`$, convex in $`\alpha`$, and coercive in $`\alpha`$. Minimizing at fixed $`\rho`$ gives $`\alpha_a=\mathrm{Tr}(\rho L_a)`$. Finite-dimensional convex minimax then permits exchanging the maximum and minimum. At an optimal pair, with $`M_a=L_a-\alpha_aI`$, there is a state $`\rho_*`$ such that
 
 ```math
-\operatorname{Tr}(\rho_*M_a)=0,
-\qquad \operatorname{Tr}(\rho_*Q)=\nu,
-\qquad \operatorname{supp}\rho_*
+\mathrm{Tr}(\rho_*M_a)=0,
+\qquad \mathrm{Tr}(\rho_*Q)=\nu,
+\qquad \mathrm{supp}\,\rho_*
 \subseteq\ker(Q-\nu I).
 ```
 
@@ -67,7 +67,7 @@ Consequently
 
 ```math
 -\left.\frac{d}{dt}
-\operatorname{Tr}\left[P_*(e^{t\mathcal L}\otimes\mathrm{id})(P_*)\right]
+\mathrm{Tr}\left[P_*(e^{t\mathcal L}\otimes\mathrm{id})(P_*)\right]
 \right|_{t=0}=\nu.
 ```
 
@@ -144,7 +144,7 @@ It follows that every conditional microscopic failure probability is at most
 For the ideal process, let
 
 ```math
-p(t)=\operatorname{Tr}\left[
+p(t)=\mathrm{Tr}\left[
 P_*(e^{t\mathcal L}\otimes\mathrm{id})(P_*)\right].
 ```
 
@@ -215,7 +215,7 @@ Let
 \qquad B=J\sin\Theta
 ```
 
-be the polar decomposition of $`B`$. The partial isometry $`J`$ has initial support $`\operatorname{supp}\Theta`$. In particular, $`\Theta`$ vanishes on its kernel, so no inverse or extension of $`J`$ on that kernel is required.
+be the polar decomposition of $`B`$. The partial isometry $`J`$ has initial support $`\mathrm{supp}\,\Theta`$. In particular, $`\Theta`$ vanishes on its kernel, so no inverse or extension of $`J`$ on that kernel is required.
 
 Decompose the cell Hilbert space into the vacuum sector $`S\otimes|0\rangle`$ and its excited sectors, and define
 
@@ -325,13 +325,13 @@ The rate depends on the generator convention. The following choices state both t
 | Process | Generator and jump convention | Intrinsic rate | A maximizing system state |
 | --- | --- | --- | --- |
 | Qubit amplitude damping | $`M=\sqrt\gamma\,\lvert0\rangle\langle1\rvert`$; excited population decays as $`e^{-\gamma t}`$ | $`\nu=\gamma`$ | $`\lvert1\rangle\langle1\rvert`$ |
-| Qubit dephasing | $`\mathcal L(X)=(\kappa/2)(ZXZ-X)`$, $`M=\sqrt{\kappa/2}\,Z`$; off-diagonal entries decay as $`e^{-\kappa t}`$ | $`\nu=\kappa/2`$ | Any state with $`\operatorname{Tr}(\rho Z)=0`$, including $`\lvert+\rangle`$ |
-| Qubit depolarization | $`\mathcal L(X)=\kappa[(I/2)\operatorname{Tr}X-X]`$, $`M_a=\sqrt{\kappa/4}\,\sigma_a`$ for $`a=x,y,z`$; Bloch vectors decay as $`e^{-\kappa t}`$ | $`\nu=3\kappa/4`$ | $`\rho_*=I/2`$, purified by a Bell pair |
+| Qubit dephasing | $`\mathcal L(X)=(\kappa/2)(ZXZ-X)`$, $`M=\sqrt{\kappa/2}\,Z`$; off-diagonal entries decay as $`e^{-\kappa t}`$ | $`\nu=\kappa/2`$ | Any state with $`\mathrm{Tr}(\rho Z)=0`$, including $`\lvert+\rangle`$ |
+| Qubit depolarization | $`\mathcal L(X)=\kappa[(I/2)\mathrm{Tr}\,X-X]`$, $`M_a=\sqrt{\kappa/4}\,\sigma_a`$ for $`a=x,y,z`$; Bloch vectors decay as $`e^{-\kappa t}`$ | $`\nu=3\kappa/4`$ | $`\rho_*=I/2`$, purified by a Bell pair |
 
-For amplitude damping, the variance is $`\gamma(\rho_{11}-|\rho_{01}|^2)`$, maximized at the excited state. For dephasing it is $`(\kappa/2)[1-\operatorname{Tr}(\rho Z)^2]`$. For depolarization, writing $`\rho=(I+\mathbf r\cdot\boldsymbol\sigma)/2`$ gives
+For amplitude damping, the variance is $`\gamma(\rho_{11}-|\rho_{01}|^2)`$, maximized at the excited state. For dephasing it is $`(\kappa/2)[1-\mathrm{Tr}(\rho Z)^2]`$. For depolarization, writing $`\rho=(I+\mathbf r\cdot\boldsymbol\sigma)/2`$ gives
 
 ```math
-\sum_a\operatorname{Var}_\rho(M_a)
+\sum_a\mathrm{Var}_\rho(M_a)
 =\frac\kappa4(3-|\mathbf r|^2).
 ```
 
@@ -381,7 +381,7 @@ L_3&=0.5|1\rangle\langle0|.
 \end{aligned}
 ```
 
-The top eigenspace of $`Q`$ lies in $`\operatorname{span}\{|1\rangle,|2\rangle\}`$, and every jump has zero expectation there. This analytically certifies optimal centering: the maximum variance equals $`\|Q\|`$. Dividing all jumps by $`\sqrt{\|Q\|}`$ sets $`\nu=1`$ while retaining off-diagonal entries of $`Q`$ and noncommutativity.
+The top eigenspace of $`Q`$ lies in $`\mathrm{span}\,\{|1\rangle,|2\rangle\}`$, and every jump has zero expectation there. This analytically certifies optimal centering: the maximum variance equals $`\|Q\|`$. Dividing all jumps by $`\sqrt{\|Q\|}`$ sets $`\nu=1`$ while retaining off-diagonal entries of $`Q`$ and noncommutativity.
 
 The tester starts with a maximally entangled qutrit pair, applies two joint instruments, retains all four outcome histories, and selects its second contact time from the first outcome. Six cell durations were checked. The largest endpoint matrix-unit residual was $`3.59\times10^{-15}`$. Reversing the sign of the cell Hamiltonian produced identical reduced recorded outputs at the displayed numerical precision, consistent with odd-order cancellation. The microscopic-to-Markov half trace distance divided by $`x=\nu h`$ was
 

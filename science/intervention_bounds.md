@@ -9,11 +9,11 @@ Consider an interval with fixed boundaries $`b<e`$, after any common operations 
 To prove this for a finite protocol tree, fix a branch of its memory-only operations. Each map on that branch acts on $`R`$ alone. For any joint $`SE`$ propagator and any branch map $`\mathcal A_R`$,
 
 ```math
-(\mathcal U_{SE}\otimes\operatorname{id}_R)
-\circ(\operatorname{id}_{SE}\otimes\mathcal A_R)
+(\mathcal U_{SE}\otimes\mathrm{id}_R)
+\circ(\mathrm{id}_{SE}\otimes\mathcal A_R)
 =
-(\operatorname{id}_{SE}\otimes\mathcal A_R)
-\circ(\mathcal U_{SE}\otimes\operatorname{id}_R).
+(\mathrm{id}_{SE}\otimes\mathcal A_R)
+\circ(\mathcal U_{SE}\otimes\mathrm{id}_R).
 ```
 
 Move the collected branch maps to $`b`$, retaining the originally selected contact time. This yields the same subnormalized joint state at that contact, or at $`e`$ on a no-contact branch. Sum the branch maps with the same declared outcome to obtain the required instrument. The equality also holds for the target Markov propagators, because they act on $`S`$ alone.

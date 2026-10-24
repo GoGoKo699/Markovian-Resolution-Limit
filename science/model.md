@@ -124,8 +124,8 @@ The centering condition is
 ```math
 \nu:=\|Q\|_\infty
 =\max_{\rho\in\mathsf D(S)}
-\sum_a\left(\operatorname{Tr}(\rho M_a^\dagger M_a)
--|\operatorname{Tr}(\rho M_a)|^2\right)>0.
+\sum_a\left(\mathrm{Tr}(\rho M_a^\dagger M_a)
+-|\mathrm{Tr}(\rho M_a)|^2\right)>0.
 ```
 
 The absence of a coherent term is required in this centered representation. Centering an arbitrary Lindblad representation can induce such a term, so this hypothesis is a substantive restriction or an explicit assumption of compensated drift. The [general dissipator theorem](dissipators.md) explains the normalization, proves $`\|\mathcal L\|_\diamond=2\nu`$, and identifies a system-reference state with instantaneous survival loss $`\nu`$.
