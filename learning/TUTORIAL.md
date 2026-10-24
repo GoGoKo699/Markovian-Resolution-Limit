@@ -34,14 +34,14 @@ the two proof directions developed afterward.
 Let $`S`$ denote the observed system. Its state is a positive matrix
 $`\rho`$ with trace one. A measurement outcome has a positive effect
 $`F`$ with $`0\le F\le I`$, and its probability is
-$`\operatorname{Tr}(F\rho)`$. For a two-level system, the pure states
+$`\mathrm{Tr}(F\rho)`$. For a two-level system, the pure states
 $`|0\rangle`$ and $`|1\rangle`$ can represent the ground and excited
 states. The projector $`P=|1\rangle\langle1|`$ asks whether the excitation
 is present.
 
 A quantum channel $`\Phi`$ transforms input states into output states. It
 must also work on a system entangled with an otherwise untouched reference
-$`R`$: the enlarged transformation is $`\Phi\otimes\operatorname{id}_R`$.
+$`R`$: the enlarged transformation is $`\Phi\otimes\mathrm{id}_R`$.
 Complete positivity is the condition ensuring positivity for these enlarged
 inputs. A Kraus representation writes a channel as
 

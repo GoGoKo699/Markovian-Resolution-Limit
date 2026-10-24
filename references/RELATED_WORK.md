@@ -131,8 +131,8 @@ James W. Gardner, Simon A. Haine, Joseph J. Hope, Yanbei Chen, and Tuvia Gefen, 
 
 Section II.4.1, Eq. (23), identifies the maximum sum of jump-operator variances in noiseless Lindblad estimation. Appendix A supplies its minimax form, with purification allowing a mixed system state:
 ```math
-\nu=\max_\rho\sum_k\!\left(\operatorname{Tr}\rho L_k^\dagger L_k-
-|\operatorname{Tr}\rho L_k|^2\right)
+\nu=\max_\rho\sum_k\!\left(\mathrm{Tr}\,\rho L_k^\dagger L_k-
+|\mathrm{Tr}\,\rho L_k|^2\right)
 =\min_{\alpha_k}\left\|\sum_k(L_k-\alpha_k I)^\dagger(L_k-\alpha_k I)\right\|.
 ```
 The optimal-state projection strategy is also established there. Both the normalization and this choice of probe are inherited. Here the microscopic hypothesis has bounded coupling, while their estimation model assumes Lindblad evolution under fast control. The separate requirement of zero coherent drift in an optimal centered representation remains an explicit assumption of this project's theorem.

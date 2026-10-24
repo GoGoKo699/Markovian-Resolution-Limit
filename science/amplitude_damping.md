@@ -175,9 +175,9 @@ The microscopic damping is completely echoed within that cell. Under the target 
 
 ```math
 e^{(h/2)\mathcal L_\gamma}
-\circ\operatorname{Ad}_Z
+\circ\mathrm{Ad}_Z
 \circ e^{(h/2)\mathcal L_\gamma}
-=\operatorname{Ad}_Z\circ e^{h\mathcal L_\gamma}.
+=\mathrm{Ad}_Z\circ e^{h\mathcal L_\gamma}.
 ```
 
 On an initially excited state, the two cell outputs have trace distance
