@@ -129,6 +129,8 @@ small-jitter gauge envelope supports the converse calculation, not a
 sufficiency claim. Both suites run with `python scripts/check.py` in the
 companion repository; this repository's three-script runner is unchanged.
 
+The global contact and jitter lower bounds use the companion's [bounded-loss closure](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_global_precision.md#global-risk-under-controlled-limits). This is an analytical argument for operational limits, not an inference from sampled channel continuity or local Fisher information. Known systematic displacement is a supplied input; these checks do not establish a calibration cost for an unknown offset.
+
 ## What the calculations do not establish
 
 These are finite numerical examples. They do not optimize over testers or

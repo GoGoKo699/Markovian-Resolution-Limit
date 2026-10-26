@@ -34,7 +34,7 @@ Thus a constant single-run distinguishing advantage has a worst-case contact cos
 
 The generator condition is substantive. Shifting Lindblad jumps by scalar multiples of the identity can change the coherent Hamiltonian needed to represent the same physical dynamics. The [rate definition and counterexample](science/dissipators.md) make that restriction explicit.
 
-The familiar Zeno scale, collision models, variance normalization and one-channel dilation costs are established ingredients. The contribution studied here is their combination into the matching **controlled-process** law, including the converse against every permitted adaptive tester. [Related work](references/RELATED_WORK.md) compares the exact assumptions with prior decoupling, reset-simulation, channel time-energy and continuum-process results.
+The familiar Zeno scale, collision models, variance normalization and one-channel dilation costs are established ingredients. [Berk et al.](references/RELATED_WORK.md#berk2023) also establish temporal resolution as a resource; the comparison includes the subsequent correction to their process monotones. The contribution studied here is their combination into the matching **controlled-process** law, including the converse against every permitted adaptive tester. [Related work](references/RELATED_WORK.md) compares the exact assumptions with prior decoupling, reset-simulation, channel time-energy and continuum-process results.
 
 ## Read the science
 
@@ -52,7 +52,7 @@ Start with [the operational model](science/model.md), then follow the constructi
 | Which timing imperfections preserve that precision? | [Systematic displacement and hidden jitter](science/timing_precision.md) |
 | Which ingredients are inherited and which operational models differ? | [Related work](references/RELATED_WORK.md) and [bibliography](references/references.bib) |
 
-The [LLM reading guide](llms.txt) maps these routes and records the distinctions that must survive a summary.
+The [scientific synthesis](science/interpretation.md#principal-argument-and-supporting-results) identifies the principal proof chain, the separate sensing consequence and their supporting derivations. The [LLM reading guide](llms.txt) maps these routes and records the distinctions that must survive a summary.
 
 ## Learn the project
 
@@ -87,7 +87,7 @@ The separate [global contact theorem](science/global_contact_precision.md) prove
 
 The bridge also proves an exact [frequency-alias obstruction](science/sensing_bridge.md#frequency-aliases-of-the-collision-clock): distinct resonant frequencies have identical complete records for every fixed-coupling boundary-only controller. The companion [identifiability theorem](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_identifiability.md) supplies an explicit smaller band with uniform calibration guarantees and paid trials. The global construction uses a sufficient sub-band and keeps the nominal compensation fixed.
 
-[Timing information matters](science/timing_precision.md): a known fixed displacement of the echo pulse still allows quadratic global precision through a calibrated temporal menu. For the specified menu with independent unobserved two-point timing jitter, any fixed nonzero jitter instead gives optimal global risk of order $`n^{-1}`$, even though quadratic local information survives at compensation. With a linear interior-contact allowance, jitter of order at most $`h/\sqrt n`$ is necessary for quadratic global precision; sufficiency is not proved. This limitation concerns the stated one-pulse menu, rather than all temporal controllers.
+[Timing information matters](science/timing_precision.md): a supplied known fixed displacement of the echo pulse still allows quadratic global precision through the corresponding temporal menu. This assumes knowledge of the offset; it does not provide an uncharged learning procedure. For the specified menu with independent unobserved two-point timing jitter, any fixed nonzero jitter instead gives optimal global risk of order $`n^{-1}`$, even though quadratic local information survives at compensation. With a linear interior-contact allowance, jitter of order at most $`h/\sqrt n`$ is necessary for quadratic global precision; sufficiency is not proved. This limitation concerns the stated one-pulse menu, rather than all temporal controllers.
 
 The hiding construction initializes all bath cells at time zero, retains spent cells, and uses an externally prescribed switching schedule. Its bath dimension can grow exponentially in $`(\Lambda/\nu)^2`$. The result is a coupling-and-contact bound, with no claim of efficient bath preparation, autonomous clock implementation or finite-duration control. Independent repetitions of the whole experiment are a separate resource.
 

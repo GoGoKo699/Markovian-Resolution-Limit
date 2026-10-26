@@ -232,7 +232,9 @@ R_{n,m}^*(\Omega)
 \ge\frac1{4(a_0^2+b_0^2)(n+m^2)+\pi^2/E^2}.
 ```
 
-This lower bound applies to biased estimators and to the complete accessible output. Clipping and finite quantization justify it for general measurable outputs. The curve has bounded first and second derivatives on a slightly larger band with $`p_p>0`$, so the existing [controlled-derivative limit argument](intervention_bounds.md#limits-with-controlled-parameter-derivatives) extends the uniform information bound to the stated operational closure. In particular, $`\|\partial_\epsilon^2H\|\le g(|\phi''|+|\phi'|^2)`$ is uniformly bounded independently of the controller.
+This lower bound applies to biased estimators and to the complete accessible output. For the stated operational limits, use the companion's [direct bounded-loss argument](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_global_precision.md#global-risk-under-controlled-limits): clip and finitely quantize the estimator, pass its Bayes risk through event-probability convergence under the same fixed prior, then refine the quantization. This transfers the global lower bound without continuity of Fisher information or any enlargement of the controller class.
+
+Separately, the curve has bounded first and second derivatives on a slightly larger band with $`p_p>0`$, so the [controlled-derivative limit argument](intervention_bounds.md#limits-with-controlled-parameter-derivatives) retains the information bound itself for local-precision uses. In particular, $`\|\partial_\epsilon^2H\|\le g(|\phi''|+|\phi'|^2)`$ is uniformly bounded independently of the controller.
 
 Because $`a_0/h`$, $`b_0/h`$ and $`Eh`$ are fixed dimensionless quantities, this is the required lower order $`1/[h^2(n+m^2)]`$. Together with the two attaining designs it proves the global contact theorem.
 
@@ -240,4 +242,4 @@ Because $`a_0/h`$, $`b_0/h`$ and $`Eh`$ are fixed dimensionless quantities, this
 
 The attaining resource is a selectable temporal setting inside a collision, combined with its retained syndrome record. Echoing every cell with one unchanged primitive is a different construction; its local sensitivity alone does not establish global quadratic precision. The [timing-error analysis](timing_precision.md#global-precision-with-hidden-jitter) distinguishes fixed systematic offsets from unobserved random jitter and analyzes the effect of hidden timing fluctuations on global estimation.
 
-The global contact theorem assumes exact midpoint pulses for its attaining temporal menu. It does not claim the same upper bound for an imperfect timing record, finite-duration pulses or hidden jitter. The converse remains an ideal-control limitation. Both the positive temporal construction and its resource restriction belong to this explicit sensing device, rather than changing the main theorem about discrimination from a fixed Markov generator.
+The global contact theorem assumes exact midpoint pulses for its attaining temporal menu. It does not claim the same upper bound for an imperfect timing record, finite-duration pulses or hidden jitter. The converse remains an ideal-control limitation. This is a theorem for the explicit sensing device, with its own estimator and uniform converse; it is not a logical corollary of the headline fixed-generator discrimination law.
