@@ -2,9 +2,11 @@
 
 **Ángel Rivas and Susana F. Huelga, _Open Quantum Systems: An Introduction_**, first edition, SpringerBriefs in Physics (2012). The selected open text is [arXiv:1104.5242v2](https://arxiv.org/abs/1104.5242v2), dated 9 February 2012: [HTML](https://arxiv.org/html/1104.5242v2), [PDF](https://arxiv.org/pdf/1104.5242v2), [publisher record](https://doi.org/10.1007/978-3-642-23354-8).
 
-**Section numbers below refer to that open version.** This is the project's single educational anchor. Other sources in [Related work](../references/RELATED_WORK.md) support research attribution.
+**Section numbers below refer to that open version.** This is the single common educational anchor for **Quantum Noise under Control** and both sister repositories. The companion's [anchor bridge](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/learning/ANCHOR.md) maps the same source into noise-strength-controlled sensing. Other sources in [Related work](../references/RELATED_WORK.md) support research attribution; they are not additional assigned textbooks.
 
-The bridge into this project is a question about the validity of a noise model under intervention: when can bounded microscopic dynamics reproduce a prescribed Markov process, including the observations made while it runs? The anchor supplies the open-system language. The finite-contact comparison and its proof are supplied in the canonical science pages.
+The common foundation is reduced dynamics, channels and their microscopic realizations. This project asks when bounded microscopic dynamics can reproduce a prescribed Markov process under intervention, then studies what access inside a specified collision enables for sensing. The companion asks how selecting a noise strength changes attainable frequency error. The anchor supplies the physical and mathematical language; each repository supplies its own operational task and proof chain.
+
+Read selected sections as they arise in the [tutorial](TUTORIAL.md) and [30-milestone map](MILESTONES.md). Reading the entire source first is not required. The two milestone maps remain project-specific: shared foundations can be studied once, while the resolution and sensing arguments have separate routes.
 
 ## Section-to-project map
 
@@ -14,7 +16,7 @@ The topic labels in this table summarize the relevant material; they are not a s
 |---|---|---|
 | §§2.1–2.4 | Norms, exponentials, semigroups and propagators | Translate norm estimates into the [controlled Markov-cell bound](../science/intervention_bounds.md#a-controlled-markov-cell-compared-with-idle). |
 | §3 | Unitary evolution | Fix the microscopic dynamics and the interaction picture in [Microscopic alternatives](../science/model.md#microscopic-alternatives). |
-| §§4.1–4.2 | Reduced maps, Kraus operators and dilations | Compare the [exact qubit endpoint channel](../science/amplitude_damping.md#exact-endpoint-channel) with the [general exact-cell construction](../science/dissipators.md#4-exact-cells-with-bounded-hamiltonian-action). |
+| §§4.1–4.2 | Reduced maps, Kraus operators and dilations | Compare the [exact qubit endpoint channel](../science/amplitude_damping.md#exact-endpoint-channel) with the [general exact-cell construction](../science/dissipators.md#4-exact-cells-with-bounded-hamiltonian-action); derive the separate [sensing instrument](../science/global_contact_precision.md#two-temporal-settings-at-one-coupling). |
 | §4.3 | Trace-norm contraction | Follow the error propagation in [Why only cells containing contacts need to be charged](../science/intervention_bounds.md#why-only-cells-containing-contacts-need-to-be-charged). |
 | §§4.4–4.5 | Reversibility and composition of reduced maps | Separate endpoint agreement from controlled agreement in [A decay curve does not specify a controlled process](../science/interpretation.md#a-decay-curve-does-not-specify-a-controlled-process). |
 | §5.2, Theorem 5.1, Eq. (46) | Time-local GKLS generators | Specialize to the [centered, drift-free generator class](../science/dissipators.md#1-generator-intrinsic-rate-and-scope), retaining its additional assumptions. |
@@ -57,7 +59,11 @@ The following ingredients belong to the project's account and its research refer
 2. **The uniform lower bound:** a survival witness against every admissible bath, using the intrinsic rate $`\nu`$ and a bounded microscopic interaction.
 3. **The uniform construction:** exact endpoint cells, their parity-based error bound under arbitrary permitted contacts, and the [adaptive hybrid](../science/dissipators.md#6-adaptive-timing-and-the-global-bound).
 4. **The resulting scope:** one run at fixed $`T=1/\nu`$, including $`\Gamma_0=\Delta_0=0`$; see [Endpoint and single-run conventions](../science/model.md#endpoint-and-single-run-conventions). An earlier readout counts as an interior contact.
+5. **The sensing consequence:** the explicit collision sensor has its own [global contact theorem](../science/global_contact_precision.md), with a fixed identifiable band, a shared unknown direction, charged repetitions and a hard contact budget. Its global estimator and adaptive nuisance-curve converse are additional arguments, not consequences of a channel representation or of the headline discrimination law.
+6. **Timing information:** the [timing theorem](../science/timing_precision.md) distinguishes a supplied known displacement from independent unobserved jitter for a specified one-pulse menu. Pointwise information at compensation and worst-case error on a fixed band can have different orders.
 
-The [main operational statement](../science/dissipators.md#2-operational-statement) is the canonical theorem. The [physical interpretation](../science/interpretation.md) explains its coupling cost and limits, and [Related work](../references/RELATED_WORK.md#how-the-ingredients-enter-the-proof) identifies the inherited ingredients.
+Neither the anchor nor a local Fisher-information formula supplies the global statistical bridge. The companion's [recorded-phase estimator](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md) owns the common method: conditional readout given the actual records, uniform phase sensitivity, paid localization and multiscale ambiguity resolution. The local tutorial explains how it enters the contact theorem and why hidden timing labels change the channel.
+
+The [main operational statement](../science/dissipators.md#2-operational-statement) is the canonical resolution theorem. The [physical interpretation](../science/interpretation.md) explains its coupling cost and limits, and [Related work](../references/RELATED_WORK.md#how-the-ingredients-enter-the-proof) identifies the inherited ingredients.
 
 Continue with the [connected tutorial](TUTORIAL.md), the [30-milestone map](MILESTONES.md), or the [main reading routes](../README.md).

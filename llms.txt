@@ -39,15 +39,18 @@ Canonical entrypoints:
   unobserved two-point jitter gives inverse-time global risk for the specified
   plain/one-pulse menu despite quadratic local information at compensation;
   shrinking jitter accuracy is necessary, with no sufficiency claim.
-- learning/ANCHOR.md: the single educational anchor, Rivas and Huelga's
+- learning/ANCHOR.md: the single common educational anchor, Rivas and Huelga's
   Open Quantum Systems: An Introduction, using arXiv:1104.5242v2 (2012);
-  verified section pointers, notation translation, assumptions and local bridge.
+  shared with Noise Sensing; verified section pointers, notation translation,
+  assumptions and local bridges to resolution, global contact precision and timing.
 - learning/MILESTONES.md: exactly 30 project-intrinsic understanding targets,
   M01-M11 background/preliminaries and M12-M30 narrative/innovation;
-  stable m01-m30 anchors, dependencies, conceptual connections and sources.
+  stable m01-m30 anchors, dependencies, conceptual connections and sources;
+  includes the global contact theorem and known-offset/hidden-jitter distinction.
 - learning/TUTORIAL.md: a connected physical explanation, the complete
   one-pulse qubit example, universal survival witness and adaptive converse;
-  links the settled milestone map to canonical scientific proofs.
+  connects the resolution proof to its separate sensing consequence, while
+  citing the shared recorded-phase lemma in the companion.
 - references/RELATED_WORK.md: precise source-model comparison and inherited
   ingredients, including Berk’s temporal-resource precedent, its correction
   and Zambon’s process-distance analysis, with stable bibliography anchors.
@@ -74,7 +77,7 @@ Reader routes:
   runner; inspect both the equation and the independent numerical construction.
 
 Preserve these distinctions:
-- Rivas and Huelga is the sole educational anchor. Other cited papers supply
+- Rivas and Huelga is the sole educational anchor shared by both sisters. Other cited papers supply
   research attribution. The anchor's map and semigroup foundations do not
   themselves establish this project's controlled-process comparison.
 - Delta_N is infimum over devices followed by supremum over testers.

@@ -7,8 +7,9 @@ how often an experimenter must act on the smaller system to expose a
 difference between those two descriptions when the microscopic interaction
 has a known strength bound.
 
-The single educational anchor is Rivas and Huelga's *Open Quantum Systems:
-An Introduction*. The [anchor bridge](ANCHOR.md) identifies the exact source
+The single common educational anchor for both sister projects is Rivas and
+Huelga's *Open Quantum Systems: An Introduction*, [arXiv:1104.5242v2](https://arxiv.org/abs/1104.5242v2).
+The [anchor bridge](ANCHOR.md) identifies the source
 version, relevant sections, and notation. This tutorial connects those
 foundations to the project's argument; the [30-milestone map](MILESTONES.md)
 gives the complete conceptual route. Exact assumptions and proofs belong to
@@ -20,10 +21,11 @@ the linked pages under `science/`.
 |---|---|---|
 | [States, maps and records](#states-maps-and-records) | [M01–M04](MILESTONES.md#m01) | A physical experiment becomes a probability distribution. |
 | [Two descriptions of the same decay](#two-descriptions-of-the-same-decay) | [M05–M11](MILESTONES.md#m05) | A reduced unitary evolution can match a Markov channel at a specified time. |
-| [A complete one-pulse example](#a-complete-one-pulse-example) | [M12–M13](MILESTONES.md#m12), [M18–M19](MILESTONES.md#m18) | An interior operation distinguishes controlled processes with equal endpoints. |
-| [A test that works without identifying the bath](#a-test-that-works-without-identifying-the-bath) | [M14–M17](MILESTONES.md#m14) | Short-time loss and a retained survival record give a universal witness. |
-| [A model that hides from every permitted tester](#a-model-that-hides-from-every-permitted-tester) | [M20–M25](MILESTONES.md#m20) | Exact cells, parity and adaptive composition give the converse. |
-| [The complete law and its scope](#the-complete-law-and-its-scope) | [M26–M30](MILESTONES.md#m26) | The two bounds determine the contact scale and coupling cost. |
+| [A complete one-pulse example](#a-complete-one-pulse-example) | [M12–M13](MILESTONES.md#m12), [M17](MILESTONES.md#m17) | An interior operation distinguishes controlled processes with equal endpoints. |
+| [A test that works without identifying the bath](#a-test-that-works-without-identifying-the-bath) | [M14–M16](MILESTONES.md#m14) | Short-time loss and a retained survival record give a universal witness. |
+| [A model that hides from every permitted tester](#a-model-that-hides-from-every-permitted-tester) | [M17–M22](MILESTONES.md#m17) | Exact cells, parity and adaptive composition give the converse. |
+| [The complete law and its scope](#the-complete-law-and-its-scope) | [M23](MILESTONES.md#m23) | The two bounds determine the contact scale and coupling cost. |
+| [Temporal access changes global sensing precision](#temporal-access-changes-global-sensing-precision) | [M24–M29](MILESTONES.md#m24) | An explicit collision sensor gives a global contact law and a timing limitation. |
 
 The one-pulse example can be read before the formal rate construction. It
 illustrates one particular microscopic model. The universal result requires
@@ -355,6 +357,183 @@ completion tools from the matching controlled-process law studied here.
 The [finite checks](../verification/README.md) reproduce the explicit qubit
 echo and a general qutrit construction. They check particular constructions;
 the uniform claims follow from the linked analytical proofs.
+
+## Temporal access changes global sensing precision
+
+The resolution law concerns discrimination from a fixed dissipator. A
+separate sensing experiment asks how well an initially unknown frequency
+can be estimated when the same number of contacts can be placed inside
+microscopic interactions. To answer it, we need a specified signal-bearing
+device, an estimator and a statistical converse. Neither a distinguishability
+gap nor the reciprocal of local information supplies that conclusion.
+
+### A fixed collision instrument
+
+Use one sensor, a protected ancillary qubit and a sequence of inaccessible
+bath qubits. All bath qubits start in $`|0\rangle`$ at time zero; each
+interacts once and is retained afterward. For a cell of fixed duration
+$`h`$, the simultaneous signal and coupling are
+
+```math
+H=\frac{\epsilon}{2}Z_S\otimes I_E+gN_\phi\otimes X_E,
+\qquad \epsilon=\omega-\omega_0,
+\qquad N_\phi=\cos\phi\,X_S+\sin\phi\,Y_S.
+```
+
+The positive coupling $`g`$, clock $`h`$ and nominal compensation
+$`\omega_0`$ stay fixed. The arbitrary unknown angle $`\phi`$ is shared
+across all trials. Set $`\chi=gh\in(0,\pi/4)`$ and
+$`R=\sqrt{g^2+\epsilon^2/4}`$. A plain cell has Kraus operators
+
+```math
+K_{0,p}=\cos(Rh)I-i\frac{\epsilon}{2R}\sin(Rh)Z_S,
+\qquad K_{1,p}=-i\frac{g}{R}\sin(Rh)N_\phi.
+```
+
+Encoding the logical state in the even-parity span of $`|00\rangle`$ and
+$`|11\rangle`$ makes the flip branch change parity. A system–ancilla parity
+measurement identifies whether a flip occurred without reading the logical
+phase or measuring the bath. Each branch is proportional to a unitary, but
+its probability depends on the unknown frequency.
+
+With one fixed coupling and boundary-only access, the companion's
+[global converse](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_global_precision.md#the-fixed-coupling-nuisance-curve)
+gives inverse-linear worst-case error on a suitable fixed band. This is a
+limitation against all permitted adaptive boundary controllers, not a
+failure of one recovery circuit. The companion removes it by selecting two
+couplings. Here the coupling remains fixed and the additional resource is
+access inside cells.
+
+### A temporal menu and retained phases
+
+The two settings are an untouched cell and a cell with one midpoint
+$`Z_S`$ pulse. The latter reverses the transverse interaction while preserving
+the signal term. Include a known endpoint frame correction in the boundary
+instrument. If the echoed cell reports an odd parity, include an additional
+conditional $`Z_S`$ in that same instrument. The
+[exact calculation](../science/global_contact_precision.md#two-temporal-settings-at-one-coupling)
+then makes both settings' flip operators proportional to the same
+$`N_\phi`$. These corrections are part of a paid boundary contact.
+
+Use an echoed cell after an even result and a plain cell after an odd result.
+Two flips cancel the unknown axis because $`N_\phi^2=I`$, while
+$`N_\phi Z_SN_\phi=-Z_S`$ determines the intervening signal's sign.
+Every even-ending parity record therefore specifies a known nonlinear phase
+function $`\Phi_{\mathcal R}(\epsilon)`$ and a pure logical output
+$`e^{-i\Phi_{\mathcal R}(\epsilon)Z_L/2}|+_L\rangle`$ independent of
+$`\phi`$. This is exact away from compensation too; it does not make the
+record probabilities frequency independent.
+
+Cancellation alone is insufficient. Long phases can wrap around many times,
+and some records have poor sensitivity. On one fixed sufficiently small
+band, a parameter-independent gate accepts records with probability bounded
+away from zero and guarantees that each accepted phase has derivative of
+order the block length throughout that band. The
+[shared estimator](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md)
+first pays for coarse localization, then uses successively longer blocks.
+At each stage it measures relative to the phase predicted at the current
+interval center and inverts the actual accepted phase functions. Nested
+intervals resolve ambiguity, while tapered repetitions control the risk of
+an incorrect refinement without a logarithmic cost in the final scaling.
+The concentration argument is conditional on the actual records; averaging
+then uses their true frequency-dependent law. Rejected blocks still consume
+their full duration.
+
+The updated classical estimate selects a readout basis. It never changes
+$`\omega_0`$ or physically retunes the device. The pure phase records,
+uniform acceptance and estimator are the missing links between a local
+echo calculation and a global frequency-error guarantee.
+
+### The full contact budget
+
+Now let $`n`$ count physical sensing cells and $`m`$ count allowed inside-cell
+contacts; these are the sensing experiment's resources, distinct from the
+contact count $`N`$ and natural lifetime of the discrimination theorem.
+The hard deadline is $`T=nh`$, with at most $`n-1`$ total nonterminal
+system contacts and at most $`m`$ of them inside cells. Initial preparation
+and readout at $`T`$ are free. Every earlier readout counts.
+
+For $`n\ge3`$ and $`m\ge1`$, use the entire temporal-menu estimator,
+including calibration and repetitions, within
+
+```math
+Q=\min\!\left\{m,\left\lfloor\frac{n-1}{2}\right\rfloor\right\}
+```
+
+cells, when $`Q`$ is sufficiently large for that construction. For smaller
+$`Q`$, use the plain-cell calibration design described below. The temporal
+construction uses at most $`Q`$ interior pulses and $`Q`$ boundary instruments,
+including its final early readout. Each boundary instrument combines frame
+correction, parity measurement, any conditional correction, readout and reset
+as needed. Thus the protocol fits both budgets on every history. Store the
+estimate during the remaining charged cells. Since $`Q\ge m/3`$, this gives
+error of order $`1/(h^2m^2)`$. A separate design uses all $`n`$ plain cells
+for calibration and gives order $`1/(h^2n)`$; choose the better design from
+the known budgets. These are alternatives, not two allocations of the same
+cells. The plain design also covers zero inside-cell allowance and small
+budgets.
+
+For the converse, one smooth nuisance curve cancels coherent parameter
+accumulation in untouched cells. A cell with interior controls can contribute
+a bounded coherent derivative. The
+[hard-activity bound](../science/intervention_bounds.md#a-derivative-bound-with-a-hard-activity-budget)
+combines the two contributions: untouched cells give a derivative norm of
+order $`\sqrt n`$, while at most $`m`$ active cells give order $`m`$.
+A fixed smooth prior converts the uniform information bound into a lower
+bound for biased as well as unbiased estimators. The resulting
+[global contact law](../science/global_contact_precision.md) is
+
+```math
+R^*_{n,m}
+=\Theta_{\chi,Eh}\!\left(\frac{1}{h^2(n+m^2)}\right),
+\qquad 0\le m\le n-1,
+```
+
+uniformly over the shared direction on one fixed band of half-width $`E`$.
+The contact budget is structural on every possible history, including rare
+branches; an expected contact count would be a different model.
+
+### What the timing record reveals
+
+A known fixed displacement $`\delta`$ of the pulse from the midpoint, with
+$`0<|\delta|<h/2`$, and hidden random jitter do not supply the same channel.
+The midpoint case $`\delta=0`$ is covered by the ideal contact theorem above.
+For a fixed displacement, each parity
+branch remains proportional to a unitary. Its axis shift is a known function
+of frequency, so the retained record still specifies a known phase function to which the
+record-selection and estimation argument applies. A plain/pulsed-cell menu preserves quadratic global precision on a suitable
+band when the interior-contact allowance is linear in $`n`$. Here the fixed
+displacement is supplied as known device information. Learning an unknown
+offset would require an additional model and charged calibration; this
+claim does not provide that procedure.
+
+For the [hidden-jitter model](../science/timing_precision.md), every pulsed
+cell instead has displacement $`+d`$ or $`-d`$ with equal probabilities,
+independently, with $`0<d<h/2`$ known and the realized signs unobserved.
+Away from compensation, the odd-parity branch generally mixes two different
+operations. Parity does not reveal which one occurred, so it cannot be used
+as a pure labelled trajectory.
+For the permitted menu of plain cells and one such pulse per pulsed cell,
+fixed nonzero jitter gives optimal fixed-band worst-case error
+$`\Theta(n^{-1})`$ at fixed hardware. Additional interior pulses, selectable
+couplings and retuned compensation lie outside this converse.
+
+With $`m=\Theta(n)`$, at exact compensation the same menu can retain
+quadratic pointwise classical Fisher information. This does not contradict the global limitation: a prior
+on a fixed subinterval away from compensation supplies the minimax lower
+bound. It does not bound risk at every individual frequency. If jitter
+shrinks with the experiment and $`m=\Theta(n)`$, the proved necessary
+condition for quadratic global precision is
+
+```math
+d=O(h/\sqrt n).
+```
+
+Sufficiency of this accuracy scale is not proved. The distinction is about
+the controller's available timing information and its precise control menu,
+not a universal law for all imperfect pulse sequences. These sensing results
+have their own device assumptions; they neither extend the centered-generator
+resolution theorem to arbitrary signals nor replace its proof.
 
 Return to the [milestone map](MILESTONES.md), the
 [anchor bridge](ANCHOR.md), or the [main reading routes](../README.md).

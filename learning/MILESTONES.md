@@ -1,12 +1,20 @@
 # Thirty conceptual milestones
 
-[Learning anchor](ANCHOR.md) · [Project tutorial](TUTORIAL.md)
+[Shared educational anchor](ANCHOR.md) · [Project tutorial](TUTORIAL.md) · [Sister sensing route](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/learning/MILESTONES.md)
 
-This map follows the scientific structure of **Markovian Resolution Limit**. Its sole learning anchor is Ángel Rivas and Susana F. Huelga, [*Open Quantum Systems. An Introduction*, arXiv:1104.5242v2][rh]. The section numbers below refer to that version. The anchor supplies the mathematical and physical background; the linked canonical science files supply the project's operational definitions, arguments, and conclusions. In particular, the controlled-process comparison and matching intervention theorem are not attributed to the anchor.
+This map follows the scientific structure of **Markovian Resolution Limit**. Its sole educational anchor, shared with **Noise-Rate-Activated Sensing**, is Ángel Rivas and Susana F. Huelga, [*Open Quantum Systems: An Introduction*, arXiv:1104.5242v2][rh]. Section numbers refer to that version. The anchor supplies the open-system foundation; local bridges teach instruments, controlled experiments and global estimation. The canonical science pages own the operational definitions and proofs. Research references remain attribution and proof dependencies, not additional educational anchors.
 
-There are exactly thirty milestones in two phases. **M01–M11 cover background and preliminaries; M12–M30 develop the narrative and innovation.** Eleven background targets are sufficient because the project uses a focused part of finite-dimensional open-system theory: states, complete positivity, contraction, generators, microscopic reduction, and the meaning of a Markov approximation. The nineteen project targets give separate attention to the two directions of the result: a universal survival witness and one simulator that withstands every permitted tester. Their reconciliation requires additional concepts about exact cells, parity, adaptive timing, and the order of optimization. The final targets turn the theorem into physical resource and robustness statements.
+There are exactly thirty project-defined milestones: **M01–M11 cover background and preliminaries; M12–M30 develop the narrative and innovation.** The eleven background targets connect states, channels, norms, generators and environmental memory to a controlled experiment. The nineteen project targets establish the matching resolution law, then study global frequency estimation in the separately specified collision device. Known systematic displacement and hidden timing jitter close that sensing route without changing the headline theorem's quantifiers.
 
-Each phase proceeds from local objects to a global explanation. The first goes from a state and an outcome probability to the distinction between a decay curve and a controlled experiment. The second goes from the local rate and short-time mechanisms to a complete adaptive experiment, then to the matching law and its physical interpretation. The milestones are a conceptual dependency map, rather than an exhaustive list of proof steps or a schedule.
+| Route | Milestones | Connection established |
+|---|---|---|
+| Shared foundation | M01–M11 | Reduced dynamics, microscopic descriptions and the meaning of intervention |
+| Resolution theorem | M12–M16 | Resource model, optimization order, intrinsic rate and universal witness |
+| Matching construction | M17–M23 | Exact cells, control-uniform bounds, adaptive counting and the resolution law |
+| Global sensing consequence | M24–M27 | Fixed-band estimation, retained phases, paid contacts and a matching converse |
+| Timing and synthesis | M28–M30 | Supplied timing information, restricted jitter obstruction and complete physical scope |
+
+Each phase proceeds from local objects to a global explanation. The final sensing results require their own estimator and converse; they are not consequences of endpoint agreement or reciprocal local information. This is a reader-independent dependency map, not a schedule or record of personal progress. The sister route uses the same foundation while following the distinct coupling-menu comparison.
 
 ## Phase I — Background and preliminaries: M01–M11
 
@@ -106,7 +114,7 @@ Each phase proceeds from local objects to a global explanation. The first goes f
 
 - **Central question:** Why can Markov evolution be an accurate effective description of microscopic dynamics, and what assumptions enter that accuracy?
 - **Understanding target:** Place weak-coupling and singular-coupling limits in the relationship between microscopic time scales and an effective semigroup. Recognize that an approximation needs a specified regime and comparison criterion. Accuracy for uninterrupted reduced evolution does not by itself quantify accuracy for every intervention protocol with a stated contact budget.
-- **Earlier dependencies and story role:** Uses [M06](#m06)–[M09](#m09). It gives the conventional physical setting against which the project's finite-strength operational question is posed.
+- **Earlier dependencies and story role:** Uses [M06](#m06), [M07](#m07), [M08](#m08), and [M09](#m09). It gives the conventional physical setting against which the project's finite-strength operational question is posed.
 - **Conceptual connection:** Taking a limit that produces a Markov law and testing that law at a finite control resolution ask related but different quantitative questions.
 - **Sources:** [Rivas–Huelga, §§6.2–6.3][rh]; [why the resolution scale is quadratic](../science/interpretation.md#why-the-scale-is-quadratic); [physical resources and scope](../science/interpretation.md#physical-resources-and-scope).
 
@@ -116,7 +124,7 @@ Each phase proceeds from local objects to a global explanation. The first goes f
 
 - **Central question:** Why is agreement with an entire endpoint channel insufficient to settle agreement in experiments that act earlier?
 - **Understanding target:** Assemble the background into the project's motivating distinction: the target specifies continuations between contacts, while a microscopic model carries an environment through the run. The experiment can retain quantum memory and classical records. Its joint statistics contain information that a terminal channel or population curve need not determine.
-- **Earlier dependencies and story role:** Synthesizes [M01](#m01)–[M10](#m10) and closes the background phase. It motivates measuring validity by the strength of all allowed controlled experiments.
+- **Earlier dependencies and story role:** Synthesizes [M08](#m08), [M09](#m09), and [M10](#m10), with their earlier dependencies, and closes the background phase. It motivates measuring validity by the strength of all allowed controlled experiments.
 - **Conceptual connection:** The physical question shifts from reproducing an isolated input-output relation to reproducing a process under specified access. The next phase makes that access and its optimization precise.
 - **Sources:** [Rivas–Huelga, §§4.5 and 7][rh] for the dynamical background; [controlled-experiment formulation](../science/model.md#a-noise-law-is-a-prediction-for-controlled-experiments); [physical interpretation of endpoint agreement](../science/interpretation.md#a-decay-curve-does-not-specify-a-controlled-process).
 
@@ -127,189 +135,189 @@ Each phase proceeds from local objects to a global explanation. The first goes f
 ### M12 — The resource model and the counted contact
 
 - **Central question:** Which experiments and microscopic alternatives belong to the comparison?
-- **Understanding target:** Fix the horizon $`T`$, the bound $`\|K(t)\|\le\Lambda`$, the initially independent finite bath of unrestricted size, and the protected tester memory. Count every interior system instrument, pulse, reset, or swap toward $`N`$. Initial preparation, memory-only processing, and the readout at the fixed terminal time are free. Classical adaptive real times are allowed; the simulator's schedule is predetermined.
-- **Earlier dependencies and story role:** Uses [M03](#m03), [M05](#m05), and [M11](#m11). It fixes the domain on which both directions of the theorem must hold.
-- **Conceptual connection:** A resource law has meaning only with a precise access model. In particular, an earlier readout is an interior contact, and externally scheduled switching does not establish an autonomous clock implementation.
-- **Sources:** [Rivas–Huelga, §§2.4, 3, and 4.1][rh]; [microscopic class](../science/model.md#microscopic-alternatives); [tester class](../science/model.md#what-the-tester-may-do); [terminal convention](../science/model.md#endpoint-and-single-run-conventions).
+- **Understanding target:** Fix the horizon $`T`$, the complete system-affecting bound $`\|K(t)\|\le\Lambda`$, an initially independent finite bath of unrestricted size, and protected tester memory. Every interior system instrument, pulse, reset or swap counts toward $`N`$. Initial preparation, memory-only processing and readout at the fixed terminal time are free. Real contact times may adapt classically; the simulator is fixed before the tester is selected.
+- **Earlier dependencies and story role:** Uses [M03](#m03), [M05](#m05), and [M11](#m11). It fixes the domain of both theorem directions.
+- **Conceptual connection:** A resource law depends on a precise access model. An early readout is a contact, and an externally prescribed switching schedule does not establish an autonomous clock implementation.
+- **Sources:** [Microscopic class](../science/model.md#microscopic-alternatives); [tester class](../science/model.md#what-the-tester-may-do); [terminal convention](../science/model.md#endpoint-and-single-run-conventions).
 
 <a id="m13"></a>
 
 ### M13 — A universal signed witness and a minimax distance
 
 - **Central question:** What changes when the tester is chosen before the microscopic alternative instead of after it?
-- **Understanding target:** Distinguish $`\Gamma_N=\sup_{\mathsf T}\inf_D(p_D^{\mathsf T}-p_M^{\mathsf T})`$ from $`\Delta_N=\inf_D\sup_{\mathsf T}|p_D^{\mathsf T}-p_M^{\mathsf T}|`$. The former requires one binary decision with the same orientation for every alternative; the latter permits the best tester for each fixed device. Understand why $`0\le\Gamma_N\le\Delta_N\le1`$ does not assert equality of the two optimization orders.
-- **Earlier dependencies and story role:** Uses [M03](#m03)–[M04](#m04) and [M12](#m12). It identifies the exact quantifiers that the lower witness and upper construction must satisfy.
-- **Conceptual connection:** One successful experiment on one model is weaker than either theorem direction. The proof needs one test against every device and one device against every test.
-- **Sources:** [Rivas–Huelga, §4.3][rh] for the distinguishability background; [the two optimization orders](../science/model.md#two-different-orders-of-optimization); [one universal decision rule](../science/interpretation.md#one-universal-decision-rule).
+- **Understanding target:** Distinguish $`\Gamma_N=\sup_{\mathsf T}\inf_D(p_D^{\mathsf T}-p_M^{\mathsf T})`$ from $`\Delta_N=\inf_D\sup_{\mathsf T}|p_D^{\mathsf T}-p_M^{\mathsf T}|`$. The first requires one binary decision with the same orientation against every alternative. The second permits the best tester for each fixed device. The relation $`0\le\Gamma_N\le\Delta_N\le1`$ does not assert equality of the optimization orders.
+- **Earlier dependencies and story role:** Uses [M04](#m04) and [M12](#m12). It identifies the distinct quantifiers needed by the witness and construction.
+- **Conceptual connection:** One test against every device and one device against every test are stronger statements than a successful experiment on one chosen model.
+- **Sources:** [Two optimization orders](../science/model.md#two-different-orders-of-optimization); [one universal decision rule](../science/interpretation.md#one-universal-decision-rule).
 
 <a id="m14"></a>
 
-### M14 — The intrinsic dissipative rate and its scope
+### M14 — The intrinsic rate, maximizing probe and generator norm
 
-- **Central question:** Which rate measures the dissipative process without depending on an arbitrary choice of jump representation?
-- **Understanding target:** Identify the maximum sum of jump variances as the intrinsic rate $`\nu`$. In an optimally centered representation it equals $`\|Q\|`$, where $`Q=\sum_aM_a^\dagger M_a`$. The theorem assumes no coherent term in that centered representation. Scalar shifts of jumps preserve the variance rate but can generate a Hamiltonian term with an independent scale.
-- **Earlier dependencies and story role:** Uses [M07](#m07) and [M12](#m12). It supplies the target's calibrated rate, the natural horizon $`T=1/\nu`$, and the precise class of generators covered by the general result.
-- **Conceptual connection:** A representation-invariant dissipative scale does not automatically bound coherent motion. The explicit drift restriction makes a single-rate theorem physically meaningful.
-- **Sources:** [Rivas–Huelga, §5.2][rh]; [intrinsic rate and centering](../science/dissipators.md#1-generator-intrinsic-rate-and-scope); [why coherent drift is not removed for free](../science/dissipators.md#8-why-centering-does-not-remove-a-hamiltonian-for-free).
+- **Central question:** Which dissipative rate and probe calibrate both sides of a reference-assisted resource law?
+- **Understanding target:** The maximum sum of jump variances defines $`\nu`$. In an optimally centered representation, $`\nu=\|Q\|`$ with $`Q=\sum_aM_a^\dagger M_a`$. The theorem requires zero coherent drift in that representation. Purifying a maximizing state gives a rank-one survival target $`P_*`$ with initial Markov loss rate $`\nu`$; the same construction proves $`\|\mathcal L\|_\diamond=2\nu`$. Check normalization against damping, dephasing and depolarization, where the maximizing system state need not be pure.
+- **Earlier dependencies and story role:** Uses [M07](#m07), [M08](#m08), and [M13](#m13). It supplies the natural horizon and the probe/norm estimates used below.
+- **Conceptual connection:** A representation-invariant dissipative scale does not remove physical coherent motion. A protected reference can be essential for attaining the maximal initial escape rate.
+- **Sources:** [Intrinsic rate and norm](../science/dissipators.md#1-generator-intrinsic-rate-and-scope); [three calibrated examples](../science/dissipators.md#7-three-explicit-examples); [coherent-drift boundary](../science/dissipators.md#8-why-centering-does-not-remove-a-hamiltonian-for-free).
 
 <a id="m15"></a>
 
-### M15 — The maximizing purification and the generator norm
+### M15 — Linear Markov loss and quadratic microscopic loss
 
-- **Central question:** How can one state witness the intrinsic escape rate and calibrate a norm bound that is valid with references?
-- **Understanding target:** Relate a variance-maximizing state $`\rho_*`$ to its rank-one purification $`P_*`$. Optimal centering makes the jump-output vectors orthogonal to that purification, so its initial Markov survival slope is $`-\nu`$. The same orthogonal decomposition gives $`\|\mathcal L\|_\diamond=2\nu`$ in the centered drift-free setting.
-- **Earlier dependencies and story role:** Uses [M01](#m01)–[M04](#m04) and [M14](#m14). It supplies both the state used by the lower bound and the generator estimate used by the upper bound.
-- **Conceptual connection:** Ancilla assistance is part of the optimal physical witness, rather than only a technical strengthening of a norm. A mixed maximizing system state may require a protected reference to become a rank-one survival target.
-- **Sources:** [Rivas–Huelga, §§4.2–4.3 and 5.2][rh]; [the maximizing state and norm identity](../science/dissipators.md#1-generator-intrinsic-rate-and-scope); [the depolarizing example](../science/dissipators.md#7-three-explicit-examples).
+- **Central question:** At what short-time scale do the two descriptions separate under survival observations?
+- **Understanding target:** Compare Markov failure $`\nu\tau+O(\nu^2\tau^2)`$ from $`P_*`$ with microscopic failure at most $`\Lambda^2\tau^2`$. Bounded subspace leakage controls the latter for every conditional bath state. Balancing the two scales gives $`\tau\asymp\nu/\Lambda^2`$, so a lifetime contains order $`(\Lambda/\nu)^2`$ such intervals.
+- **Earlier dependencies and story role:** Uses [M05](#m05), [M06](#m06), and [M14](#m14). It identifies the local physical mechanism of the witness.
+- **Conceptual connection:** The Zeno short-time mechanism is inherited physics. A matching operational theorem additionally needs a uniform lower witness and a construction against every permitted control.
+- **Sources:** [Bounded-interaction survival](../science/intervention_bounds.md#survival-under-a-bounded-retained-interaction); [quadratic resolution scale](../science/interpretation.md#why-the-scale-is-quadratic).
 
 <a id="m16"></a>
 
-### M16 — Linear Markov loss and quadratic microscopic loss
+### M16 — The universal survival record and its tolerance
 
-- **Central question:** At what short-time scale must the two physical descriptions begin to disagree under survival observations?
-- **Understanding target:** Compare Markov failure $`\nu\tau+O(\nu^2\tau^2)`$ from $`P_*`$ with microscopic failure at most $`\Lambda^2\tau^2`$. The latter follows from bounded subspace leakage and remains valid for a mixed or correlated conditional bath. Balancing the two terms identifies $`\tau\asymp\nu/\Lambda^2`$.
-- **Earlier dependencies and story role:** Uses [M05](#m05), [M06](#m06), and [M15](#m15). This is the local physical mechanism for the universal lower direction.
-- **Conceptual connection:** The inverse dissipative rate and the bounded microscopic rotation scale combine into a third time scale. A lifetime contains order $`(\Lambda/\nu)^2`$ intervals of that size.
-- **Sources:** [Rivas–Huelga, §§2.2, 3, and 5.2][rh]; [survival under bounded interaction](../science/intervention_bounds.md#survival-under-a-bounded-retained-interaction); [the quadratic scale](../science/interpretation.md#why-the-scale-is-quadratic).
+- **Central question:** How does a local mismatch become one robust signed signal against every admissible bath?
+- **Understanding target:** Repeated successful projections restore $`P_*`$ with a conditional bath state. Multiplying conditional survival bounds needs no bath reset or independent microscopic outcomes. Retaining the all-success event gives a positive gap of order $`\min\{1,N(\nu/\Lambda)^2\}`$. The witness tolerates spacings in $`[\nu/(16\Lambda^2),\nu/(8\Lambda^2)]`$; contact errors $`\eta_j`$ in half diamond norm reduce its signed gap by at most $`2\sum_j\eta_j`$.
+- **Earlier dependencies and story role:** Uses [M03](#m03), [M04](#m04), [M13](#m13), and [M15](#m15). It completes the universal lower direction and specifies its stability.
+- **Conceptual connection:** All-success is an event in the complete record, not a discarded-failure ensemble. The timing margin and additive instrument bound do not implement finite-duration measurements.
+- **Sources:** [General survival witness](../science/dissipators.md#3-a-universal-survival-witness); [timing tolerance](../science/interpretation.md#timing-tolerance-of-the-survival-witness); [instrument errors](../science/interpretation.md#instrument-errors).
 
 <a id="m17"></a>
 
-### M17 — The universal all-survival record
+### M17 — An exact exchange cell and an interior echo
 
-- **Central question:** How does the local survival mismatch become one signed experimental signal against every admissible bath?
-- **Understanding target:** Follow repeated projections onto $`P_*`$ and retain the event that all succeed. Each success restores the tested subspace; no bath reset or independence of microscopic outcomes is needed. With $`q=(\nu/\Lambda)^2`$ and $`n=\min\{N,\lfloor1/q\rfloor\}`$, the protocol yields a positive gap of order $`\min\{1,Nq\}`$ and finishes before the fixed horizon.
-- **Earlier dependencies and story role:** Uses [M03](#m03), [M13](#m13), and [M15](#m15)–[M16](#m16). It completes the lower direction from a local leakage estimate to a universal recorded decision.
-- **Conceptual connection:** Multiplying conditional survival bounds is compatible with environmental memory. Keeping the complete record gives a probability gap for one process use without postselection or certainty of identification.
-- **Sources:** [Rivas–Huelga, §§3, 4.2, and 5.2][rh]; [the general survival witness](../science/dissipators.md#3-a-universal-survival-witness); [the explicit qubit survival experiment](../science/amplitude_damping.md#a-universal-survival-experiment).
+- **Central question:** How can identical uninterrupted channels respond differently to a single intervention?
+- **Understanding target:** A qubit exchange with $`\cos\theta=e^{-\gamma h/2}`$ realizes the amplitude-damping channel exactly at duration $`h`$, including on entangled inputs. A midpoint $`Z`$ pulse reverses the exchange and removes microscopic damping in that cell, while the phase-covariant Markov process retains damping. Their excited-state output distance is $`1-e^{-\gamma h}=\sin^2\theta`$.
+- **Earlier dependencies and story role:** Uses [M02](#m02), [M08](#m08), [M09](#m09), and [M12](#m12). It supplies the concrete prototype for the upper construction and for useful interior access.
+- **Conceptual connection:** Endpoint equality is compatible with hidden memory during a cell. This echo displays local discrepancy; it neither optimizes the full tester class nor proves a global estimation law.
+- **Sources:** [Exact endpoint channel](../science/amplitude_damping.md#exact-endpoint-channel); [single-pulse echo](../science/amplitude_damping.md#a-single-pulse-displays-the-cells-hidden-memory).
 
 <a id="m18"></a>
 
-### M18 — One exact exchange cell
+### M18 — Exact parity-odd cells for the general dissipator
 
-- **Central question:** Can a bounded finite microscopic interaction reproduce an irreversible channel exactly at a prescribed cell endpoint?
-- **Understanding target:** Understand the qubit exchange with a bath qubit initially in its ground state. Choosing $`\cos\theta=e^{-\gamma h/2}`$ reproduces the amplitude-damping Kraus operators exactly after duration $`h`$, including on entangled inputs. The system and bath may become correlated inside the cell even though its endpoint channel is correct.
-- **Earlier dependencies and story role:** Uses [M02](#m02), [M05](#m05), and [M08](#m08). It begins the upper direction with an explicit local construction, separate from the lower witness.
-- **Conceptual connection:** The essential starting point for the converse is exact endpoint implementation, so intervals without interior contacts contribute no accumulated approximation error.
-- **Sources:** [Rivas–Huelga, §§3–4.2][rh]; [the finite-bath exchange construction](../science/amplitude_damping.md#one-finite-bath-that-hides-from-every-low-contact-tester); [exact endpoint equality](../science/amplitude_damping.md#exact-endpoint-channel).
+- **Central question:** What replaces the exchange cell for several noncommuting jumps?
+- **Understanding target:** The exact channel has positive no-jump Kraus operator $`A_0=e^{-hQ/2}`$ and a completely positive remainder with Kraus column $`B`$ satisfying $`B^\dagger B=I-A_0^2`$. Its polar decomposition supplies a direct rotation from the vacuum sector with angle operator $`\Theta=\arccos A_0`$. One dilation must provide exact endpoint action, bounded Hamiltonian norm and odd bath parity simultaneously.
+- **Earlier dependencies and story role:** Uses [M02](#m02), [M14](#m14), and [M17](#m17). It generalizes the explicit construction beyond amplitude damping.
+- **Conceptual connection:** An arbitrary channel dilation need not have the symmetry required by the control-uniform bound. Exact implementation and small controlled error are separate requirements of the same construction.
+- **Sources:** [Exact cells with bounded action](../science/dissipators.md#4-exact-cells-with-bounded-hamiltonian-action).
 
 <a id="m19"></a>
 
-### M19 — An interior echo reveals hidden memory
+### M19 — A finite bath and a calibrated collision grid
 
-- **Central question:** How can one contact distinguish two continuations whose uninterrupted endpoint channels coincide?
-- **Understanding target:** A midpoint $`Z`$ pulse reverses the exchange interaction and cancels its microscopic damping over that cell. The phase-covariant Markov process retains its damping. The resulting excited-state output distance is $`1-e^{-\gamma h}=\sin^2\theta`$, which is quadratic in small action.
-- **Earlier dependencies and story role:** Uses [M09](#m09), [M11](#m11), and [M18](#m18). It gives a concrete local demonstration of the controlled-process distinction before the uniform upper proof.
-- **Conceptual connection:** Knowing the collision schedule can reveal a cell's memory, yet the resulting small discrepancy need not defeat a global hiding bound. An explicit echo shows attainable local order; it does not optimize over all testers.
-- **Sources:** [Rivas–Huelga, §§3, 4.5, and 7][rh]; [the exact single-pulse echo](../science/amplitude_damping.md#a-single-pulse-displays-the-cells-hidden-memory); [endpoint agreement and controls](../science/interpretation.md#a-decay-curve-does-not-specify-a-controlled-process).
+- **Central question:** How do the exact cells form one admissible device over the full lifetime?
+- **Understanding target:** Choose $`M=\lfloor(\Lambda/\nu)^2\rfloor`$ cells of duration $`h=1/(\nu M)`$. Their action obeys $`\theta^2\le\nu h`$ and their strength is at most $`\nu\sqrt M\le\Lambda`$. Every bath cell is prepared at time zero, used once and retained afterward. The device and switching schedule are independent of the tester and its contact budget.
+- **Earlier dependencies and story role:** Uses [M05](#m05), [M12](#m12), [M14](#m14), and [M18](#m18). It turns an endpoint dilation into a complete microscopic process.
+- **Conceptual connection:** A fresh cell is a previously unused part of the initial bath. The construction allows a growing bath and externally prescribed switching; it makes no claim of efficient preparation or autonomous control.
+- **Sources:** [Collision-grid calibration](../science/dissipators.md#5-uniform-error-of-an-interrupted-cell); [explicit strength bound](../science/amplitude_damping.md#strength-bound); [resource ledger](../science/interpretation.md#physical-resources-and-scope).
 
 <a id="m20"></a>
 
-### M20 — Exact clean cells for the general dissipator
+### M20 — A uniform bound for every interrupted cell
 
-- **Central question:** What replaces the exchange construction when the dissipator has several noncommuting jumps?
-- **Understanding target:** Recognize the positive no-jump Kraus operator $`A_0=e^{-hQ/2}`$ and the completely positive remainder of $`e^{h\mathcal L}`$. A Kraus column $`B`$ satisfies $`B^\dagger B=I-A_0^2`$. Its polar decomposition supplies a direct rotation from the vacuum sector that realizes the entire channel exactly, with action $`\|\Theta\|`$ for $`\Theta=\arccos A_0`$ and odd bath parity.
-- **Earlier dependencies and story role:** Uses [M02](#m02), [M07](#m07), [M14](#m14), and [M18](#m18). It extends the local upper construction beyond the qubit prototype.
-- **Conceptual connection:** The no-jump decomposition simultaneously provides exact channel implementation, a strength bound, and the symmetry needed to control interrupted cells. These properties must coexist in one construction.
-- **Sources:** [Rivas–Huelga, §§2.2, 4.2, and 5.2][rh]; [exact general cells](../science/dissipators.md#4-exact-cells-with-bounded-hamiltonian-action).
+- **Central question:** Why do arbitrary permitted controls preserve quadratic small-action error?
+- **Understanding target:** Bath parity reverses the microscopic Hamiltonian while preserving the initial bath state, tester operations and final bath trace. The complete recorded output is even in coupling, so odd Dyson terms vanish and distance from idle is at most $`\sinh^2\theta`$. The controlled Markov cell is within $`\nu h`$ of the same idle experiment. Together these give an interrupted-cell error at most $`\cosh^2(1)\nu h`$.
+- **Earlier dependencies and story role:** Uses [M03](#m03), [M04](#m04), [M06](#m06), [M14](#m14), and [M19](#m19). It completes the local estimate for the upper direction.
+- **Conceptual connection:** The same instruments, records and protected reference are used in both comparisons. Contraction concerns physical output states; no monotonicity of an arbitrary Choi-state distance is assumed.
+- **Sources:** [Odd-parity controlled cell](../science/intervention_bounds.md#a-controlled-cell-with-odd-bath-parity); [controlled Markov-to-idle bound](../science/intervention_bounds.md#a-controlled-markov-cell-compared-with-idle); [corrected process-distance attribution](../references/RELATED_WORK.md#berk2025).
 
 <a id="m21"></a>
 
-### M21 — A finite bath and a calibrated collision grid
+### M21 — Memory-only processing and the entrance activity flag
 
-- **Central question:** How can exact local cells be assembled into one admissible device over a whole lifetime?
-- **Understanding target:** Use $`m=\lfloor(\Lambda/\nu)^2\rfloor`$ cells of duration $`h=1/(\nu m)`$. Their action satisfies $`\theta^2\le\nu h`$, and their coupling norm is at most $`\nu\sqrt m\le\Lambda`$. All bath cells are prepared at time zero; spent cells are retained and never recoupled. The schedule and the device are fixed independently of the tester and its contact budget.
-- **Earlier dependencies and story role:** Uses [M05](#m05), [M12](#m12), [M14](#m14), and [M20](#m20). It upgrades an exact channel completion to a single allowed microscopic process.
-- **Conceptual connection:** A fresh cell during the run means a previously unused part of the initial bath, not an external reset resource. The explicit construction pays in bath size and prescribed switching while respecting the strength bound.
-- **Sources:** [Rivas–Huelga, §§2.4 and 4.1–4.2][rh]; [general collision-grid calibration](../science/dissipators.md#5-uniform-error-of-an-interrupted-cell); [the explicit qubit strength bound](../science/amplitude_damping.md#strength-bound).
+- **Central question:** Can adaptive timing be handled when the tester measures its protected memory between contacts?
+- **Understanding target:** Operations on $`R`$ commute with evolution on $`SE`$, including for correlated inputs. Collect memory-only branch maps up to the first system contact at the cell entrance. The resulting common instrument preserves subnormalized branch states and records the first contact time or a no-contact flag. The cell is therefore marked active before its parameter-dependent evolution in this normal form.
+- **Earlier dependencies and story role:** Uses [M01](#m01), [M03](#m03), [M09](#m09), and [M12](#m12). It connects cell estimates to classical adaptive timing.
+- **Conceptual connection:** Commutation preserves conditional steering; it does not assume an uncorrelated memory or move operations from beyond the cell into its past.
+- **Sources:** [Memory-only controller normal form](../science/intervention_bounds.md#memory-only-controller-normal-form); [allowed timing](../science/model.md#what-the-tester-may-do).
 
 <a id="m22"></a>
 
-### M22 — Parity preserves quadratic error under controls
+### M22 — The physical-prefix hybrid and active-cell counting
 
-- **Central question:** Why does an arbitrary permitted subroutine inside a cell not turn its small-action discrepancy into a linear one?
-- **Understanding target:** Bath parity changes the sign of the cell Hamiltonian while leaving its initial state, every tester operation, and the final bath trace unchanged. The complete recorded output is therefore an even function of coupling strength. Odd Dyson coefficients vanish, giving a half-diamond distance from idle of at most $`\sinh^2\theta`$, uniformly over references and adaptive instruments.
-- **Earlier dependencies and story role:** Uses [M03](#m03)–[M06](#m06) and [M20](#m20)–[M21](#m21). This is the local control-uniform estimate that makes the matching upper scaling possible.
-- **Conceptual connection:** Symmetry improves the operational estimate beyond a generic distance between joint unitary realizations. Keeping complete outcome records preserves the cancellation without conditioning on selected outcomes.
-- **Sources:** [Rivas–Huelga, §§2.2, 2.4, and 4.3][rh]; [the even-Dyson cell bound](../science/intervention_bounds.md#a-controlled-cell-with-odd-bath-parity); [its use for general cells](../science/dissipators.md#5-uniform-error-of-an-interrupted-cell).
+- **Central question:** Why does the global discrepancy depend on the paid contact budget across adaptive branches?
+- **Understanding target:** Exact inactive cells contribute zero. Active-cell errors are weighted by branch probabilities. A telescoping comparison with a microscopic prefix and an ideal suffix evaluates every activity weight in the same physical execution. Its expected number of active cells is at most $`N`$, so the complete discrepancy is bounded by $`N`$ times the uniform cell error.
+- **Earlier dependencies and story role:** Uses [M04](#m04), [M19](#m19), [M20](#m20), and [M21](#m21). It completes the upper direction against every permitted tester.
+- **Conceptual connection:** The hybrid order fixes one distribution for all activity weights. Counting the union of contacted cells over incompatible histories would lose the desired resource bound.
+- **Sources:** [Activity-weighted hybrid](../science/intervention_bounds.md#why-only-cells-containing-contacts-need-to-be-charged); [global adaptive bound](../science/dissipators.md#6-adaptive-timing-and-the-global-bound).
 
 <a id="m23"></a>
 
-### M23 — A common idle comparison for an interrupted cell
+### M23 — The matching resolution law and its strength cost
 
-- **Central question:** How are the controlled microscopic and controlled Markov cell outputs compared on the same operational footing?
-- **Understanding target:** Keep the tester subroutine fixed and compare each physical evolution with idle evolution. Contraction and $`\|\mathcal L\|_\diamond=2\nu`$ bound the Markov-to-idle error by $`\nu h`$. Together with parity and $`\theta^2\le\nu h\le1`$, this gives a microscopic-to-Markov cell error at most $`\cosh^2(1)\nu h`$, independent of how many contacts occur inside it.
-- **Earlier dependencies and story role:** Uses [M04](#m04), [M06](#m06), [M15](#m15), and [M22](#m22). It finishes the local estimate needed for the upper direction.
-- **Conceptual connection:** The common idle evolution is a comparison device. It keeps the same instruments and records on both sides and separates the unitary symmetry estimate from the dissipative generator estimate.
-- **Sources:** [Rivas–Huelga, §§2.2–2.3 and 4.3][rh]; [controlled Markov-to-idle bound](../science/intervention_bounds.md#a-controlled-markov-cell-compared-with-idle); [the interrupted-cell estimate](../science/dissipators.md#5-uniform-error-of-an-interrupted-cell).
+- **Central question:** What is the complete resource statement after combining the two theorem directions?
+- **Understanding target:** For $`\Lambda\ge\nu>0`$, $`T=1/\nu`$ and $`q=(\nu/\Lambda)^2`$, obtain $`(1/64)\min\{1,Nq\}\le\Gamma_N\le\Delta_N\le\min\{1,2\cosh^2(1)Nq\}`$. Exact terminal agreement gives $`\Gamma_0=\Delta_0=0`$. Inverting the unsaturated bounds gives $`\Lambda_{\min}(N,\varepsilon)=\Theta(\nu\sqrt{N/\varepsilon})`$ for $`N\ge1`$ and $`0<\varepsilon<1/64`$.
+- **Earlier dependencies and story role:** Synthesizes [M13](#m13), [M16](#m16), and [M22](#m22). It closes the principal discrimination argument and derives its simulation-cost consequence.
+- **Conceptual connection:** Constant bias is a one-run statistical advantage, not certain identification. The strength law is distinct from bath-size, preparation and clock costs, and does not identify optimal constants.
+- **Sources:** [General theorem](../science/dissipators.md#2-operational-statement); [fixed terminal time](../science/model.md#endpoint-and-single-run-conventions); [controlled-accuracy cost](../science/interpretation.md#coupling-strength-required-for-a-controlled-approximation).
 
 <a id="m24"></a>
 
-### M24 — Memory-only processing and the entrance activity flag
+### M24 — The separate global frequency-estimation task
 
-- **Central question:** Can adaptive timing be handled when the tester measures its protected memory between system contacts?
-- **Understanding target:** A branch map on $`R`$ commutes with evolution on $`SE`$, including on entangled inputs. Memory-only operations before the first system contact in a cell can be collected at its entrance, stopping at that contact or the cell end. The resulting common instrument records the first contact time or no contact, preserves subnormalized branch states, and makes cell activity a classical entrance flag.
-- **Earlier dependencies and story role:** Uses [M01](#m01), [M03](#m03), [M09](#m09), and [M12](#m12). It connects the local cell estimate to the full classically adaptive tester model.
-- **Conceptual connection:** Commuting local operations preserves conditional steering; it does not assume that the memory is uncorrelated with the system or bath. No future operation beyond the cell is moved earlier.
-- **Sources:** [Rivas–Huelga, §§2.4 and 4.2][rh] for composition background; [the memory-only normal form](../science/intervention_bounds.md#memory-only-controller-normal-form); [admissible classical timing](../science/model.md#what-the-tester-may-do).
+- **Central question:** What additional definitions are required before temporal access can be assigned a sensing value?
+- **Understanding target:** The sensing device has fixed $`g,h,\omega_0`$, residual frequency $`\epsilon=\omega-\omega_0`$ and a common unknown transverse direction. Define worst-case mean-square error uniformly over that direction and a fixed identifiable band, with $`n`$ cells, at most $`n-1`$ total contacts and at most $`m`$ inside-cell contacts. The full duration is $`nh`$. A calibrated estimate changes measurement choices, not physical compensation. Clock aliases make the fixed-band restriction substantive.
+- **Earlier dependencies and story role:** Uses [M02](#m02), [M03](#m03), [M12](#m12), and [M23](#m23). It states a new statistical task without transferring the headline theorem beyond its quantifiers.
+- **Conceptual connection:** Local Fisher information does not resolve phase ambiguity. Complete-record closeness transfers bounded loss when uniform, but does not transfer parameter derivatives or establish the sensing law by itself.
+- **Sources:** [Global statistical task](../science/global_contact_precision.md#statistical-task-and-resource-model); [complete records and loss](../science/sensing_bridge.md#complete-records-and-bounded-loss-estimation); [clock aliases](../science/sensing_bridge.md#frequency-aliases-of-the-collision-clock); [sensing tutorial](TUTORIAL.md#temporal-access-changes-global-sensing-precision).
 
 <a id="m25"></a>
 
-### M25 — The physical-prefix hybrid and active-cell counting
+### M25 — A temporal menu with exact retained phases
 
-- **Central question:** Why does global error depend on the number of contacted cells rather than on every cell that some branch might contact?
-- **Understanding target:** Exact inactive cells contribute zero. On an active branch, the cell error is weighted by its probability. A telescoping comparison with a microscopic prefix and an ideal suffix evaluates every activity weight in the same physical execution. Its expected number of active cells is at most $`N`$, so the final discrepancy is at most $`N`$ times the uniform active-cell error.
-- **Earlier dependencies and story role:** Uses [M04](#m04), [M21](#m21), and [M23](#m23)–[M24](#m24). It completes the upper direction from local bounds to every permitted adaptive experiment.
-- **Conceptual connection:** The ordering of the hybrid is operationally meaningful: it keeps one probability distribution for all weights. Counting the union of possible cells across incompatible histories would lose the contact-budget law.
-- **Sources:** [Rivas–Huelga, §§2.2 and 4.3][rh]; [the activity-weighted hybrid](../science/intervention_bounds.md#why-only-cells-containing-contacts-need-to-be-charged); [the global general bound](../science/dissipators.md#6-adaptive-timing-and-the-global-bound).
+- **Central question:** How do plain and echoed collisions remove the shared unknown direction from usable output records?
+- **Understanding target:** Use the midpoint echo after even parity and a plain cell after odd parity. Include the known pulse-frame correction and conditional odd correction in the paid boundary instrument. The resulting flip operators have the same unknown axis. An even-ending record cancels that axis exactly and leaves a known nonlinear frequency-dependent phase. A parameter-independent acceptance rule selects records whose phase derivative is uniformly proportional to block length throughout one fixed band.
+- **Earlier dependencies and story role:** Uses [M03](#m03), [M17](#m17), and [M24](#m24). It identifies the physical construction used by global estimation.
+- **Conceptual connection:** The record remains observed and its probability depends on frequency. Treating the phase as an unobserved averaged rotation, or freezing the record distribution at compensation, would change the statistical experiment.
+- **Sources:** [Exact temporal settings](../science/global_contact_precision.md#two-temporal-settings-at-one-coupling); [uniform band and gate](../science/global_contact_precision.md#a-sufficient-fixed-band); [shared recorded-phase method](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md).
 
 <a id="m26"></a>
 
-### M26 — The matching law and the exact zero-contact value
+### M26 — Global phase inversion with every contact paid
 
-- **Central question:** What global statement results when the universal witness and the universally hiding construction are combined?
-- **Understanding target:** For $`\Lambda\ge\nu>0`$, $`T=1/\nu`$, and $`q=(\nu/\Lambda)^2`$, combine the results into $`(1/64)\min\{1,Nq\}\le\Gamma_N\le\Delta_N\le\min\{1,2\cosh^2(1)Nq\}`$. Amplitude damping improves the lower constant to $`5/64`$. At $`N=0`$, exact endpoint composition gives $`\Gamma_0=\Delta_0=0`$ for the fixed terminal time. A freely chosen earlier final readout would change that convention.
-- **Earlier dependencies and story role:** Synthesizes [M13](#m13), [M17](#m17), and [M25](#m25). It joins the two local-to-global directions without requiring equal game values or optimal constants.
-- **Conceptual connection:** The crossover contact count is quadratic in $`\Lambda/\nu`$. Saturation supplies an order-one probability gap, not perfect discrimination, while the exact zero-contact result isolates the value of interior access.
-- **Sources:** [Rivas–Huelga, §§4.5 and 5.2][rh] for the target-process background; [the general theorem](../science/dissipators.md#2-operational-statement); [the qubit theorem](../science/amplitude_damping.md#matching-bounds); [fixed-terminal conventions](../science/model.md#endpoint-and-single-run-conventions).
+- **Central question:** How does the record mechanism become a valid global estimator within both contact budgets?
+- **Understanding target:** Coarse localization, nested frequency intervals and tapered multiscale repetitions resolve ambiguity by inverting the actual retained phase functions. Rejected blocks cost their full duration. Set $`Q=\min\{m,\lfloor(n-1)/2\rfloor\}`$: the construction uses at most $`Q`$ interior pulses and $`Q`$ boundary instruments, including its early readout, then stores the estimate through the full horizon. Choose between this quadratic design and the all-plain $`n`$-cell baseline using the known budgets.
+- **Earlier dependencies and story role:** Uses [M24](#m24) and [M25](#m25). It proves attainable global order with paid calibration and failures.
+- **Conceptual connection:** The estimator uses observed records for conditional concentration; within a stage, later blocks do not adapt to earlier terminal bits. Matching a contact budget requires counting frame corrections and early readout, not only sensing pulses.
+- **Sources:** [Recorded-phase attainment](../science/global_contact_precision.md#attainability-by-recorded-phases); [full contact budget](../science/global_contact_precision.md#fit-the-full-contact-budget); [conditional estimator](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md#recorded-phase-estimation-lemma).
 
 <a id="m27"></a>
 
-### M27 — Calibrating the law across three noise processes
+### M27 — The adaptive global contact converse
 
-- **Central question:** How does the intrinsic rate translate into familiar decay constants for different target processes?
-- **Understanding target:** Distinguish $`\nu=\gamma`$ for population damping, $`\nu=\kappa/2`$ for dephasing with coherence decay $`e^{-\kappa t}`$, and $`\nu=3\kappa/4`$ for depolarization with Bloch decay $`e^{-\kappa t}`$. Their natural horizons differ accordingly. The depolarizing maximizer is mixed, so a Bell-pair purification attains a larger initial escape rate than a pure system state alone.
-- **Earlier dependencies and story role:** Uses [M08](#m08), [M14](#m14)–[M15](#m15), and [M26](#m26). It checks the theorem's physical normalization and shows what changes across examples.
-- **Conceptual connection:** A named decay rate is not automatically the intrinsic rate appearing in the resource law. Generator conventions and allowed references determine the correct calibration.
-- **Sources:** [Rivas–Huelga, §§4.2 and 5.2][rh]; [three calibrated examples](../science/dissipators.md#7-three-explicit-examples); [the general rate definition](../science/dissipators.md#1-generator-intrinsic-rate-and-scope).
+- **Central question:** Why can no permitted adaptive controller outperform the contact-budget scaling?
+- **Understanding target:** A common smooth nuisance curve makes untouched-cell derivative sources orthogonal. In cells with interior contacts, the full Hamiltonian derivative is bounded. Archived activity flags and the structural bound of $`m`$ active cells on every history give $`J_\epsilon\le4(a_0\sqrt n+b_0m)^2`$, with $`a_0,b_0=O(h)`$ for fixed hardware and band. A fixed smooth prior converts the uniform information bound to minimax risk. Together with attainment, $`R^*_{n,m}=\Theta_{\chi,Eh}([h^2(n+m^2)]^{-1})`$.
+- **Earlier dependencies and story role:** Uses [M14](#m14), [M21](#m21), [M24](#m24), and [M26](#m26). It supplies the independent converse needed for the global sensing theorem.
+- **Conceptual connection:** The hard budget includes zero-probability histories; an expected-contact constraint is weaker. Global risk extends to the specified operational limits by bounded loss, separately from the derivative-controlled closure for local information.
+- **Sources:** [Uniform adaptive converse](../science/global_contact_precision.md#uniform-converse-for-arbitrary-adaptive-contacts); [hard-activity lemma](../science/intervention_bounds.md#a-derivative-bound-with-a-hard-activity-budget); [bounded-loss closure](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_global_precision.md#global-risk-under-controlled-limits).
 
 <a id="m28"></a>
 
-### M28 — The coupling strength required for controlled accuracy
+### M28 — Known systematic displacement as supplied information
 
-- **Central question:** How much microscopic strength is necessary and sufficient to approximate every experiment with a given contact budget and error tolerance?
-- **Understanding target:** Invert the unsaturated matching bounds for $`N\ge1`$ and $`0<\epsilon<1/64`$ to obtain $`\Lambda_{\min}(N,\epsilon)=\Theta(\nu\sqrt{N/\epsilon})`$, with the stated restriction $`\Lambda\ge\nu`$. Necessity follows from the universal witness; sufficiency follows from the same explicit collision family.
-- **Earlier dependencies and story role:** Uses [M12](#m12), [M13](#m13), and [M26](#m26). It turns a discrimination theorem into a two-sided resource requirement.
-- **Conceptual connection:** Control-uniform approximation demands a strength scale that depends on both the access budget and the desired accuracy. This resource differs from bath dimension, circuit gate count, or the cost of preparing and switching the simulator.
-- **Sources:** [Rivas–Huelga, §§6.2–6.3][rh] for microscopic approximation context; [the coupling-strength tradeoff](../science/interpretation.md#coupling-strength-required-for-a-controlled-approximation); [the resource ledger](../science/interpretation.md#physical-resources-and-scope).
+- **Central question:** Why can a fixed timing displacement preserve quadratic global precision?
+- **Understanding target:** For each supplied known $`0<|\delta|<h/2`$, a plain/displaced-one-pulse menu retains pure conditional branches. The flip axis has a known frequency-dependent shift relative to the common unknown direction; even records still cancel that direction. Their exact phases support quadratic global precision on a suitable fixed band when the interior-contact allowance is linear in $`n`$. Retiming is not required for this construction.
+- **Earlier dependencies and story role:** Uses [M25](#m25), [M26](#m26), and [M27](#m27). It identifies the timing information needed by the positive extension.
+- **Conceptual connection:** The displacement is supplied in the device specification. Learning an unknown offset needs a calibration model and a charged cost; the theorem provides neither free knowledge nor an exact correction from an estimate. Constants need not stay uniform as the fixed displacement approaches zero or either cell endpoint.
+- **Sources:** [Exact displaced instrument](../science/timing_precision.md#exact-displaced-and-averaged-instruments); [known-displacement theorem](../science/timing_precision.md#calibrated-systematic-displacement); [timing tutorial](TUTORIAL.md#what-the-timing-record-reveals).
 
 <a id="m29"></a>
 
-### M29 — Timing tolerance and imperfect instruments
+### M29 — Hidden jitter and the local/global separation
 
-- **Central question:** Which imperfections preserve the witness's scaling, and which implementation questions remain separate?
-- **Understanding target:** Recognize that unequal gaps in $`[\nu/(16\Lambda^2),\nu/(8\Lambda^2)]`$ retain a positive gap of order $`\min\{1,Nq\}`$. If the record-preserving contact instruments have half-diamond errors $`\eta_j`$, the signed gap decreases by at most $`2\sum_j\eta_j`$. Preparation and readout errors can be included similarly. These estimates assume calibrated parameters and do not establish finite-duration pulse performance.
-- **Earlier dependencies and story role:** Uses [M03](#m03)–[M04](#m04), [M16](#m16)–[M17](#m17), and [M26](#m26). It adds operational stability to the ideal witness while preserving its scope.
-- **Conceptual connection:** Robustness has two distinct sources: a finite margin in the survival comparison and contraction of complete instrument errors through either physical evolution, including a bath with memory.
-- **Sources:** [Rivas–Huelga, §§2.2–2.4 and 4.3][rh]; [timing tolerance](../science/interpretation.md#timing-tolerance-of-the-survival-witness); [instrument errors](../science/interpretation.md#instrument-errors).
+- **Central question:** Why does unobserved random timing have a different precision consequence from a known fixed displacement?
+- **Understanding target:** In each pulsed cell, independently choose $`\delta=\pm d`$ with equal probability and hide the sign. The observed odd-parity branch mixes distinct operations. On a prior interval away from compensation, an environment gauge cancels the derivative overlap for both plain and jittered cells along one nuisance curve, giving optimal fixed-band risk $`\Theta(n^{-1})`$ for fixed $`0<d<h/2`$. The same menu can retain quadratic pointwise classical score information at compensation. For $`m=\Theta(n)`$, quadratic global precision requires $`d=O(h/\sqrt n)`$; sufficiency is not proved.
+- **Earlier dependencies and story role:** Uses [M24](#m24), [M27](#m27), and [M28](#m28). It exposes both the information content of timing records and the limits of local precision.
+- **Conceptual connection:** The converse is a worst-case obstruction for the specified plain/jittered-one-pulse menu, not a bound at every frequency or for arbitrary pulse sequences. A hidden timing sign cannot be added to the accessible record.
+- **Sources:** [Hidden-jitter global theorem](../science/timing_precision.md#global-precision-with-hidden-jitter); [necessary accuracy](../science/timing_precision.md#a-necessary-accuracy-scale); [compensated local information](../science/timing_precision.md#why-the-local-calculation-gives-a-different-answer).
 
 <a id="m30"></a>
 
-### M30 — What the result establishes and how its evidence fits together
+### M30 — The complete temporal-resource story and its evidence
 
-- **Central question:** What is the complete physical claim, which ingredients precede it, and how strong is the supporting evidence?
-- **Understanding target:** Join the known short-time survival, channel-completion, and intrinsic-rate ingredients to the project's matched operational statement: one universal signed witness and one device that withstands all permitted adaptive testers. Distinguish the analytical uniform proof from finite endpoint, echo, and qutrit checks. Interpret constant bias as a one-run statistical advantage, not certainty. Keep bath preparation, external switching, unoptimized bath size, ideal contact duration, independent calibration, and the centered drift-free restriction visible.
-- **Earlier dependencies and story role:** Synthesizes [M11](#m11), [M13](#m13), and [M26](#m26)–[M29](#m29), with the local mechanisms behind them. It closes the map with the result's attribution, evidence, and physical limits in one account.
-- **Conceptual connection:** A matching theorem can sharpen established physics without making its ingredients new. Reproducible examples test concrete implementation risks; they do not establish a supremum over all testers, an autonomous implementation, or the identity of an unknown microscopic bath.
-- **Sources:** [Rivas–Huelga, §§6.2–6.3 and 7][rh]; [the physical conclusion and resource boundaries](../science/interpretation.md#physical-resources-and-scope); [the finite-check scope](../science/dissipators.md#9-numerical-check-of-the-exact-general-cell); [primary-source attribution](../references/RELATED_WORK.md#how-the-ingredients-enter-the-proof); [verification instructions](../verification/README.md).
+- **Central question:** How do the resolution law, sensing consequence and timing limitation form one coherent contribution?
+- **Understanding target:** Explain the matching controlled-process law using one universal witness and one universally hiding construction. Then explain the separately proved global contact law and its restricted timing limitation. Assign the noise-strength menu separation and shared recorded-phase estimator to the sister paper. Keep the centered drift-free class, sufficient fixed band, ideal contacts, protected memory, bath preparation and external switching assumptions visible.
+- **Earlier dependencies and story role:** Synthesizes [M11](#m11), [M23](#m23), [M27](#m27), and [M29](#m29), with their earlier dependencies. It closes both theorem chains and their attribution boundaries.
+- **Conceptual connection:** Temporal resolution as a resource is established prior context. The project adds quantitative matching laws under precise access assumptions. Analytical proofs, finite identity checks and reviewer judgments have different evidential roles; none supplies automatic independent certification or priority.
+- **Sources:** [Principal argument](../science/interpretation.md#principal-argument-and-supporting-results); [Berk and corrected monotones](../references/RELATED_WORK.md#berk2023); [proof ingredients](../references/RELATED_WORK.md#how-the-ingredients-enter-the-proof); [verification scope](../verification/README.md); [sister scientific synthesis](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/interpretation.md).
 
 [rh]: https://arxiv.org/html/1104.5242v2
