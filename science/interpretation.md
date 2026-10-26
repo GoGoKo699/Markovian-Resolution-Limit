@@ -186,6 +186,20 @@ laboratory control must first be shown to realize the required instrument
 error while accounting for simultaneous system-bath evolution; the present
 theorem does not provide that implementation.
 
+## Temporal access as a global sensing resource
+
+The [sensing bridge](sensing_bridge.md) supplies a separate frequency-estimation experiment with one finite-strength collision device. Its [global contact theorem](global_contact_precision.md) fixes the coupling, clock and nominal compensation, and proves
+
+```math
+R^*_{n,m}=\Theta_{\chi,Eh}\!\left(\frac1{h^2(n+m^2)}\right)
+```
+
+on a fixed sufficient band, uniformly in the common unknown transverse direction. The experiment has $`n`$ cells, at most $`n-1`$ total contacts and at most $`m`$ contacts inside cells. A menu of echoed and untouched cells gives retained records whose exact phase cancels the unknown direction. The companion's [recorded-phase estimator](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md) resolves ambiguity and charges calibration and rejected blocks. A nuisance curve with bounded derivatives gives the matching global converse for every permitted adaptive controller. This supplies both attainability and a uniform risk argument beyond the earlier local information calculation.
+
+The [timing analysis](timing_precision.md) shows why the controller's timing information matters. A known fixed pulse displacement preserves pure conditional records and allows quadratic global precision with a calibrated temporal menu. Independent unobserved two-point jitter mixes two error axes in the same observed parity branch. For the stated plain/one-pulse menu, any fixed positive jitter restores inverse-time global risk, despite quadratic local information at exact compensation. A jitter scale $`d=O(h/\sqrt n)`$ is necessary for global quadratic precision when the inside-cell allowance is linear in $`n`$; sufficiency and stronger timing controls are outside that result.
+
+These sensing statements have their own fixed-band and access assumptions. They complement the controlled-process resolution law rather than extending its fixed-generator quantifiers to arbitrary metrological models.
+
 ## Physical resources and scope
 
 | Resource | Assumption and consequence |

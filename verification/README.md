@@ -100,7 +100,7 @@ decomposition, inactive orthogonality and active-history budget bound.
 Its measured output excludes bath access. Separate early-readout experiments
 verify the attaining probabilities and the original total-contact count.
 The arbitrary-boundary-control relaxation is used only for upper-bound
-checks. These checks run in the companion repository's 125-test suite;
+checks. These checks run in the companion repository's 144-test suite;
 this repository's three-script runner is unchanged.
 
 The companion [identifiability suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_identifiability.py)
@@ -110,6 +110,24 @@ on entangled inputs and through complete adaptive boundary records at
 resonances. The calibration checks retain odd outcomes, enumerate estimator
 risk and tail probabilities, and charge early readout. These also run in the
 companion suite; the universal alias statement remains an analytical proof.
+
+The companion [global microscopic suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_global_microscopic.py)
+adds eleven checks supporting the [global contact theorem](../science/global_contact_precision.md)
+and the shared recorded-phase method. Complete physical parity trees include
+the echo frame and conditional correction, while independent recursions
+check record probabilities and derivative rewards. Conditional readout
+inversion, wrong-stage interval containment and deterministic trial schedules
+exercise the estimator mechanism. Every branch pays its interior pulses and
+early readout; no failed block becomes a free retry.
+
+The companion [timing suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_timing_precision.py)
+adds eight direct-unitary checks for [systematic displacement and hidden jitter](../science/timing_precision.md).
+It distinguishes a pure displaced parity branch from an unobserved mixture,
+checks the exact known-offset record phase and common nuisance-curve gauge,
+and finite-differences complete local readout probabilities. The tested
+small-jitter gauge envelope supports the converse calculation, not a
+sufficiency claim. Both suites run with `python scripts/check.py` in the
+companion repository; this repository's three-script runner is unchanged.
 
 ## What the calculations do not establish
 
