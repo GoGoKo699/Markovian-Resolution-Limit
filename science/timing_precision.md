@@ -92,7 +92,7 @@ The transition rewards must include the flip-axis phase. Define $`f_{\rm e}=(1-p
 =
 \frac{(\sin\chi-\sin z)\sin(\chi+z)}
 {g\sin\chi\,\sin^2z}>0
-\qquad (0<|z|<\chi).
+\qquad (0\lt |z|\lt \chi).
 ```
 
 Use the pulsed setting in the even sector and the plain setting in the odd sector, measuring parity at boundaries. With $`\sigma_{i-1}`$ the preceding parity sign, every retained record ending even has the exact nuisance-independent phase

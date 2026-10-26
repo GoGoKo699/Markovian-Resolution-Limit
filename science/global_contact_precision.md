@@ -131,7 +131,7 @@ where $`j(+1)=e`$ and $`j(-1)=p`$. Indeed, the normalized flips are all $`N_\phi
 Choose $`E>0`$ sufficiently small that $`r_*:=\sqrt{\chi^2+(Eh/2)^2}<\pi/4`$ and, throughout $`|\epsilon|\le E`$,
 
 ```math
-0\le p_e(\epsilon)<p_p(\epsilon)<\frac12,
+0\le p_e(\epsilon)\lt p_p(\epsilon)\lt \frac12,
 \qquad
 \mu^0(\epsilon)
 =\frac{p_pq_eA-p_eq_pd}{p_e+p_p}
@@ -147,7 +147,7 @@ Such an interval exists: $`p_p(0)>0`$, $`p_e(0)=0`$, the phase derivatives are s
 
 ```math
 \lambda(\epsilon)=1-p_e(\epsilon)-p_p(\epsilon)
-\le\rho<1.
+\le\rho\lt 1.
 ```
 
 The [two-state parity gate](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md#a-two-state-parity-gate) applies with frozen rewards $`d_e=A`$, $`d_p=d`$ and positive drift $`\mu_0=A`$. For all sufficiently large fixed block lengths $`L`$, retain a record as usable precisely when it ends even and its frozen derivative reward obeys $`D_L^0\ge AL/2`$. Its acceptance probability is at least $`1/4`$, uniformly in the band and the nuisance. Every usable record satisfies
