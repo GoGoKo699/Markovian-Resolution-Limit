@@ -18,7 +18,8 @@ Canonical entrypoints:
   centered-generator scope, exact generator diamond norm, survival witness,
   positive no-jump Kraus operator and exact parity-odd channel completion,
   dimension-independent law, examples and coherent-shift counterexample.
-- science/interpretation.md: controlled process versus endpoint channel,
+- science/interpretation.md: principal proof chain, supporting derivations,
+  shared-result ownership, controlled process versus endpoint channel,
   coupling-strength cost at accuracy epsilon, timing and instrument robustness,
   and the physical resources required by both constructions.
 - science/sensing_bridge.md: a separate rate-input device model, universal
@@ -32,8 +33,9 @@ Canonical entrypoints:
   1/[h²(n+m²)] on a fixed sufficient band for the explicit sensor. Exact
   echo/plain temporal menu, charged frame corrections and early readout,
   recorded-phase estimator, and a uniform full-adaptive nuisance-curve converse.
-- science/timing_precision.md: known fixed pulse displacement preserves
-  quadratic global precision through a calibrated temporal menu. Independent
+- science/timing_precision.md: a supplied known fixed pulse displacement preserves
+  quadratic global precision through the corresponding temporal menu; learning
+  an unknown offset is not supplied by that theorem. Independent
   unobserved two-point jitter gives inverse-time global risk for the specified
   plain/one-pulse menu despite quadratic local information at compensation;
   shrinking jitter accuracy is necessary, with no sufficiency claim.
@@ -47,7 +49,8 @@ Canonical entrypoints:
   one-pulse qubit example, universal survival witness and adaptive converse;
   links the settled milestone map to canonical scientific proofs.
 - references/RELATED_WORK.md: precise source-model comparison and inherited
-  ingredients, with stable citation anchors matching the bibliography keys.
+  ingredients, including Berk’s temporal-resource precedent, its correction
+  and Zambon’s process-distance analysis, with stable bibliography anchors.
 - references/references.bib: primary-source metadata and versioned links.
 - verification/README.md: finite checks, dependencies, numerical tolerances,
   reference outputs and the distinction between computation and proof.

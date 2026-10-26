@@ -64,7 +64,7 @@ A parity measurement distinguishes $`L_0`$ from the combined odd branch, but doe
 
 ## Calibrated systematic displacement
 
-For each fixed known $`0<|\delta|<h/2`$, a menu of plain cells and cells pulsed at $`h/2+\delta`$ retains quadratic **global** precision on some fixed sufficiently small band around compensation. Retiming is not needed for this assertion. The signal-generator bound supplies the matching inverse-quadratic risk lower order.
+For each fixed known $`0<|\delta|<h/2`$, a menu of plain cells and cells pulsed at $`h/2+\delta`$ retains quadratic **global** precision on some fixed sufficiently small band around compensation. The known displacement is supplied as part of the device specification; this is not a theorem for learning an unknown displacement. Retiming is not needed for this assertion. The signal-generator bound supplies the matching inverse-quadratic risk lower order.
 
 Write $`z=2g\delta`$. Near $`\epsilon=0`$, $`w`$ has a fixed nonzero sign. Absorb that sign into the flip branch's scalar phase and define smooth known functions
 
@@ -220,7 +220,7 @@ Both classically selected channel blocks now have zero derivative overlap along 
 F_{\rm out}\le4nA_*.
 ```
 
-This argument covers adaptive setting choices, arbitrary protected memory and every retained branch. The ordinary [adaptive channel-extension argument](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_precision.md#a-common-nuisance-path-removes-coherent-accumulation) is applied to the explicit gauge above. The [derivative-controlled closure](intervention_bounds.md#limits-with-controlled-parameter-derivatives) also permits the stated limits of finite controllers.
+This argument covers adaptive setting choices, arbitrary protected memory and every retained branch. The ordinary [adaptive channel-extension argument](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_precision.md#a-common-nuisance-path-removes-coherent-accumulation) is applied to the explicit gauge above. The [derivative-controlled closure](intervention_bounds.md#limits-with-controlled-parameter-derivatives) preserves the corresponding pointwise classical information bounds. The global risk bound below extends to controlled limits by the separate [bounded-loss argument](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_global_precision.md#global-risk-under-controlled-limits).
 
 Choose a cosine-squared prior of fixed half-width $`\ell>0`$ supported in that positive interval. The scalar van Trees argument used in the [companion global proof](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_global_precision.md) gives, without an unbiasedness assumption,
 
@@ -229,7 +229,7 @@ R^*_{n,m}(d;\Omega)
 \ge\frac1{4nA_*+\pi^2/\ell^2}.
 ```
 
-A prior away from zero is legitimate for worst-case risk over the full band. The fact that the gauge becomes singular as $`\epsilon\to0`$ does not weaken this fixed-prior lower bound.
+A prior away from zero is legitimate for worst-case risk over the full band. The fact that the gauge becomes singular as $`\epsilon\to0`$ does not weaken this fixed-prior lower bound. This is a fixed-band minimax obstruction, not a lower bound on risk at every individual frequency.
 
 ### A necessary accuracy scale
 
@@ -259,7 +259,7 @@ A=\frac{\sin\chi}{g},\quad
 B=\frac{c-\cos\chi}{g}.
 ```
 
-The jittered cell has $`L_0=cI`$, $`L_1=-isN_\phi`$, $`L_2=0`$, with frequency derivatives $`-iAZ_S/2`$, $`0`$ and $`-iBN'_\phi/2`$. The last Kraus operator contributes only at second order to the output density. Thus the first-order parity instrument has no-flip phase derivative $`d_{\rm e}=A/c`$. A plain cell has $`p_0=\sin^2\chi`$ and $`d_0=\tan\chi/g`$.
+The jittered cell has $`L_0=cI`$, $`L_1=-isN_\phi`$, $`L_2=0`$, with frequency derivatives $`-iAZ_S/2`$, $`0`$ and $`-iBN'_\phi/2`$. The last Kraus operator contributes only at second order to the output density. Thus the first-order parity instrument has no-flip phase derivative $`d_{\rm e}=A/c`$. A plain cell has $`p_0=\sin^2\chi`$ and $`d_0=\tan\chi/g`$. The information statements in this section concern pointwise classical score Fisher information at compensation; they assert neither continuity of a rank-changing quantum Fisher metric nor a uniform risk guarantee on a frequency interval.
 
 Choose jittered echoes in the even sector and plain cells in the odd sector, retaining every boundary parity result. The local signed-phase drift is
 
