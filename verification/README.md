@@ -82,6 +82,16 @@ and the companion [microscopic sensing proof](https://github.com/GoGoKo699/Noise
 They do not certify derivative transfer from total variation, global sensing
 advantage, or optimization against every microscopic controller.
 
+The companion [microscopic control suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_microscopic.py)
+adds eleven checks of the sharp boundary-control coefficients and the
+same-contact midpoint echo in the sensing bridge. It propagates the actual
+sensor–ancilla–bath unitaries around each interior pulse and finite-differences
+the complete flagged readout probabilities. A Markov endpoint surrogate is
+explicitly checked to give a different interior-pulse experiment. Run
+`python scripts/check.py` in the Noise-Rate-Activated-Sensing checkout to
+include these checks; they are not part of this repository's three-script
+runner. The universal control bounds remain analytical statements.
+
 ## What the calculations do not establish
 
 These are finite numerical examples. They do not optimize over testers or

@@ -2,9 +2,9 @@
 
 [Operational model](model.md) · [Controlled-interval estimates](intervention_bounds.md) · [Companion sensing analysis](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_sensing.md)
 
-The companion [Noise-Rate-Activated-Sensing project](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing) asks how access to two incoherent noise rates changes frequency estimation when the transverse error direction is unknown. Its retained parity record also supplies a concrete test of the assumed noise law. This page gives two statements about that record: a discrepancy certificate valid for every bounded microscopic alternative, and a uniform approximation guarantee for one explicit two-rate collision device.
+The companion [Noise-Rate-Activated-Sensing project](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing) asks how access to two incoherent noise rates changes frequency estimation when the transverse error direction is unknown. Its retained parity record also supplies a concrete test of the assumed noise law. This page gives a discrepancy certificate valid for every bounded microscopic alternative and a uniform approximation guarantee for one explicit two-rate collision device. A separate midpoint-pulse calculation then shows how the timing of the same number of contacts can turn that device's microscopic memory into a local sensing resource.
 
-These statements use a **controlled device with a classical rate-input port**. They do not substitute a sensing contact count into the headline theorem for a fixed, centered, drift-free dissipator over one intrinsic lifetime. The device family and its response to each allowed command are fixed before choosing the sensing protocol. A classical command can select a rate; it does not expose the bath or coherently apply the unknown error operator.
+These statements use a **controlled device with a classical rate-input port**; the midpoint experiment holds that port fixed. They do not substitute a sensing contact count into the headline theorem for a fixed, centered, drift-free dissipator over one intrinsic lifetime. The device family and its response to each allowed command are fixed before choosing the sensing protocol. A classical command can select a rate; it does not expose the bath or coherently apply the unknown error operator.
 
 ## The common experiment and its resources
 
@@ -246,6 +246,97 @@ when both minimax risks optimize over the **same** boundary-restricted strategy 
 
 This supplies a finite-horizon transfer criterion. It does not prove the companion project's continuous-timing global bound for a finite-cadence protocol. Total-variation closeness also does not control parameter derivatives or Fisher information; those require a separate calculation.
 
+## The same contact budget at collision midpoints
+
+The [companion microscopic precision analysis](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_precision.md) proves a fixed-rate linear local-information bound when every system contact is restricted to a cell boundary. That timing restriction matters. The same fixed-coupling hardware admits quadratic local information when the same number of contacts can instead be placed inside its cells.
+
+Hold one coupling $`g>0`$ fixed, write $`\chi=gh\in(0,\pi/4)`$, and use $`n`$ physical cells over $`T=nh`$. Here $`h`$ is the collision duration and $`g`$ is a microscopic Hamiltonian strength, not the calibrated Markov rate $`\gamma`$. Prepare
+
+```math
+|+_L\rangle=\frac{|00\rangle+|11\rangle}{\sqrt2}.
+```
+
+Apply a known sensor pulse $`Z_S`$ at the midpoint of each of the first $`n-1`$ cells. Make no intermediate parity measurement, apply no pulse in the last cell, and keep the coupling fixed throughout. There are exactly $`n-1`$ interior system contacts, the same count as parity checks at the first $`n-1`$ boundaries. At $`T`$, measure parity and, on an even result, measure the logical $`Y_L`$ observable in the known accumulated pulse frame. An odd result is a retained failure flag with no further information used. The frame adjustment is part of the terminal readout, not an additional interior pulse.
+
+### Reduced response of a refocused cell
+
+In the toggling frame of the preceding pulses, cell $`j\leq n-1`$ has coupling $`s_jg`$ during its first half and $`-s_jg`$ during its second half, with $`s_j=(-1)^{j-1}`$. Its joint propagator in this frame is
+
+```math
+V_j=e^{-iH_{-s_j}h/2}e^{-iH_{s_j}h/2},
+\qquad
+H_s=\frac\eta2Z_S+s gN_\phi\otimes X_{E_j}.
+```
+
+At $`\eta=0`$ this propagator is exactly the identity for every $`\phi`$. With $`N'_\phi=\partial_\phi N_\phi`$, its derivative at that point is
+
+```math
+\left.\partial_\eta V_j\right|_0
+=-\frac i2\left(AZ_S+s_jB N'_\phi\otimes X_{E_j}\right),
+\qquad
+A=\frac{\sin\chi}{g},
+\qquad
+B=\frac{1-\cos\chi}{g}.
+```
+
+To obtain this expression, the zero-frequency accumulated interaction angle runs from zero to $`s_jgh/2`$ and returns to zero. In the corresponding interaction picture the signal operator is $`Z_S\cos(2gt)+s_jN'_\phi\otimes X_{E_j}\sin(2gt)`$ during the first half; the second half retraces the same angles. Integrating gives $`A`$ and $`s_jB`$.
+
+The bath starts in $`|0\rangle`$, whose $`X_E`$ expectation is zero. Therefore the reduced channel $`\mathcal E_j`$ and its first derivatives obey
+
+```math
+\mathcal E_j(0,\phi)=\mathrm{id},
+\qquad
+\left.\partial_\eta\mathcal E_j\right|_0
+=-i\frac A2[Z_S,\,\cdot\,],
+\qquad
+\left.\partial_\phi\mathcal E_j\right|_0=0.
+```
+
+This holds on inputs entangled with the protected ancilla. Different physical cells use different initially prepared bath qubits, and spent cells are never reused. Composing the first $`n-1`$ reduced channels consequently adds their signal derivatives to $`(n-1)A`$. This is a first-derivative statement at compensation; the reduced echoed channel need not remain unitary away from that point.
+
+### Terminal probabilities and efficient information
+
+The last, unrefocused cell has the same no-flip Kraus operator for either sign of its coupling. With
+
+```math
+p=\sin^2\chi,
+\qquad q=\cos^2\chi,
+\qquad d=\frac{\tan\chi}{g},
+\qquad D_n=(n-1)A+d,
+```
+
+its final even branch has success probability $`q`$ and phase derivative $`D_n`$ at $`\eta=0`$. The known physical frame $`Z_S^{n-1}`$ commutes with parity and is absorbed into the terminal logical observable. The complete marginal readout used here consists of two even-sector outcomes and the odd failure flag. Its probabilities have the expansions
+
+```math
+P(\mathrm{even},Y_L=\pm1)
+=\frac q2\pm\frac{qD_n}{2}\eta+O(\eta^2),
+\qquad
+P(\mathrm{odd})=p+O(\eta^2).
+```
+
+At the operating point all three probabilities are strictly positive, and they and their first signal derivatives are the same for every unknown axis. Every $`\phi`$ derivative of this marginal likelihood is zero there. The nuisance angle need not be identifiable for efficient information to be defined: minimizing the score variance over nuisance-path slopes leaves this marginal target score unchanged. Its nuisance-adjusted Fisher information therefore equals its target Fisher information:
+
+```math
+\mathcal I_\omega^{\mathrm{mid}}(nh)
+=qD_n^2
+=\frac{\sin^2\chi}{g^2}
+\left[1+(n-1)\cos\chi\right]^2.
+```
+
+The success probability is included in this expression; failed runs are neither discarded from the likelihood nor removed from the time cost. In particular,
+
+```math
+\lim_{n\to\infty}
+\frac{\mathcal I_\omega^{\mathrm{mid}}(nh)}{(nh)^2}
+=q\left(\frac{\sin\chi}{\chi}\right)^2>0.
+```
+
+The finite expression never exceeds $`T^2`$, since its ratio to $`T^2`$ is $`(\sin\chi/\chi)^2[1+(n-1)\cos\chi]^2/n^2\leq1`$. Neither the coupling nor the cell duration needs to change with the horizon. The number of bath cells and the number of pulses grow linearly with $`T`$.
+
+For the target Markov process, the same $`Z_S`$ pulses leave the dissipator unchanged: $`Z_SN_\phi Z_S=-N_\phi`$, and changing a jump operator's sign has no effect on $`N_\phi\rho N_\phi-\rho`$. The signal also commutes with the pulses. The microscopic echo thus exploits coherent evolution within a bath collision that the Markov model does not retain.
+
+This calculation establishes a local sensing benefit from access to collision midpoints. It shows why a boundary-only fixed-rate converse cannot be promoted to an arbitrary-timing converse using contact count alone. It does not establish a global minimax estimation law, optimized local coefficients, or a new bound for the headline fixed-generator minimax problem. The nominal compensation, ideal pulses, known collision clock and protected ancilla remain explicit resources.
+
 ## Compatible scales and attribution
 
 For small cells, $`g_b(h)\sim\sqrt{b/h}`$. Choosing a finer cell improves the uniform record approximation while increasing the coupling, the number of preinitialized bath qubits and the clock resolution. More explicitly, $`g_b(h)^2\leq b/h`$, so $`h=b/\Lambda_\perp^2`$ is one sufficient choice for the noise-only coupling budget when the desired observation grid and horizon are integer multiples of that cell. It yields the record bound
@@ -267,4 +358,4 @@ The microscopic all-even probability exactly equals the Markov probability, and 
 
 Grid alignment is part of this example, not an assumption that every physical bath is synchronized with the measurement clock. The universal parity witness examines increasingly fine observations at a fixed coupling; the construction instead increases its coupling when its cell is made finer. The two statements therefore impose compatible conditions.
 
-The survival mechanism is inherited from [Zeno dynamics and bounded-interaction control](../references/RELATED_WORK.md#misra1977). The repeated-interaction construction, its square-root coupling scale and cancellation of odd bath terms belong to established [collision simulation](../references/RELATED_WORK.md#cattaneo2021). Complete-record comparison uses the [operational multitime viewpoint](../references/RELATED_WORK.md#pollock2018). The role of this bridge is to state and prove their application to one shared unknown-axis, two-rate sensing device with its signal, control port, clock and parameter-uniform error accounted for. No independent novelty or experimental-validation claim follows from this construction.
+The survival mechanism is inherited from [Zeno dynamics and bounded-interaction control](../references/RELATED_WORK.md#misra1977), and the midpoint echo uses established [dynamical-decoupling ideas](../references/RELATED_WORK.md#arenz2015). The repeated-interaction construction, its square-root coupling scale and cancellation of odd bath terms belong to established [collision simulation](../references/RELATED_WORK.md#cattaneo2021). Complete-record comparison uses the [operational multitime viewpoint](../references/RELATED_WORK.md#pollock2018). The role of this bridge is to state and prove their application to one shared unknown-axis sensing device with its signal, control port, contact timing and parameter-uniform error accounted for. No independent novelty or experimental-validation claim follows from this construction.
