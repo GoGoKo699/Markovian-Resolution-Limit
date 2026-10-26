@@ -22,6 +22,121 @@ This is a branchwise identity even for entangled $`RSE`$ inputs. It preserves co
 
 The construction extends to the operational limits included in the tester class. It does not move a system contact for free or convert continuous system monitoring into a memory-only operation.
 
+## A derivative bound with a hard activity budget
+
+The following channel-extension estimate separates stages with no coherent derivative accumulation from stages in which an intervention can change that behavior. It concerns a differentiable parameter family, not the discrimination distance of the headline theorem. In the sensing application, stages are collision cells and activity means a system contact strictly inside a cell.
+
+Fix an operating point $`u=0`$ and a protocol with $`n`$ stages, a parameter-independent initial state, and arbitrary finite protected memory. Controls may form any finite classical adaptive tree, with arbitrary real contact times. Dilate every instrument and retain its records in a purification. Before stage $`j`$, a parameter-independent entrance isometry $`W_j`$ produces a classical activity flag with orthogonal projectors $`P_{j,0},P_{j,1}`$. The flag must be available before that stage's parameter-dependent evolution. The [memory-only normal form](#memory-only-controller-normal-form) supplies such an entrance flag when activity is defined by whether an interval contains a system contact; it does not require a nonadaptive choice of later contacts.
+
+Let $`V_j(u)`$ be the stage isometry after its entrance instrument. It can include all remaining adaptive controls during that stage. Archive a copy of every activity flag and preserve those copies through all later stages. This is a purification of already classical records, not a new observation or a register granted to the tester. A tester may erase its accessible record without erasing this analytical archive. An instrument acting on the system counts as a contact even if its action is the identity on some quantum components of the input.
+
+Assume, at the operating point, that constants $`a,L\geq0`$ satisfy
+
+```math
+V_j^\dagger\dot V_jP_{j,0}=0,
+\qquad
+\|\dot V_jP_{j,0}x\|\leq a\|P_{j,0}x\|,
+\qquad
+\|\dot V_jP_{j,1}x\|\leq L\|P_{j,1}x\|
+```
+
+for every input vector $`x`$, uniformly over stage number and earlier records. A dot denotes the parameter derivative. Identities on previously retained environments and reference systems are implicit. Impose the **hard branchwise budget**
+
+```math
+\sum_{j=1}^n z_j\leq m
+```
+
+on every allowed classical history of activity flags $`z_j\in\{0,1\}`$. This is a structural restriction on the controller, including histories with zero probability at the operating point; an expectation bound or a restriction only on positive-probability histories at that point is not sufficient for the argument below.
+
+Then the quantum Fisher information of the actual output, including every retained classical outcome, obeys
+
+```math
+F_u^{\mathrm{out}}
+\leq4\left(a\sqrt n+Lm\right)^2.
+```
+
+The same bound applies to the classical information of every final readout. If $`u`$ is a common nuisance path with unit target derivative, it also bounds nuisance-adjusted target information. The initial state and every control policy are held fixed under differentiation.
+
+### Inactive derivative sources are orthogonal
+
+At $`u=0`$, let $`|\psi_j\rangle`$ be the normalized purified state immediately after $`W_j`$, and let $`S_j`$ be the isometry containing all later stages and their entrance instruments. Differentiating the complete circuit gives
+
+```math
+|\dot\Psi_{\mathrm{out}}\rangle
+=\sum_{j=1}^n(C_j+D_j),
+\qquad
+C_j=S_j\dot V_jP_{j,0}|\psi_j\rangle,
+\qquad
+D_j=S_j\dot V_jP_{j,1}|\psi_j\rangle.
+```
+
+The states $`|\psi_j\rangle`$ in these source terms are the undifferentiated prefix states. Their own parameter dependence is already accounted for by the earlier source terms. Entrance instruments add no derivative because they are parameter independent.
+
+For $`i<j`$, cancel the common future isometries in $`\langle C_i,C_j\rangle`$. The remaining overlap contains $`V_j^\dagger\dot V_jP_{j,0}=0`$, so the two inactive sources are orthogonal. Writing $`p_j=\|P_{j,1}\psi_j\|^2`$ gives
+
+```math
+\left\|\sum_j C_j\right\|^2
+=\sum_j\|C_j\|^2
+\leq a^2\sum_j(1-p_j)
+\leq na^2.
+```
+
+This remains true when the incoming state is correlated with the retained bath or protected memory. It uses an operator identity, not independence of different stages.
+
+### Active sources are charged on complete histories
+
+Let $`Q_z`$ project the final purification onto an archived activity string $`z=(z_1,\ldots,z_n)`$. Because the archive is preserved, $`Q_zD_j=0`$ whenever $`z_j=0`$. Every supported history has at most $`m`$ active stages. Cauchy–Schwarz within each history, followed by orthogonality of the history registers, therefore gives
+
+```math
+\begin{aligned}
+\left\|\sum_jD_j\right\|^2
+&=\sum_z\left\|\sum_{j:z_j=1}Q_zD_j\right\|^2\\
+&\leq m\sum_z\sum_j\|Q_zD_j\|^2
+=m\sum_j\|D_j\|^2\\
+&\leq mL^2\sum_jp_j
+\leq m^2L^2.
+\end{aligned}
+```
+
+The final inequality uses the expected number of active stages under the same undifferentiated protocol: $`\sum_jp_j=\mathbb E\sum_jz_j\leq m`$. The preceding history-wise inequality is the essential additional step. Summing square roots of separate activity probabilities would lose the hard-budget dependence.
+
+Combining the two source groups by the triangle inequality yields $`\|\dot\Psi_{\mathrm{out}}\|\leq a\sqrt n+Lm`$. Pure-state quantum Fisher information is at most $`4\|\dot\Psi_{\mathrm{out}}\|^2`$; tracing inaccessible purification registers and performing a final measurement cannot increase it. This proves the bound without identifying the derivative norm with quantum Fisher information.
+
+Parameter-independent classical mixtures obey the same estimate: retain the random seed as an additional classical label, apply the uniform bound conditionally, and average. The following subsection gives sufficient conditions for limits of finite protocols; the derivative statement does not automatically inherit a probability-only closure at one parameter value.
+
+The purification method and its relation to adaptive quantum Fisher information use established [channel-extension bounds](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/references/RELATED_WORK.md#bound-and-estimation-foundations). The argument above supplies the explicit history-wise charging required for this hard activity budget.
+
+### Limits with controlled parameter derivatives
+
+For this extension, hold the hardware, total physical duration $`T`$ and all structural budgets fixed. Suppose the Hamiltonian is twice differentiable along an open parameter interval, with uniform bounds $`\|\partial_u H\|\leq D_1`$ and $`\|\partial_u^2H\|\leq D_2`$. Parameter-independent instrument dilations add no derivatives. The Duhamel expansion of the complete purified protocol gives
+
+```math
+\|\partial_u\Psi\|\leq TD_1,
+\qquad
+\|\partial_u^2\Psi\|\leq TD_2+T^2D_1^2.
+```
+
+Consequently every terminal event $`B`$ has probability $`p_B(u)`$ satisfying
+
+```math
+|p_B''(u)|\leq C_2,
+\qquad C_2=2TD_2+4T^2D_1^2,
+```
+
+uniformly over the controllers and events. This also covers classically adaptive times by retaining the history registers: the Hamiltonian derivative on each history block obeys the same bound throughout the fixed physical interval.
+
+Now consider protocols with the same structural budgets and a common measurable output space, such that every event probability converges pointwise on that open parameter interval. For $`\delta>0`$ within it, Taylor's formula gives
+
+```math
+\left|p_{B,r}'(0)
+-\frac{p_{B,r}(\delta)-p_{B,r}(0)}{\delta}\right|
+\leq\frac{C_2\delta}{2}.
+```
+
+Apply the same estimate for negative $`\delta`$ using its absolute value. First taking limits in the protocol index $`r`$ and then sending $`\delta`$ to zero proves that $`p_B'(0)`$ exists and $`p_{B,r}'(0)\to p_B'(0)`$. Apply this to every member of a fixed finite output partition. The function $`x^2/y`$ is lower semicontinuous for $`y\geq0`$, with $`0/0=0`$ and $`x^2/0=+\infty`$ for $`x\ne0`$; thus the partition's Fisher information in the limit is at most the lower limit of the approximating partition informations. Every uniform bound above on classical information is therefore retained.
+
+Taking the supremum over finite partitions gives the same conclusion for general classical score Fisher information. The bounded partition forms define an $`L^2`$ score, whose squared norm is that supremum. This argument uses uniform parameter-derivative bounds and convergence on an open interval; convergence at one operating point or total-variation closeness alone does not transfer Fisher information. It does not infer a global risk law or continuity of a rank-changing quantum Fisher metric.
+
 ## Survival under a bounded retained interaction
 
 Let $`\Pi`$ be a projector on the observed system and any protected reference. Assume that the free environment Hamiltonian acts trivially on that observed space, and the remaining generator has norm at most $`\Lambda`$. If the initial joint state is supported on $`\Pi\otimes I_E`$, then after a duration $`s`$ with no contacts,

@@ -92,6 +92,17 @@ explicitly checked to give a different interior-pulse experiment. Run
 include these checks; they are not part of this repository's three-script
 runner. The universal control bounds remain analytical statements.
 
+The companion [contact-precision suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_contact_precision.py)
+adds eight checks of the [hard-activity derivative lemma](../science/intervention_bounds.md#a-derivative-bound-with-a-hard-activity-budget)
+and its sensing application. A purified adaptive controller retains rare,
+signal-dependent activity histories and tests the derivative-source
+decomposition, inactive orthogonality and active-history budget bound.
+Its measured output excludes bath access. Separate early-readout experiments
+verify the attaining probabilities and the original total-contact count.
+The arbitrary-boundary-control relaxation is used only for upper-bound
+checks. These checks run in the companion repository's 118-test suite;
+this repository's three-script runner is unchanged.
+
 ## What the calculations do not establish
 
 These are finite numerical examples. They do not optimize over testers or

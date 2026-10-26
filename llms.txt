@@ -10,7 +10,8 @@ Canonical entrypoints:
   time, resource accounting, Delta_N, signed universal Gamma_N, and theorems.
 - science/intervention_bounds.md: memory-only controller normal form,
   conditional survival, bath-parity Dyson cancellation, Markov cell estimate,
-  and the physical-prefix adaptive hybrid.
+  the physical-prefix adaptive hybrid, a hard-activity-budget derivative
+  bound, and operational limits justified by uniform parameter derivatives.
 - science/amplitude_damping.md: explicit qubit exchange construction,
   5/64 lower coefficient, norm bound, exact zero-contact result, midpoint echo.
 - science/dissipators.md: inherited maximum jump variance and minimax identity,
@@ -23,7 +24,8 @@ Canonical entrypoints:
 - science/sensing_bridge.md: a separate rate-input device model, universal
   parity-record witness, finite-coupling collision approximation with signal,
   full boundary-adaptive record bound, bounded-loss risk transfer, and a
-  same-contact midpoint echo with fixed-coupling quadratic local information.
+  same-contact midpoint echo, and the adaptive upper bound for limited
+  access inside collision cells.
 - learning/ANCHOR.md: the single educational anchor, Rivas and Huelga's
   Open Quantum Systems: An Introduction, using arXiv:1104.5242v2 (2012);
   verified section pointers, notation translation, assumptions and local bridge.
@@ -104,5 +106,8 @@ Preserve these distinctions:
   not parameter derivatives or Fisher information.
 - The companion microscopic fixed-rate converse allows all boundary controls,
   not arbitrary contact timing. Moving the same number of contacts to collision
-  midpoints restores fixed-coupling quadratic local information. This is a local
-  compensated calculation, not a global-risk result or a change to the main law.
+  midpoints restores fixed-coupling quadratic local information. More generally,
+  with n cells, at most n−1 total contacts and at most m inside-cell contacts,
+  optimal information is of order h²(n+m²) for fixed g,h. The hard budget holds
+  on every classical history. This is a local compensated calculation, not a
+  global-risk result or a change to the main law.
