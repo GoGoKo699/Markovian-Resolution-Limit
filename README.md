@@ -57,6 +57,8 @@ The [scientific synthesis](science/interpretation.md#principal-argument-and-supp
 
 ## Learn the project
 
+[**Read the explanatory report (PDF)**](learning/report/Markovian_Resolution_Limit_Report.pdf): a continuous account from quantum states and measurement to temporal resolution, the global contact law and timing information, with worked examples and full explanations of the proof mechanisms.
+
 The single educational anchor, shared with Noise-Rate-Activated Sensing, is **Ángel Rivas and Susana F. Huelga, _Open Quantum Systems: An Introduction_ (2012)**, using the [open author version, arXiv:1104.5242v2](https://arxiv.org/abs/1104.5242v2). It supplies the dynamical-map, semigroup and microscopic-model foundations. The learning route connects those foundations to the operational law and its separately proved sensing consequence. The companion's [source bridge](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/learning/ANCHOR.md) develops the same foundation toward the coupling-menu precision separation.
 
 | Reading need | Route |
@@ -65,7 +67,7 @@ The single educational anchor, shared with Noise-Rate-Activated Sensing, is **Á
 | Connect the selected source to this project's notation and assumptions | [Rivas–Huelga anchor bridge](learning/ANCHOR.md). Section numbers refer to the specified open version. |
 | Study the full conceptual structure | [30-milestone map](learning/MILESTONES.md): 11 background/preliminary targets and 19 narrative/innovation targets, including the global contact law and restricted timing distinction, each with dependencies and scientific sources. |
 
-The map is common to every reader. The exact theorem statements and complete proofs remain in the scientific pages above.
+The [learning guide](learning/README.md) connects these routes. The map is common to every reader. The exact theorem statements, complete proofs and scholarly attribution remain in the scientific pages above.
 
 ## Reproduce the finite checks
 
