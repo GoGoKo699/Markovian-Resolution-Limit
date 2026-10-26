@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent
 CHECKS = (
     ("verify_amplitude_cell.py", "amplitude_cell.json"),
     ("verify_dissipator_cell.py", "dissipator_cell.json"),
+    ("verify_sensing_bridge.py", "sensing_bridge.json"),
 )
 # Near-zero Choi eigenvalues can cross a numerical Kraus truncation threshold.
 # These diagnostics are still reported and bounded by the calculation itself.
@@ -70,7 +71,7 @@ def main():
     if args.record:
         print("Reference outputs recorded; recording is not an independent validation.")
     else:
-        print("Both finite checks passed. Uniform theorems are established by the proofs.")
+        print("All finite checks passed. Uniform theorems are established by the proofs.")
 
 
 if __name__ == "__main__":

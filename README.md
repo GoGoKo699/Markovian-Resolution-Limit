@@ -47,6 +47,7 @@ Start with [the operational model](science/model.md), then follow the constructi
 | How does the theorem work for one decaying qubit? | [Amplitude damping, exchange collisions and an exact echo](science/amplitude_damping.md) |
 | Why does the same law hold in arbitrary finite dimension? | [Intrinsic rate, universal witness and exact dissipative cells](science/dissipators.md) |
 | What does the law imply for observation and simulation resources? | [Physical interpretation, accuracy cost and robustness](science/interpretation.md) |
+| How does the resolution mechanism constrain an actual sensing record? | [Controlled-noise sensing bridge](science/sensing_bridge.md) |
 | Which ingredients are inherited and which operational models differ? | [Related work](references/RELATED_WORK.md) and [bibliography](references/references.bib) |
 
 The [LLM reading guide](llms.txt) maps these routes and records the distinctions that must survive a summary.
@@ -77,6 +78,8 @@ The checks compare independent channel constructions and exercise reference-assi
 ## Resource boundaries
 
 The interaction bound includes all system-affecting terms; bath-only evolution is free. Preparation, protected-memory processing and the final readout at fixed $`T`$ are free, while each interior contact with the system is counted. All outcomes are retained, and contact times are classically selected.
+
+The [sensing bridge](science/sensing_bridge.md) separately studies a device with a classical rate input and a signal Hamiltonian. It applies the survival lemma to a retained parity record and constructs a finite-coupling approximation for measurements at collision boundaries. Its full-record error bound transfers bounded-loss risk, while the companion [Noise-Rate-Activated-Sensing calculation](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_sensing.md) derives an attainable microscopic local coefficient. The fixed-generator minimax theorem above is not silently extended to this controlled device, and record disagreement does not imply loss of a sensing advantage.
 
 The hiding construction initializes all bath cells at time zero, retains spent cells, and uses an externally prescribed switching schedule. Its bath dimension can grow exponentially in $`(\Lambda/\nu)^2`$. The result is a coupling-and-contact bound, with no claim of efficient bath preparation, autonomous clock implementation or finite-duration control. Independent repetitions of the whole experiment are a separate resource.
 
