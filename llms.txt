@@ -34,8 +34,9 @@ Canonical entrypoints:
   echo/plain temporal menu, charged frame corrections and early readout,
   recorded-phase estimator, and a uniform full-adaptive nuisance-curve converse.
 - science/timing_precision.md: a supplied known fixed pulse displacement preserves
-  quadratic global precision through the corresponding temporal menu; learning
-  an unknown offset is not supplied by that theorem. Independent
+  quadratic global precision through the corresponding temporal menu with a
+  linear inside-cell contact allowance; learning an unknown offset is not
+  supplied by that theorem. Independent
   unobserved two-point jitter gives inverse-time global risk for the specified
   plain/one-pulse menu despite quadratic local information at compensation;
   shrinking jitter accuracy is necessary, with no sufficiency claim.

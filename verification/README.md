@@ -18,7 +18,7 @@ python3 verification/run_all.py
 The runner executes all three scripts with assertions enabled, checks their
 results against the committed reference quantities, and exits unsuccessfully
 if a scientific assertion or comparison fails. A normal run does not modify
-the reference files. Either script can also be run directly to print its full
+the reference files. Each script can also be run directly to print its full
 JSON result.
 
 For a scientifically reviewed change, regenerate the reference outputs
@@ -82,52 +82,18 @@ and the companion [microscopic sensing proof](https://github.com/GoGoKo699/Noise
 They do not certify derivative transfer from total variation, global sensing
 advantage, or optimization against every microscopic controller.
 
-The companion [microscopic control suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_microscopic.py)
-adds eleven checks of the sharp boundary-control coefficients and the
-same-contact midpoint echo in the sensing bridge. It propagates the actual
-sensor–ancilla–bath unitaries around each interior pulse and finite-differences
-the complete flagged readout probabilities. A Markov endpoint surrogate is
-explicitly checked to give a different interior-pulse experiment. Run
+The companion repository supplies the following additional checks. Run
 `python scripts/check.py` in the Noise-Rate-Activated-Sensing checkout to
-include these checks; they are not part of this repository's three-script
-runner. The universal control bounds remain analytical statements.
+include them in its 144-test suite; they are not part of this repository's
+three-script runner.
 
-The companion [contact-precision suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_contact_precision.py)
-adds eight checks of the [hard-activity derivative lemma](../science/intervention_bounds.md#a-derivative-bound-with-a-hard-activity-budget)
-and its sensing application. A purified adaptive controller retains rare,
-signal-dependent activity histories and tests the derivative-source
-decomposition, inactive orthogonality and active-history budget bound.
-Its measured output excludes bath access. Separate early-readout experiments
-verify the attaining probabilities and the original total-contact count.
-The arbitrary-boundary-control relaxation is used only for upper-bound
-checks. These checks run in the companion repository's 144-test suite;
-this repository's three-script runner is unchanged.
-
-The companion [identifiability suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_identifiability.py)
-adds seven checks of the [clock-alias obstruction](../science/sensing_bridge.md#frequency-aliases-of-the-collision-clock)
-and the fixed-band calibration experiment. Exact joint unitaries are checked
-on entangled inputs and through complete adaptive boundary records at
-resonances. The calibration checks retain odd outcomes, enumerate estimator
-risk and tail probabilities, and charge early readout. These also run in the
-companion suite; the universal alias statement remains an analytical proof.
-
-The companion [global microscopic suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_global_microscopic.py)
-adds eleven checks supporting the [global contact theorem](../science/global_contact_precision.md)
-and the shared recorded-phase method. Complete physical parity trees include
-the echo frame and conditional correction, while independent recursions
-check record probabilities and derivative rewards. Conditional readout
-inversion, wrong-stage interval containment and deterministic trial schedules
-exercise the estimator mechanism. Every branch pays its interior pulses and
-early readout; no failed block becomes a free retry.
-
-The companion [timing suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_timing_precision.py)
-adds eight direct-unitary checks for [systematic displacement and hidden jitter](../science/timing_precision.md).
-It distinguishes a pure displaced parity branch from an unobserved mixture,
-checks the exact known-offset record phase and common nuisance-curve gauge,
-and finite-differences complete local readout probabilities. The tested
-small-jitter gauge envelope supports the converse calculation, not a
-sufficiency claim. Both suites run with `python scripts/check.py` in the
-companion repository; this repository's three-script runner is unchanged.
+| Companion suite | Checks | What is exercised |
+|---|---|---|
+| [Microscopic control](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_microscopic.py) | 11 | Sharp boundary-control coefficients and the same-contact midpoint echo, from sensor–ancilla–bath unitaries and complete flagged readout derivatives. A Markov endpoint surrogate gives a different interior-pulse experiment. |
+| [Contact precision](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_contact_precision.py) | 8 | The [hard-activity derivative lemma](../science/intervention_bounds.md#a-derivative-bound-with-a-hard-activity-budget): rare signal-dependent histories, derivative-source decomposition, inactive orthogonality and the hard active-history budget. Measured outputs exclude the bath; early-readout checks retain the original total-contact count. Arbitrary boundary control is a converse relaxation only. |
+| [Identifiability](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_identifiability.py) | 7 | [Clock aliases](../science/sensing_bridge.md#frequency-aliases-of-the-collision-clock) on entangled inputs and complete adaptive boundary records, plus fixed-band calibration risk and tails with odd outcomes and early readout charged. |
+| [Global microscopic precision](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_global_microscopic.py) | 11 | The [global contact theorem](../science/global_contact_precision.md) and shared recorded-phase method: physical parity trees with echo frame and conditional correction, independent probability and reward recursions, conditional inversion, wrong-stage interval containment and deterministic budgets. Every branch pays its pulses and early readout. |
+| [Timing](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_timing_precision.py) | 8 | [Systematic displacement and hidden jitter](../science/timing_precision.md): pure versus mixed parity branches, the exact known-offset record phase, common nuisance-curve gauge and complete local readout derivatives. The small-jitter gauge envelope supports the converse, not sufficiency of the timing scale. |
 
 The global contact and jitter lower bounds use the companion's [bounded-loss closure](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_global_precision.md#global-risk-under-controlled-limits). This is an analytical argument for operational limits, not an inference from sampled channel continuity or local Fisher information. Known systematic displacement is a supplied input; these checks do not establish a calibration cost for an unknown offset.
 

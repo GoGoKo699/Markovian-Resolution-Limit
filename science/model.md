@@ -150,24 +150,7 @@ The constants are independent of system dimension and the number of jumps. The l
 
 ## Amplitude damping and the sharper constant
 
-For amplitude damping, put
-
-```math
-r=\frac{\Lambda}{\gamma},
-\qquad T=\frac1\gamma.
-```
-
-For $`r\geq1`$ and every integer $`N\geq0`$, the [amplitude-damping theorem](amplitude_damping.md#matching-bounds) proves
-
-```math
-\frac{5}{64}\min\!\left\{1,\frac{N}{r^2}\right\}
-\leq\Gamma_N
-\leq\Delta_N
-\leq
-\min\!\left\{1,2\cosh^2(1)\frac{N}{r^2}\right\}.
-```
-
-Here $`\nu=\gamma`$, and the exact exponential survival law improves the general lower constant from $`1/64`$ to $`5/64`$.
+For amplitude damping, $`\nu=\gamma`$ and $`T=1/\gamma`$. Its exact exponential survival law improves the lower coefficient from $`1/64`$ to $`5/64`$; the upper coefficient and the contact scale are unchanged. The [amplitude-damping theorem](amplitude_damping.md#matching-bounds) states the complete bound and proves it with an explicit exchange Hamiltonian.
 
 ## Endpoint and single-run conventions
 
