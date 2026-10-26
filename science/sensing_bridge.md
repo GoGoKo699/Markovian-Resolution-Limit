@@ -377,6 +377,70 @@ For finite controllers and their parameter-independent classical mixtures, the p
 
 The companion [limited-contact theorem](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_precision.md#limited-access-inside-collision-cells) adds matching lower constructions while imposing at most $`n-1`$ total system contacts, of which at most $`m`$ lie inside cells. The optimal information divided by $`h^2`$ is of order $`n+m^2`$ for fixed $`\chi`$. Consequently, interior-contact budgets of order at most $`\sqrt n`$ preserve linear scaling; a budget proportional to $`n`$ is necessary and sufficient for quadratic scaling. These are local sensing statements for this explicit device, not a substitution into the fixed-generator discrimination law.
 
+## Frequency aliases of the collision clock
+
+The fixed collision clock also limits global frequency identification. Keep one coupling $`g`$, the cell duration $`h`$ and nominal compensation $`\omega_0`$ fixed, and write $`\eta=\omega-\omega_0`$, $`\chi=gh\in(0,\pi/4)`$. The Hamiltonian in a cell is
+
+```math
+H(\eta,\phi)=\frac\eta2 Z_S\otimes I_E
++gN_\phi\otimes X_E,
+\qquad
+R(\eta)=\sqrt{g^2+\eta^2/4}.
+```
+
+For every positive integer $`k`$, the two residual frequencies
+
+```math
+\eta_k^\pm=\pm\frac2h\sqrt{k^2\pi^2-\chi^2}
+```
+
+obey $`R(\eta_k^\pm)h=k\pi`$. The exact joint propagator is therefore
+
+```math
+U(\eta_k^\pm,\phi)=(-1)^k I_{SE},
+\qquad
+K_0=(-1)^kI_S,\qquad K_1=0.
+```
+
+The reduced cell channel is the identity, independently of the unknown direction. Its scalar phase is not an accessible output. Only resonances inside the chosen frequency domain are relevant; any imposed bound on the full Hamiltonian must also cover $`R(\eta_k^\pm)=k\pi/h`$.
+
+Suppose two distinct frequencies $`\omega_1,\omega_2`$ in the parameter domain are of the form $`\omega_0+\eta_k^\pm`$. Every parameter-independent controller restricted to cell boundaries has the same complete accessible output at these two frequencies, for every number of cells. To prove this for adaptive controls, start with the same sensor, protected memory and classical record. Each complete collision acts as the identity on their joint state. Applying the same boundary instrument then gives the same outcome probabilities and conditional states on every history. Induction over the cells proves equality of the final classical–quantum outputs; arbitrary terminal measurements, classical randomization and protected-memory processing preserve it. This argument uses the original fresh-cell bath: all bath qubits are prepared at time zero, spent qubits are retained without reuse, and none is accessible to the controller.
+
+Consequently any frequency estimator has the same output law at the two frequencies. With $`d=|\omega_1-\omega_2|`$ and $`\overline\omega=(\omega_1+\omega_2)/2`$, this common law gives
+
+```math
+\frac12\left\{
+\mathbb E_{\omega_1}[(\widehat\omega-\omega_1)^2]
++\mathbb E_{\omega_2}[(\widehat\omega-\omega_2)^2]
+\right\}
+=\mathbb E[(\widehat\omega-\overline\omega)^2]+\frac{d^2}{4}
+\geq\frac{d^2}{4}.
+```
+
+Thus the boundary-only minimax squared error over any domain containing this pair is at least $`d^2/4`$, uniformly in the number of cells. This is an exact indistinguishability statement, not a consequence of small local Fisher information.
+
+A fixed band around compensation admits a positive result. The companion [microscopic identifiability theorem](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_identifiability.md) chooses any fixed $`\chi<r_*<\pi/4`$ and defines
+
+```math
+E=\frac2h\sqrt{r_*^2-\chi^2},
+\qquad \kappa=h\cos(2r_*)>0.
+```
+
+For $`|\omega-\omega_0|\leq E`$, a one-cell Bell-parity and logical-quadrature measurement has an exactly direction-independent likelihood and a strictly increasing mean with derivative at least $`\kappa`$. Repeating this complete experiment $`N`$ times gives an estimator with
+
+```math
+\sup_{|\omega-\omega_0|\leq E,\phi}
+\mathbb E[(\widehat\omega-\omega)^2]
+\leq\frac1{N\kappa^2},
+\qquad
+\Pr\{|\widehat\omega-\omega|\geq\delta\}
+\leq2\exp\!\left(-\frac{N\kappa^2\delta^2}{2}\right).
+```
+
+All odd-parity failures are included. These experiments cost $`Nh`$ in physical time and $`N-1`$ boundary measure-and-reprepare contacts, with free initial preparation and final readout. When used as a calibration prefix of a longer experiment, the readout at $`Nh`$ is an additional counted boundary contact, so that prefix costs $`N`$ contacts. This is a sufficient identifiable band, not a maximal-bandwidth claim.
+
+The alias obstruction concerns the fixed-coupling, fixed-duration, fixed-compensation boundary model. Interior-cell contacts, selectable couplings or changes to the compensation are different control allowances. In particular, a paid classical frequency estimate does not itself retune the physical Hamiltonian. The calibration result gives a usable estimation band, while the aliases impose a nonvanishing risk on domains containing them. Neither result turns the local contact-information law into an optimal global-risk law.
+
 ## Compatible scales and attribution
 
 For small cells, $`g_b(h)\sim\sqrt{b/h}`$. Choosing a finer cell improves the uniform record approximation while increasing the coupling, the number of preinitialized bath qubits and the clock resolution. More explicitly, $`g_b(h)^2\leq b/h`$, so $`h=b/\Lambda_\perp^2`$ is one sufficient choice for the noise-only coupling budget when the desired observation grid and horizon are integer multiples of that cell. It yields the record bound

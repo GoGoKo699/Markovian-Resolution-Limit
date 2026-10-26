@@ -100,8 +100,16 @@ decomposition, inactive orthogonality and active-history budget bound.
 Its measured output excludes bath access. Separate early-readout experiments
 verify the attaining probabilities and the original total-contact count.
 The arbitrary-boundary-control relaxation is used only for upper-bound
-checks. These checks run in the companion repository's 118-test suite;
+checks. These checks run in the companion repository's 125-test suite;
 this repository's three-script runner is unchanged.
+
+The companion [identifiability suite](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_identifiability.py)
+adds seven checks of the [clock-alias obstruction](../science/sensing_bridge.md#frequency-aliases-of-the-collision-clock)
+and the fixed-band calibration experiment. Exact joint unitaries are checked
+on entangled inputs and through complete adaptive boundary records at
+resonances. The calibration checks retain odd outcomes, enumerate estimator
+risk and tail probabilities, and charge early readout. These also run in the
+companion suite; the universal alias statement remains an analytical proof.
 
 ## What the calculations do not establish
 

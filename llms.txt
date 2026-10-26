@@ -25,7 +25,9 @@ Canonical entrypoints:
   parity-record witness, finite-coupling collision approximation with signal,
   full boundary-adaptive record bound, bounded-loss risk transfer, and a
   same-contact midpoint echo, and the adaptive upper bound for limited
-  access inside collision cells.
+  access inside collision cells. Exact frequency aliases of a fixed collision
+  clock obstruct broad-band boundary-only identification; the companion
+  supplies an identifiable band and calibration with all trials charged.
 - learning/ANCHOR.md: the single educational anchor, Rivas and Huelga's
   Open Quantum Systems: An Introduction, using arXiv:1104.5242v2 (2012);
   verified section pointers, notation translation, assumptions and local bridge.
@@ -111,3 +113,7 @@ Preserve these distinctions:
   optimal information is of order h²(n+m²) for fixed g,h. The hard budget holds
   on every classical history. This is a local compensated calculation, not a
   global-risk result or a change to the main law.
+- Fixed-clock frequency aliases concern fixed coupling and fixed nominal
+  compensation with boundary-only access. They do not establish an obstruction
+  for inside-cell controls or setting selection. Paid localization on an
+  identifiable band does not itself change the physical compensation.
