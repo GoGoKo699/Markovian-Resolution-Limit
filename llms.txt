@@ -28,6 +28,15 @@ Canonical entrypoints:
   access inside collision cells. Exact frequency aliases of a fixed collision
   clock obstruct broad-band boundary-only identification; the companion
   supplies an identifiable band and calibration with all trials charged.
+- science/global_contact_precision.md: matching global minimax risk of order
+  1/[h²(n+m²)] on a fixed sufficient band for the explicit sensor. Exact
+  echo/plain temporal menu, charged frame corrections and early readout,
+  recorded-phase estimator, and a uniform full-adaptive nuisance-curve converse.
+- science/timing_precision.md: known fixed pulse displacement preserves
+  quadratic global precision through a calibrated temporal menu. Independent
+  unobserved two-point jitter gives inverse-time global risk for the specified
+  plain/one-pulse menu despite quadratic local information at compensation;
+  shrinking jitter accuracy is necessary, with no sufficiency claim.
 - learning/ANCHOR.md: the single educational anchor, Rivas and Huelga's
   Open Quantum Systems: An Introduction, using arXiv:1104.5242v2 (2012);
   verified section pointers, notation translation, assumptions and local bridge.
@@ -111,8 +120,14 @@ Preserve these distinctions:
   midpoints restores fixed-coupling quadratic local information. More generally,
   with n cells, at most n−1 total contacts and at most m inside-cell contacts,
   optimal information is of order h²(n+m²) for fixed g,h. The hard budget holds
-  on every classical history. This is a local compensated calculation, not a
-  global-risk result or a change to the main law.
+  on every classical history. This local calculation has a separate global
+  counterpart proved in global_contact_precision.md on a fixed sufficient
+  band. The global proof includes ambiguity resolution and uniform risk
+  bounds; it does not take the reciprocal of pointwise information.
+- The global sensing law and its timing-menu limitations concern the explicit
+  collision sensor. They do not change the headline fixed-generator law.
+  Known systematic displacement and unobserved random jitter are distinct
+  resources; the jitter converse does not cover arbitrary pulse sequences.
 - Fixed-clock frequency aliases concern fixed coupling and fixed nominal
   compensation with boundary-only access. They do not establish an obstruction
   for inside-cell controls or setting selection. Paid localization on an

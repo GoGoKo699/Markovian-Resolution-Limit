@@ -22,6 +22,7 @@ The distinctions below concern those quantifiers and assumptions. Quadratic shor
 |---|---|---|---|
 | Zeno dynamics and jump time | [Misra–Sudarshan](#misra1977), [Schulman](#schulman2001) | Repeated projections suppress decay; the crossover combines a quadratic survival time with a decay lifetime. | Optimal distinguishability at each finite intervention budget, uniformly over microscopic models. |
 | Dynamical decoupling | [Viola–Knill](#viola2005), [Hillier et al.](#hillier2015), [Arenz et al.](#arenz2015) | Fast control suppresses bounded environmental noise and can distinguish it from intrinsic Markovian noise. | A matching simulator that hides against all allowed experiments, including nonunitary adaptive instruments. |
+| Pulse-timing errors | [Teixeira et al.](#teixeira2016) | Random pulse-time fluctuations change dynamical-decoupling coherence in specified baths. | Precision with a specified microscopic echo, observed or hidden timing information, and a charged contact budget. |
 | Reset and collision simulation | [Cleve–Wang](#cleve2017), [Cattaneo et al.](#cattaneo2021), [Pocrnic et al.](#pocrnic2025) | Resource bounds and convergence for prescribed repeated-interaction simulations of endpoint channels. | Retained bath memory, arbitrary microscopic alternatives, and probes at arbitrary times inside collision cells. |
 | Quantum trajectories and channel time-energy cost | [Dalibard et al.](#dalibard1992), [Fung–Chau](#fung2013), [Fung et al.](#fung2015) | No-jump evolution and bounded-angle unitary extensions of channels. | Use of an explicit parity-odd extension to bound a whole controlled collision cell. |
 | Lindblad metrology | [Gardner et al.](#gardner2025) | Maximum jump variance, its centered-operator minimax form, and measure-and-reset sensing. | Comparison of ideal Markov dynamics with finite-coupling microscopic dynamics. |
@@ -66,6 +67,13 @@ Theorem 14 gives asymptotic fidelity bounds for random decoupling and distinguis
 Christian Arenz, Robin Hillier, Martin Fraas, and Daniel Burgarth, “Distinguishing decoherence from alternative quantum theories by dynamical decoupling,” *Physical Review A* **92**, 022102 (2015). [DOI](https://doi.org/10.1103/PhysRevA.92.022102); [arXiv:1405.7644v4](https://arxiv.org/html/1405.7644v4).
 
 This work already proposes fast-control discrimination of environmental decoherence and intrinsic Lindblad noise. Its amplitude-damping example uses a two-qubit dilation with coupling divergent at the initial time, and the necessary control rate depends on the dilation. The conceptual discrimination proposal is inherited background. Here the norm budget is fixed across the microscopic model class and both directions of the operational bound are proved.
+
+<a id="teixeira2016"></a>
+### Teixeira, Kapale, Paternostro, and Semião (2016)
+
+W. S. Teixeira, K. T. Kapale, M. Paternostro, and F. L. Semião, “Performance of dynamical decoupling in bosonic environments and under pulse-timing fluctuations,” *Physical Review A* **94**, 062322 (2016). [DOI](https://doi.org/10.1103/PhysRevA.94.062322); [arXiv:1606.08776v2](https://arxiv.org/html/1606.08776v2), revised 5 January 2017.
+
+Section II, Eq. (12), perturbs Uhrig pulse times by independent zero-mean Gaussian absolute-time errors and studies ensemble coherence in specified bosonic baths. Sensitivity of dynamical decoupling to pulse jitter is therefore established. The [timing analysis](../science/timing_precision.md) instead derives the exact instrument of one displaced echo in a fixed collision and distinguishes a systematic offset from independent hidden two-point jitter. Its bounded displacement keeps the pulse inside the cell, while the missing timing label determines which quantum channel is available to the controller. Calibration of a fixed offset and unobserved random errors are different resources. A coherence calculation for a specified decoupling sequence does not itself establish a uniform global frequency-risk law or a converse for an entire adaptive strategy class. This focused comparison was checked against version 2 on 26 October 2026.
 
 ## Collision simulation and channel implementation
 
@@ -194,6 +202,12 @@ This work studies discrimination of fixed Lindbladians with adaptive durations a
 He Wang, “Continuous-Process Randomized Compilation for Quantum Process Tensors,” [arXiv:2610.01521v2](https://arxiv.org/html/2610.01521v2), 3 October 2026.
 
 Theorem 2 bounds the complete adaptive experimental record under bounded centered coupling, autonomous random control, and pointwise-covariant finite-duration instruments. Its reference experiment removes the centered interaction while retaining the environment propagation. This is directly relevant process-level error control. The result is a decoupling guarantee for its specified control model; it does not construct bounded-coupling approximations to a dissipative Markov target or supply the corresponding minimax converse.
+
+## Global sensing and the companion comparison
+
+The [global contact theorem](../science/global_contact_precision.md) is a sensing result for the explicit collision device, separate from the fixed-generator discrimination theorem above. It supplies a fixed-interval risk argument with paid localization and retained failures; local Fisher information alone would not establish that statement. The two temporal settings are an untouched and an echoed cell at one fixed coupling. The [Noise Sensing comparison](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/references/RELATED_WORK.md#non-markovian-correction-and-controlled-process-metrology) owns the detailed comparisons with Mann and collaborators on non-Markovian error correction, Altherr and Yang on optimized comb information, and Kurdziałek and collaborators on correlated-noise adaptive bounds.
+
+The companion [recorded-phase estimation lemma](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md) also owns the common multiscale estimator and its attribution to Higgins and collaborators. The application here checks the temporal-setting instrument, shared-direction cancellation, contact costs and the matching converse. Rate diversity in the sister paper and interior temporal access here are distinct physical resources; neither construction treats a frequency estimate as a free physical retuning. The [timing perturbation](../science/timing_precision.md) has its own explicit control menu and does not imply a universal limit for every imperfect interior control.
 
 ## General background
 

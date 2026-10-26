@@ -335,7 +335,7 @@ The finite expression never exceeds $`T^2`$, since its ratio to $`T^2`$ is $`(\s
 
 For the target Markov process, the same $`Z_S`$ pulses leave the dissipator unchanged: $`Z_SN_\phi Z_S=-N_\phi`$, and changing a jump operator's sign has no effect on $`N_\phi\rho N_\phi-\rho`$. The signal also commutes with the pulses. The microscopic echo thus exploits coherent evolution within a bath collision that the Markov model does not retain.
 
-This calculation establishes a local sensing benefit from access to collision midpoints. It shows why a boundary-only fixed-rate converse cannot be promoted to an arbitrary-timing converse using contact count alone. It does not establish a global minimax estimation law, optimized local coefficients, or a new bound for the headline fixed-generator minimax problem. The nominal compensation, ideal pulses, known collision clock and protected ancilla remain explicit resources.
+This calculation establishes a local sensing benefit from access to collision midpoints. It shows why a boundary-only fixed-rate converse cannot be promoted to an arbitrary-timing converse using contact count alone. The separate [global contact theorem](global_contact_precision.md) supplies a global estimator using a choice between echoed and untouched cells, together with a uniform risk converse. The single repeated echo calculation here does not establish that theorem or optimized local coefficients. The nominal compensation, ideal pulses, known collision clock and protected ancilla remain explicit resources; the headline fixed-generator minimax problem is unchanged.
 
 ## How many contacts must resolve a collision
 
@@ -439,7 +439,7 @@ For $`|\omega-\omega_0|\leq E`$, a one-cell Bell-parity and logical-quadrature m
 
 All odd-parity failures are included. These experiments cost $`Nh`$ in physical time and $`N-1`$ boundary measure-and-reprepare contacts, with free initial preparation and final readout. When used as a calibration prefix of a longer experiment, the readout at $`Nh`$ is an additional counted boundary contact, so that prefix costs $`N`$ contacts. This is a sufficient identifiable band, not a maximal-bandwidth claim.
 
-The alias obstruction concerns the fixed-coupling, fixed-duration, fixed-compensation boundary model. Interior-cell contacts, selectable couplings or changes to the compensation are different control allowances. In particular, a paid classical frequency estimate does not itself retune the physical Hamiltonian. The calibration result gives a usable estimation band, while the aliases impose a nonvanishing risk on domains containing them. Neither result turns the local contact-information law into an optimal global-risk law.
+The alias obstruction concerns the fixed-coupling, fixed-duration, fixed-compensation boundary model. Interior-cell contacts, selectable couplings or changes to the compensation are different control allowances. In particular, a paid classical frequency estimate does not itself retune the physical Hamiltonian. The calibration result gives a usable estimation band, while the aliases impose a nonvanishing risk on domains containing them. A separate [global contact proof](global_contact_precision.md) combines exact recorded phases, paid multiscale estimation and a uniform adaptive converse on a sufficiently small fixed sub-band. Its ideal temporal control and the effects of [systematic timing displacement and hidden jitter](timing_precision.md) have distinct guarantees.
 
 ## Compatible scales and attribution
 
