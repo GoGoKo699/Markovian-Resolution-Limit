@@ -20,6 +20,9 @@ Canonical entrypoints:
 - science/interpretation.md: controlled process versus endpoint channel,
   coupling-strength cost at accuracy epsilon, timing and instrument robustness,
   and the physical resources required by both constructions.
+- science/sensing_bridge.md: a separate rate-input device model, universal
+  parity-record witness, finite-coupling collision approximation with signal,
+  full boundary-adaptive record bound and bounded-loss risk transfer.
 - learning/ANCHOR.md: the single educational anchor, Rivas and Huelga's
   Open Quantum Systems: An Introduction, using arXiv:1104.5242v2 (2012);
   verified section pointers, notation translation, assumptions and local bridge.
@@ -34,7 +37,9 @@ Canonical entrypoints:
 - references/references.bib: primary-source metadata and versioned links.
 - verification/README.md: finite checks, dependencies, numerical tolerances,
   reference outputs and the distinction between computation and proof.
-- verification/run_all.py: executes both checks without rewriting expected
+- verification/verify_sensing_bridge.py: bounded two-rate cells, complete
+  parity records, retained-bath survival and direct local-response checks.
+- verification/run_all.py: executes all checks without rewriting expected
   outputs unless --record is explicitly passed.
 
 Reader routes:
@@ -90,3 +95,9 @@ Preserve these distinctions:
   decomposition and channel extension costs are attributed prior ingredients.
 - Numerical checks are finite examples, not optimizations over all testers
   or substitutes for the uniform analytical bounds.
+- The sensing bridge is not a direct application of the headline fixed-generator
+  theorem. Its noise-remainder bound and complete Hamiltonian bound are distinct;
+  collision boundaries are specified, and rate inputs are explicit resources.
+  Record distinguishability alone proves neither loss nor retention of a
+  metrological advantage. Uniform record closeness transfers bounded loss,
+  not parameter derivatives or Fisher information.

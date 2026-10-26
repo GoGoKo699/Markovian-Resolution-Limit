@@ -15,7 +15,7 @@ python3 -m pip install -r verification/requirements.txt
 python3 verification/run_all.py
 ```
 
-The runner executes both scripts with assertions enabled, checks their
+The runner executes all three scripts with assertions enabled, checks their
 results against the committed reference quantities, and exits unsuccessfully
 if a scientific assertion or comparison fails. A normal run does not modify
 the reference files. Either script can also be run directly to print its full
@@ -38,6 +38,7 @@ calculation require checking its equations and physical meaning.
 |---|---|---|
 | [Qubit cell](verify_amplitude_cell.py) | Exchange-unitary reduction versus the amplitude-damping Kraus channel on all four matrix units; an exact midpoint phase echo; a Bell-input instrument tree with three contacts and eight retained histories | Checks endpoint equality, the attained quadratic cell discrepancy and one adaptive ancilla-assisted example |
 | [General dissipative cell](verify_dissipator_cell.py) | Exponentiated Lindblad superoperator versus the positive-no-jump-Kraus direct rotation on all nine qutrit matrix units; parity and sign reversal; two joint qutrit-reference instruments with four histories and an outcome-dependent second time | Checks the exact-cell completion for three nonnormal, noncommuting jumps and a non-diagonal loss operator |
+| [Sensing bridge](verify_sensing_bridge.py) | Direct joint unitary versus analytic Kraus operators; independently exponentiated Markov channel; 128-history adaptive parity trees; reuse of one correlated bath; finite-difference readout response versus a classical reward recursion | Checks the explicit two-rate device, complete-record bounds, parity witness, and microscopic local coefficient at sampled parameters |
 
 The general example is analytically optimally centered, as shown in
 [the dissipator account](../science/dissipators.md#9-numerical-check-of-the-exact-general-cell).
@@ -69,6 +70,17 @@ weight, endpoint equality and the physical output quantities remain checked.
 The scripts enforce the tighter local identity and error-bound assertions
 independently of the reference comparison. Both deterministic random seeds
 and every sampled parameter appear in the outputs.
+
+The [sensing reference result](expected/sensing_bridge.json) records endpoint
+and Kraus residuals below `3e-16`, complete classical–quantum output distances
+below the analytical cell-hybrid bounds, and local readout derivatives within
+`2e-11` of the independent reward recursion. The retained-bath check uses one
+mixed bath throughout all projections, with noncommuting time-dependent
+couplings and bath motion; a second example saturates the survival bound.
+These are finite checks of the [shared derivation](../science/sensing_bridge.md)
+and the companion [microscopic sensing proof](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_sensing.md).
+They do not certify derivative transfer from total variation, global sensing
+advantage, or optimization against every microscopic controller.
 
 ## What the calculations do not establish
 
