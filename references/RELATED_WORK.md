@@ -245,7 +245,7 @@ This pedagogical review develops collision maps, their continuous-time limits, q
 
 Ángel Rivas and Susana F. Huelga, *Open Quantum Systems: An Introduction*, first edition, SpringerBriefs in Physics, Springer (2012). [Publisher and DOI](https://doi.org/10.1007/978-3-642-23354-8); [author preprint, arXiv:1104.5242v2](https://arxiv.org/abs/1104.5242v2).
 
-The mathematical structure of dynamical maps and semigroups, and their microscopic derivations, provides background for the theorem's assumptions.
+This is the single educational anchor shared with Noise-Rate-Activated Sensing. The mathematical structure of dynamical maps and semigroups, and their microscopic derivations, provides background for the theorem's assumptions. The [local source bridge](../learning/ANCHOR.md) maps it to the resolution theorem and separate sensing consequence; the companion supplies its own estimation bridge. Research references and the shared anchor have distinct roles.
 
 <a id="breuer2002"></a>
 ### Breuer and Petruccione (2002)
