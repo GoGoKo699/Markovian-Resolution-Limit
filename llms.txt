@@ -22,7 +22,8 @@ Canonical entrypoints:
   and the physical resources required by both constructions.
 - science/sensing_bridge.md: a separate rate-input device model, universal
   parity-record witness, finite-coupling collision approximation with signal,
-  full boundary-adaptive record bound and bounded-loss risk transfer.
+  full boundary-adaptive record bound, bounded-loss risk transfer, and a
+  same-contact midpoint echo with fixed-coupling quadratic local information.
 - learning/ANCHOR.md: the single educational anchor, Rivas and Huelga's
   Open Quantum Systems: An Introduction, using arXiv:1104.5242v2 (2012);
   verified section pointers, notation translation, assumptions and local bridge.
@@ -101,3 +102,7 @@ Preserve these distinctions:
   Record distinguishability alone proves neither loss nor retention of a
   metrological advantage. Uniform record closeness transfers bounded loss,
   not parameter derivatives or Fisher information.
+- The companion microscopic fixed-rate converse allows all boundary controls,
+  not arbitrary contact timing. Moving the same number of contacts to collision
+  midpoints restores fixed-coupling quadratic local information. This is a local
+  compensated calculation, not a global-risk result or a change to the main law.
