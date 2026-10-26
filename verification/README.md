@@ -32,6 +32,20 @@ python3 verification/run_all.py
 Recording an output does not independently validate it. Changes to a
 calculation require checking its equations and physical meaning.
 
+## Explanatory report build
+
+The [44-page report PDF](../learning/report/Markovian_Resolution_Limit_Report.pdf) has a matching [self-contained LaTeX source](../learning/source/Markovian_Resolution_Limit_Report.tex). All text, macros and the analytic TikZ figure are inline; no external figures, bibliography or additional TeX inputs are needed. Its scientific account corresponds to revision `4d01c0b8fb8a0f8a76baaea36ee897ec3a25cd61` and the shared sensing results at companion revision `a46faa43faff046217d587a5248c27419294433e`.
+
+Use **pdfLaTeX from TeX Live 2025**, with the packages named in the source preamble. A full TeX Live 2025 installation includes them. The checked engine is pdfTeX 3.141592653-2.6-1.40.28. With that installation on `PATH`, run from the repository root:
+
+```bash
+python3 verification/build_report.py --output /tmp/mrl-report-build
+```
+
+The output directory must not already exist. Alternatively, select the engine explicitly with `--pdflatex /path/to/texlive/2025/bin/x86_64-linux/pdflatex`. The [build script](build_report.py) checks the engine year, copies the source into the new directory, compiles three times, and requires a fresh PDF and final log with resolved references and no layout or missing-character warnings. It retains the compiler transcripts and writes `build.json` with the engine version and source, PDF and log SHA-256 hashes. It never overwrites the stored report.
+
+The fresh PDF and corresponding final log establish that the relocated source compiles; the stored PDF alone cannot establish that. PDF bytes may differ between builds because of timestamps and identifiers. Compare page content and inspect rendered pages before replacing the stored PDF. Compilation, visual inspection and scientific validation are separate checks. The scientific runner above does not install TeX or compile the report.
+
 ## What each calculation checks
 
 | Script | Independent comparisons | Scope |

@@ -6,6 +6,12 @@ The complete scientific account is organized by topic under science/.
 
 Canonical entrypoints:
 - README.md: question, exact result, scope, reading routes and reproduction.
+- learning/README.md: continuous report, anchor, tutorial and milestone routes.
+- learning/report/Markovian_Resolution_Limit_Report.pdf: self-contained
+  explanatory report from quantum states and measurement to the resolution
+  theorem, global contact precision and the timing-information distinction.
+- learning/source/Markovian_Resolution_Limit_Report.tex: matching editable,
+  self-contained source; build instructions are in verification/README.md.
 - science/model.md: microscopic model class, admissible testers, fixed final
   time, resource accounting, Delta_N, signed universal Gamma_N, and theorems.
 - science/intervention_bounds.md: memory-only controller normal form,
@@ -62,8 +68,12 @@ Canonical entrypoints:
   parity records, retained-bath survival and direct local-response checks.
 - verification/run_all.py: executes all checks without rewriting expected
   outputs unless --record is explicitly passed.
+- verification/build_report.py: separately builds the report from its source
+  in a new directory with TeX Live 2025 and checks the final compilation log.
 
 Reader routes:
+- For a continuous explanation from first principles: the report PDF, then
+  the canonical science pages for exact statements and research attribution.
 - For the physical story: model -> amplitude damping -> interpretation.
 - For study: anchor bridge -> tutorial -> milestone map -> linked science.
   The milestone map is independent of any reader's background or progress.
