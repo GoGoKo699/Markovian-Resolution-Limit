@@ -2,7 +2,7 @@
 
 [Operational model](model.md) · [Controlled-interval estimates](intervention_bounds.md) · [Companion sensing analysis](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_sensing.md)
 
-The companion [Noise-Rate-Activated-Sensing project](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing) asks how access to two incoherent noise rates changes frequency estimation when the transverse error direction is unknown. Its retained parity record also supplies a concrete test of the assumed noise law. This page gives a discrepancy certificate valid for every bounded microscopic alternative and a uniform approximation guarantee for one explicit two-rate collision device. A separate midpoint-pulse calculation then shows how the timing of the same number of contacts can turn that device's microscopic memory into a local sensing resource.
+The companion [Noise-Rate-Activated-Sensing project](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing) asks how access to two incoherent noise rates changes frequency estimation when the transverse error direction is unknown. Its retained parity record also supplies a concrete test of the assumed noise law. This page gives a discrepancy certificate valid for every bounded microscopic alternative and a uniform approximation guarantee for one explicit two-rate collision device. A midpoint-pulse calculation and a matching contact-budget bound then quantify how access inside collisions turns this device's microscopic memory into a local sensing resource.
 
 These statements use a **controlled device with a classical rate-input port**; the midpoint experiment holds that port fixed. They do not substitute a sensing contact count into the headline theorem for a fixed, centered, drift-free dissipator over one intrinsic lifetime. The device family and its response to each allowed command are fixed before choosing the sensing protocol. A classical command can select a rate; it does not expose the bath or coherently apply the unknown error operator.
 
@@ -336,6 +336,46 @@ The finite expression never exceeds $`T^2`$, since its ratio to $`T^2`$ is $`(\s
 For the target Markov process, the same $`Z_S`$ pulses leave the dissipator unchanged: $`Z_SN_\phi Z_S=-N_\phi`$, and changing a jump operator's sign has no effect on $`N_\phi\rho N_\phi-\rho`$. The signal also commutes with the pulses. The microscopic echo thus exploits coherent evolution within a bath collision that the Markov model does not retain.
 
 This calculation establishes a local sensing benefit from access to collision midpoints. It shows why a boundary-only fixed-rate converse cannot be promoted to an arbitrary-timing converse using contact count alone. It does not establish a global minimax estimation law, optimized local coefficients, or a new bound for the headline fixed-generator minimax problem. The nominal compensation, ideal pulses, known collision clock and protected ancilla remain explicit resources.
+
+## How many contacts must resolve a collision
+
+Keep one coupling $`g`$ and the cell duration $`h`$ fixed, with $`\chi=gh\in(0,\pi/4)`$ and $`T=nh`$. Allow arbitrary adaptive instruments at cell boundaries and at most $`m`$ system contacts strictly inside cells, with the latter budget enforced on every classical history. Several contacts inside one cell still make only one active cell, so the number of active cells is at most $`m`$. All outcomes are retained. This temporarily grants unlimited boundary access for an upper bound; it does not remove boundary contacts from the original resource accounting.
+
+The efficient local frequency information at $`\eta=0`$, with the common unknown angle as nuisance, satisfies
+
+```math
+\mathcal I_\omega
+\leq\min\left\{n^2h^2,
+\left(\frac{\sqrt n}{g}+\frac{mh}{\sin\chi}\right)^2\right\}.
+```
+
+To apply the [derivative bound with a hard activity budget](intervention_bounds.md#a-derivative-bound-with-a-hard-activity-budget), take the common nuisance path $`\eta(u)=u`$, $`\phi(u)=\phi_0+ku`$, where
+
+```math
+k=\frac{\cot\chi}{2g}.
+```
+
+The [exact boundary-channel calculation](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_precision.md#a-common-nuisance-path-removes-coherent-accumulation) gives zero derivative overlap and derivative norm $`a=1/(2g)`$ for an untouched cell. In a cell containing contacts, the full Hamiltonian derivative is
+
+```math
+\dot H=\frac{Z_S}{2}+kgN'_\phi\otimes X_E,
+\qquad
+\|\dot H\|=\sqrt{\frac14+k^2g^2}
+=\frac1{2\sin\chi}.
+```
+
+The two terms anticommute, which gives the displayed norm. Purify the complete instruments and retain their classical histories. At every common laboratory time their controlled Hamiltonian blocks obey the same derivative bound. A Duhamel integral over the physical cell duration therefore gives
+
+```math
+\|\dot V_{\mathrm{active}}\|
+\leq L=\frac{h}{2\sin\chi}.
+```
+
+This includes adaptive contact times and any number of instruments inside the active cell. Summing branchwise maximum waiting intervals would not justify the same bound; the integral is over one shared interval of length $`h`$. The [memory-only normal form](intervention_bounds.md#memory-only-controller-normal-form) makes the activity decision available at cell entry, and the derivative lemma supplies the claimed information bound. The separate $`T^2`$ cap uses the fixed-angle path and signal derivative $`Z_S/2`$.
+
+For finite controllers and their parameter-independent classical mixtures, the proof is direct. It also extends to the [specified limits with controlled derivatives](intervention_bounds.md#limits-with-controlled-parameter-derivatives). On this nuisance path, $`\|\partial_u H\|\leq1/(2\sin\chi)`$ and $`\|\partial_u^2H\|\leq gk^2`$ uniformly in a neighborhood, so the required event-probability derivative control holds for fixed $`n,m,g,h`$. This extension uses the microscopic Hamiltonian; total-variation closeness by itself still does not transfer Fisher information.
+
+The companion [limited-contact theorem](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_precision.md#limited-access-inside-collision-cells) adds matching lower constructions while imposing at most $`n-1`$ total system contacts, of which at most $`m`$ lie inside cells. The optimal information divided by $`h^2`$ is of order $`n+m^2`$ for fixed $`\chi`$. Consequently, interior-contact budgets of order at most $`\sqrt n`$ preserve linear scaling; a budget proportional to $`n`$ is necessary and sufficient for quadratic scaling. These are local sensing statements for this explicit device, not a substitution into the fixed-generator discrimination law.
 
 ## Compatible scales and attribution
 
