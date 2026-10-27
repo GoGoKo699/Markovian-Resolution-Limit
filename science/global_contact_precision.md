@@ -104,7 +104,7 @@ p_e(0)=0,\qquad p_p(0)=\sin^2\chi,
 \qquad
 d_e=\theta_e'(0)=A=\frac{\sin\chi}{g},
 \qquad
-d_p=\theta_p'(0)=d=\frac{\tan\chi}{g}.
+d_p=\theta_p'(0)=\frac{\tan\chi}{g}.
 ```
 
 The absence of an echo flip at zero does not assert that the echoed cell is noiseless off compensation: $`p_e(\epsilon)=x^2`$ is generally positive. When $`x`$ changes sign, its sign is a scalar phase on the flip branch and does not change the conditional logical state.
@@ -134,13 +134,13 @@ Choose $`E>0`$ sufficiently small that $`r_*:=\sqrt{\chi^2+(Eh/2)^2}<\pi/4`$ and
 0\le p_e(\epsilon)\lt p_p(\epsilon)\lt \frac12,
 \qquad
 \mu^0(\epsilon)
-=\frac{p_pq_eA-p_eq_pd}{p_e+p_p}
+=\frac{p_pq_eA-p_eq_pd_p}{p_e+p_p}
 \ge\frac{3A}{4},
 ```
 
 ```math
 \max\{|\theta'_e(\epsilon)-A|,
-|\theta'_p(\epsilon)-d|\}\le\frac A4.
+|\theta'_p(\epsilon)-d_p|\}\le\frac A4.
 ```
 
 Such an interval exists: $`p_p(0)>0`$, $`p_e(0)=0`$, the phase derivatives are smooth, and $`\mu^0(0)=A>0`$. Fix the interval independently of $`n,m`$. The full interaction norm throughout it is at most $`r_*/h`$, which any imposed hardware strength limit must cover. Compactness also gives
@@ -150,7 +150,7 @@ Such an interval exists: $`p_p(0)>0`$, $`p_e(0)=0`$, the phase derivatives are s
 \le\rho\lt 1.
 ```
 
-The [two-state parity gate](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md#a-two-state-parity-gate) applies with frozen rewards $`d_e=A`$, $`d_p=d`$ and positive drift $`\mu_0=A`$. For all sufficiently large fixed block lengths $`L`$, retain a record as usable precisely when it ends even and its frozen derivative reward obeys $`D_L^0\ge AL/2`$. Its acceptance probability is at least $`1/4`$, uniformly in the band and the nuisance. Every usable record satisfies
+The [two-state parity gate](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md#a-two-state-parity-gate) applies with frozen rewards $`d_e=A`$, $`d_p`$ and positive drift $`A`$ at compensation. For all sufficiently large fixed block lengths $`L`$, retain a record as usable precisely when it ends even and its frozen derivative reward obeys $`D_L^0\ge AL/2`$. Its acceptance probability is at least $`1/4`$, uniformly in the band and the nuisance. Every usable record satisfies
 
 ```math
 \frac{AL}{4}\le\Phi'_{\mathcal R}(v)\le\beta L
@@ -161,25 +161,25 @@ The [two-state parity gate](https://github.com/GoGoKo699/Noise-Rate-Activated-Se
 
 The gate argument uses the uniform gap in $`p_e+p_p`$, not a positive lower bound on $`p_e`$. It therefore includes compensation, where the initial even state is absorbing. Records with zero probability at a particular frequency need no conditional output there; the accepted-phase functions have the same smooth continuation.
 
-Untouched one-cell trials supply the [paid coarse estimator](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_identifiability.md) on this band with $`\kappa=h\cos(2r_*)>0`$. The [recorded-phase estimation lemma](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md#recorded-phase-estimation-lemma) then gives worst-case error at most $`C_1/(h^2Q^2)`$ within $`Q`$ cells, including all calibration and all rejected blocks. It chooses final measurement bases using the recorded phase and earlier estimates; it never changes the physical compensation. Rescaling the target to $`h\epsilon`$ makes $`C_1`$ depend only on $`\chi,Eh`$. A fixed estimate on the band covers small $`Q`$ after increasing this constant.
+Untouched one-cell trials supply the [paid coarse estimator](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_identifiability.md) on this band with $`\kappa=h\cos(2r_*)>0`$. The [recorded-phase estimation lemma](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md#recorded-phase-estimation-lemma) then gives worst-case error at most $`C_1/(h^2n_{\mathrm{use}}^2)`$ within $`n_{\mathrm{use}}`$ cells, including all calibration and all rejected blocks. It chooses final measurement bases using the recorded phase and earlier estimates; it never changes the physical compensation. Rescaling the target to $`h\epsilon`$ makes $`C_1`$ depend only on $`\chi,Eh`$. A fixed estimate on the band covers small $`n_{\mathrm{use}}`$ after increasing this constant.
 
 ### Fit the full contact budget
 
 For $`n\ge3`$ and $`m\ge1`$, set
 
 ```math
-Q=\min\!\left\{m,\left\lfloor\frac{n-1}{2}\right\rfloor\right\}.
+n_{\mathrm{use}}=\min\!\left\{m,\left\lfloor\frac{n-1}{2}\right\rfloor\right\}.
 ```
 
-Run the complete temporal-menu estimator, including its coarse stage and repeated blocks, using at most $`Q`$ physical cells. There is at most one midpoint pulse per used cell. Every cell-end frame correction, parity readout, optional conditional correction, terminal block readout and next preparation is included in its one boundary instrument. Because the estimator finishes before $`nh`$, count its last readout too. Hence there are at most $`Q`$ inside-cell contacts and $`Q`$ boundary contacts, so
+Run the complete temporal-menu estimator, including its coarse stage and repeated blocks, using at most $`n_{\mathrm{use}}`$ physical cells. There is at most one midpoint pulse per used cell. Every cell-end frame correction, parity readout, optional conditional correction, terminal block readout and next preparation is included in its one boundary instrument. Because the estimator finishes before $`nh`$, count its last readout too. Hence there are at most $`n_{\mathrm{use}}`$ inside-cell contacts and $`n_{\mathrm{use}}`$ boundary contacts, so
 
 ```math
-\text{inside-cell contacts}\le Q\le m,
+\text{inside-cell contacts}\le n_{\mathrm{use}}\le m,
 \qquad
-\text{total contacts}\le2Q\le n-1.
+\text{total contacts}\le2n_{\mathrm{use}}\le n-1.
 ```
 
-Store the classical estimate through the remaining charged cells without further system contacts. No branch obtains a shorter charged horizon or a free retry. For $`n\ge3`$ and $`1\le m\le n-1`$, $`Q\ge m/3`$, so this design gives risk at most $`9C_1/(h^2m^2)`$.
+Store the classical estimate through the remaining charged cells without further system contacts. No branch obtains a shorter charged horizon or a free retry. For $`n\ge3`$ and $`1\le m\le n-1`$, $`n_{\mathrm{use}}\ge m/3`$, so this design gives risk at most $`9C_1/(h^2m^2)`$.
 
 Independently, use all $`n`$ cells for the untouched-cell calibration experiment. It uses exactly $`n-1`$ boundary contacts and no inside-cell contacts, with risk at most $`C_0/(h^2n)`$, where $`C_0=1/\cos^2(2r_*)`$. Choose the better of these two designs from the known budgets. Since
 
@@ -199,11 +199,11 @@ Let
 ```math
 p_{\min}=\chi^2\left(\frac{\sin r_*}{r_*}\right)^2,
 \qquad
-K=\sup_{|\epsilon|\le E}|\phi'(\epsilon)|,
+K_\phi=\sup_{|\epsilon|\le E}|\phi'(\epsilon)|,
 \qquad
 a_0=\frac h{2\sqrt{p_{\min}}},
 \qquad
-b_0=h\sqrt{\frac14+g^2K^2}.
+b_0=h\sqrt{\frac14+g^2K_\phi^2}.
 ```
 
 For an untouched cell, its Kraus isometry obeys $`V^\dagger\dot V=0`$ throughout the band and $`\|\dot V\|\le a_0`$. In a cell containing arbitrary contacts, the full Hamiltonian derivative along the same curve is

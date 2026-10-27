@@ -30,7 +30,7 @@ Thus a constant single-run distinguishing advantage has a worst-case contact cos
 |---|---|
 | Qubit amplitude damping | For excited-state decay rate $`\gamma`$, $`\nu=\gamma`$; the lower coefficient improves from $`1/64`$ to $`5/64`$. |
 | Terminal-only observation | $`\Gamma_0=\Delta_0=0`$: an admissible microscopic construction reproduces the specified final channel exactly, including on entangled inputs. |
-| Accuracy versus coupling | For $`N\ge1`$ and $`0<\epsilon<1/64`$, the required strength is $`\Lambda_{\min}(N,\epsilon)=\Theta(\nu\sqrt{N/\epsilon})`$. |
+| Accuracy versus coupling | For $`N\ge1`$ and $`0<\eta<1/64`$, the required strength is $`\Lambda_{\min}(N,\eta)=\Theta(\nu\sqrt{N/\eta})`$. |
 | Timing tolerance | A factor-two range of waiting intervals preserves the universal survival witness's scaling; accumulated instrument errors have an explicit additive bound. |
 
 The generator condition is substantive. Shifting Lindblad jumps by scalar multiples of the identity can change the coherent Hamiltonian needed to represent the same physical dynamics. The [rate definition and counterexample](science/dissipators.md) make that restriction explicit.

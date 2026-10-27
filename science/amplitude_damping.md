@@ -32,21 +32,21 @@ It follows that a constant positive signed probability gap can be guaranteed wit
 For $`N\geq1`$, prepare $`S`$ in $`P=|1\rangle\langle1|`$ and set
 
 ```math
-n=\min\{N,\lfloor r^2\rfloor\},
+\ell=\min\{N,\lfloor r^2\rfloor\},
 \qquad
 \tau=\frac{\gamma}{4\Lambda^2}
 =\frac{1}{4\gamma r^2}.
 ```
 
-Measure $`\{P,I-P\}`$ at $`\tau,2\tau,\ldots,n\tau`$. Retain the bit indicating whether every measurement returned $`P`$, and report this bit at time $`T`$. Every contact occurs by $`T/4`$. Failed branches remain part of the experiment; the all-success event is a recorded outcome, not a postselected ensemble.
+Measure $`\{P,I-P\}`$ at $`\tau,2\tau,\ldots,\ell\tau`$. Retain the bit indicating whether every measurement returned $`P`$, and report this bit at time $`T`$. Every contact occurs by $`T/4`$. Failed branches remain part of the experiment; the all-success event is a recorded outcome, not a postselected ensemble.
 
 Under the microscopic hypothesis, the [survival lemma](intervention_bounds.md#survival-under-a-bounded-retained-interaction) applies after every success, regardless of the conditional bath state. It gives
 
 ```math
 p_{\mathcal D}^{\mathsf T}
-\geq\cos^{2n}\!\left(\frac{1}{4r}\right)
-\geq\left(1-\frac{1}{16r^2}\right)^n
-\geq1-\frac{n}{16r^2}.
+\geq\cos^{2\ell}\!\left(\frac{1}{4r}\right)
+\geq\left(1-\frac{1}{16r^2}\right)^\ell
+\geq1-\frac{\ell}{16r^2}.
 ```
 
 The first elementary inequality uses $`\sin^2 x\leq x^2`$, and the second uses Bernoulli's inequality.
@@ -55,11 +55,11 @@ Under the Markov hypothesis, each successful measurement restores the excited st
 
 ```math
 p_{\mathcal M_\gamma}^{\mathsf T}
-=e^{-\gamma n\tau}
-=e^{-n/(4r^2)}.
+=e^{-\gamma \ell\tau}
+=e^{-\ell/(4r^2)}.
 ```
 
-Put $`y=n/r^2\leq1`$. Since $`e^{-z}\leq1-z+z^2/2`$ for $`z\geq0`$,
+Put $`y=\ell/r^2\leq1`$. Since $`e^{-z}\leq1-z+z^2/2`$ for $`z\geq0`$,
 
 ```math
 p_{\mathcal D}^{\mathsf T}-p_{\mathcal M_\gamma}^{\mathsf T}
@@ -80,22 +80,22 @@ The lower bound follows with the same positive sign for every microscopic altern
 Let
 
 ```math
-m=\lfloor r^2\rfloor,
+M=\lfloor r^2\rfloor,
 \qquad
-h=\frac{T}{m},
+{\delta_{\rm c}}=\frac{T}{M},
 \qquad
-\theta=\arccos(e^{-\gamma h/2}).
+\theta=\arccos(e^{-\gamma {\delta_{\rm c}}/2}).
 ```
 
-Initialize $`m`$ environment qubits in $`|0\rangle^{\otimes m}`$. During cell $`j`$, couple $`S`$ only to the $`j`$th qubit through
+Initialize $`M`$ environment qubits in $`|0\rangle^{\otimes M}`$. During cell $`j`$, couple $`S`$ only to the $`j`$th qubit through
 
 ```math
-K_j=\frac{\theta}{h}
+K_j=\frac{\theta}{{\delta_{\rm c}}}
 \left(\sigma_+\otimes\sigma_-^{(j)}
 +\sigma_-\otimes\sigma_+^{(j)}\right).
 ```
 
-Take $`H_E=0`$. After its cell, each bath qubit is retained and never coupled again. The environment dimension is $`2^m`$, and the model uses a prescribed switching schedule. It has no post-initialization resets or supply of fresh external ancillas.
+Take $`H_E=0`$. After its cell, each bath qubit is retained and never coupled again. The environment dimension is $`2^M`$, and the model uses a prescribed switching schedule. It has no post-initialization resets or supply of fresh external ancillas.
 
 ### Exact endpoint channel
 
@@ -117,7 +117,7 @@ A_0=|0\rangle\langle0|+\cos\theta\,|1\rangle\langle1|,
 A_1=-i\sin\theta\,|0\rangle\langle1|.
 ```
 
-Because $`\cos\theta=e^{-\gamma h/2}`$, this is exactly $`e^{h\mathcal L_\gamma}`$. The equality holds on inputs entangled with any reference. Uninterrupted cells therefore match the target without an approximation error.
+Because $`\cos\theta=e^{-\gamma {\delta_{\rm c}}/2}`$, this is exactly $`e^{{\delta_{\rm c}}\mathcal L_\gamma}`$. The equality holds on inputs entangled with any reference. Uninterrupted cells therefore match the target without an approximation error.
 
 ### Strength bound
 
@@ -129,13 +129,13 @@ For $`0\leq\theta<\pi/2`$,
 \geq\theta^2.
 ```
 
-It follows that $`\theta^2\leq\gamma h=1/m`$ and
+It follows that $`\theta^2\leq\gamma {\delta_{\rm c}}=1/M`$ and
 
 ```math
 \|K_j\|_\infty
-=\frac\theta h
-\leq\sqrt{\frac\gamma h}
-=\gamma\sqrt m
+=\frac\theta {\delta_{\rm c}}
+\leq\sqrt{\frac\gamma {\delta_{\rm c}}}
+=\gamma\sqrt M
 \leq\Lambda.
 ```
 
@@ -147,8 +147,8 @@ The exchange Hamiltonian is odd under $`Z`$ on its bath qubit, and that qubit st
 
 ```math
 \varepsilon_{\mathrm{cell}}
-\leq\sinh^2\theta+\gamma h
-\leq\frac{\cosh^2(1)}{m}.
+\leq\sinh^2\theta+\gamma {\delta_{\rm c}}
+\leq\frac{\cosh^2(1)}{M}.
 ```
 
 This estimate includes arbitrary quantum references and complete adaptive measurement records. It is independent of the number of contacts inside that particular cell.
@@ -157,7 +157,7 @@ Cells with no interior system contact agree exactly with the target. The [activi
 
 ```math
 N\varepsilon_{\mathrm{cell}}
-\leq\cosh^2(1)\frac Nm
+\leq\cosh^2(1)\frac NM
 \leq2\cosh^2(1)\frac{N}{r^2}.
 ```
 
@@ -174,16 +174,16 @@ U(\theta/2)(Z\otimes I)U(\theta/2)=Z\otimes I.
 The microscopic damping is completely echoed within that cell. Under the target amplitude-damping process, phase covariance instead gives
 
 ```math
-e^{(h/2)\mathcal L_\gamma}
+e^{({\delta_{\rm c}}/2)\mathcal L_\gamma}
 \circ\mathrm{Ad}_Z
-\circ e^{(h/2)\mathcal L_\gamma}
-=\mathrm{Ad}_Z\circ e^{h\mathcal L_\gamma}.
+\circ e^{({\delta_{\rm c}}/2)\mathcal L_\gamma}
+=\mathrm{Ad}_Z\circ e^{{\delta_{\rm c}}\mathcal L_\gamma}.
 ```
 
 On an initially excited state, the two cell outputs have trace distance
 
 ```math
-1-e^{-\gamma h}=\sin^2\theta.
+1-e^{-\gamma {\delta_{\rm c}}}=\sin^2\theta.
 ```
 
 This example shows how an interior contact reveals the environmental memory and confirms that the quadratic small-action order of the controlled-cell estimate is attained. It does not replace the uniform upper bound against all testers.

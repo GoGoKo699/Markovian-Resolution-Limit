@@ -14,17 +14,17 @@ H_\pm=\frac{\epsilon}{2}Z_S\otimes I_E
 \qquad R=\sqrt{g^2+\epsilon^2/4}.
 ```
 
-A physical $`Z_S`$ pulse at time $`h/2+\delta`$ gives, after removing the known accumulated pulse frame,
+A physical $`Z_S`$ pulse at time $`h/2+\delta_t`$ gives, after removing the known accumulated pulse frame,
 
 ```math
-V_\delta=e^{-iH_-(h/2-\delta)}e^{-iH_+(h/2+\delta)}.
+V_{\delta_t}=e^{-iH_-(h/2-\delta_t)}e^{-iH_+(h/2+\delta_t)}.
 ```
 
 The frame depends on the number of pulses, not their displacement, and is absorbed into later boundary instruments or terminal readout. In the constructions below, its known correction is composed with the already counted endpoint instrument; it is never an additional free physical pulse. Every bath qubit is prepared at time zero, interacts once, and is retained afterward without access or reuse.
 
-A **systematic displacement** is one fixed $`\delta`$ throughout the experiment. If it is known and the commanded pulse position can be adjusted, moving the command by $`-\delta`$ restores the midpoint with the same one-pulse contact count. This uses a calibrated timing setting. An unknown systematic displacement requires a specified calibration model; knowing an estimate does not supply an exact timing correction for free.
+A **systematic displacement** is one fixed $`\delta_t`$ throughout the experiment. If it is known and the commanded pulse position can be adjusted, moving the command by $`-\delta_t`$ restores the midpoint with the same one-pulse contact count. This uses a calibrated timing setting. An unknown systematic displacement requires a specified calibration model; knowing an estimate does not supply an exact timing correction for free.
 
-The **hidden-jitter model** below instead has $`\delta=+d`$ or $`-d`$ with equal probabilities, independently in each pulsed cell, where $`0<d<h/2`$ is known. The realized signs are never available to the controller, and the fluctuations are independent of the unknown parameters, controls and earlier records. A pulsed cell always contains exactly one $`Z_S`$ pulse. There is no further contact within that cell, no adjustable pulse-position menu, and no physical retuning of the compensation.
+The **hidden-jitter model** below instead has $`\delta_t=+d`$ or $`-d`$ with equal probabilities, independently in each pulsed cell, where $`0<d<h/2`$ is known. The realized signs are never available to the controller, and the fluctuations are independent of the unknown parameters, controls and earlier records. A pulsed cell always contains exactly one $`Z_S`$ pulse. There is no further contact within that cell, no adjustable pulse-position menu, and no physical retuning of the compensation.
 
 At each cell entrance, a classical controller may choose a plain cell or this jittered-echo cell using its available record. Boundary operations on the sensor and protected memory may be adaptive, and all measurement outcomes are retained. For $`n`$ cells, the original contact accounting permits at most $`n-1`$ total nonterminal system contacts, of which at most $`m`$ are jittered interior pulses. Each nonterminal boundary instrument also counts. Initial preparation and terminal readout at $`T=nh`$ are free. The converse will relax the boundary-contact budget, which only strengthens it.
 
@@ -33,13 +33,13 @@ At each cell entrance, a classical controller may choose a plain cell or this ji
 Define real coefficients
 
 ```math
-D=\cos(2R\delta)-\cos(Rh),\qquad
+D=\cos(2R\delta_t)-\cos(Rh),\qquad
 u=\cos(Rh)+\frac{g^2}{R^2}D,\qquad
 v=\frac{\epsilon}{2R}\sin(Rh),
 ```
 
 ```math
-w=\frac gR\sin(2R\delta),\qquad
+w=\frac gR\sin(2R\delta_t),\qquad
 x=\frac{\epsilon g}{2R^2}D.
 ```
 
@@ -52,7 +52,7 @@ K_1=-i(wN_\phi+xN'_\phi).
 
 In particular $`u^2+v^2+w^2+x^2=1`$. Because $`N_\phi`$ and $`N'_\phi`$ anticommute, each parity branch of this fixed-displacement experiment is proportional to a unitary. The flip axis has a known frequency-dependent displacement relative to $`\phi`$.
 
-For hidden symmetric jitter, evaluate the coefficients at $`\delta=d`$. Only $`w`$ changes sign when the timing sign changes. Averaging the two physical channels therefore gives the exact three-Kraus representation
+For hidden symmetric jitter, evaluate the coefficients at $`\delta_t=d`$. Only $`w`$ changes sign when the timing sign changes. Averaging the two physical channels therefore gives the exact three-Kraus representation
 
 ```math
 L_0=uI-ivZ_S,\qquad
@@ -64,9 +64,9 @@ A parity measurement distinguishes $`L_0`$ from the combined odd branch, but doe
 
 ## Calibrated systematic displacement
 
-For each fixed known $`0<|\delta|<h/2`$, a menu of plain cells and cells pulsed at $`h/2+\delta`$ retains quadratic **global** precision on some fixed sufficiently small band around compensation. The known displacement is supplied as part of the device specification; this is not a theorem for learning an unknown displacement. Retiming is not needed for this assertion. The signal-generator bound supplies the matching inverse-quadratic risk lower order.
+For each fixed known $`0<|\delta_t|<h/2`$, a menu of plain cells and cells pulsed at $`h/2+\delta_t`$ retains quadratic **global** precision on some fixed sufficiently small band around compensation. The known displacement is supplied as part of the device specification; this is not a theorem for learning an unknown displacement. Retiming is not needed for this assertion. The signal-generator bound supplies the matching inverse-quadratic risk lower order.
 
-Write $`z=2g\delta`$. Near $`\epsilon=0`$, $`w`$ has a fixed nonzero sign. Absorb that sign into the flip branch's scalar phase and define smooth known functions
+Write $`z=2g\delta_t`$. Near $`\epsilon=0`$, $`w`$ has a fixed nonzero sign. Absorb that sign into the flip branch's scalar phase and define smooth known functions
 
 ```math
 \theta_{\rm e}(\epsilon)=2\arctan(v/u),
@@ -74,7 +74,7 @@ Write $`z=2g\delta`$. Near $`\epsilon=0`$, $`w`$ has a fixed nonzero sign. Absor
 \zeta_{\rm e}(\epsilon)=\arctan(x/w).
 ```
 
-The pulsed cell's normalized flip is $`N_{\phi+\zeta_{\rm e}}`$. The plain cell has its usual no-flip phase $`\theta_0`$ and $`\zeta_0=0`$. At compensation, set $`p_{\rm e}=\sin^2 z`$, $`p_0=\sin^2\chi`$, and
+The pulsed cell's normalized flip is $`N_{\phi+\zeta_{\rm e}}`$. The plain cell has its usual no-flip phase $`\theta_{\rm p}`$ and $`\zeta_{\rm p}=0`$. At compensation, set $`p_{\rm e}=\sin^2 z`$, $`p_{\rm p}=\sin^2\chi`$, and
 
 ```math
 d_{\rm e}=\theta'_{\rm e}(0)=\frac{\sin\chi}{g\cos z},
@@ -82,13 +82,13 @@ d_{\rm e}=\theta'_{\rm e}(0)=\frac{\sin\chi}{g\cos z},
 z_{\rm e}=\zeta'_{\rm e}(0)
 =\frac{\cos z-\cos\chi}{2g\sin z},
 \qquad
-d_0=\frac{\tan\chi}{g}.
+d_{\rm p}=\frac{\tan\chi}{g}.
 ```
 
-The transition rewards must include the flip-axis phase. Define $`f_{\rm e}=(1-p_{\rm e})d_{\rm e}-2p_{\rm e}z_{\rm e}`$ and $`f_0=(1-p_0)d_0`$. Their exact contrast is
+The transition rewards must include the flip-axis phase. Define $`f_{\rm e}=(1-p_{\rm e})d_{\rm e}-2p_{\rm e}z_{\rm e}`$ and $`f_{\rm p}=(1-p_{\rm p})d_{\rm p}`$. Their exact contrast is
 
 ```math
-\frac{f_{\rm e}}{p_{\rm e}}-\frac{f_0}{p_0}
+\frac{f_{\rm e}}{p_{\rm e}}-\frac{f_{\rm p}}{p_{\rm p}}
 =
 \frac{(\sin\chi-\sin z)\sin(\chi+z)}
 {g\sin\chi\,\sin^2z}>0
@@ -98,7 +98,7 @@ The transition rewards must include the flip-axis phase. Define $`f_{\rm e}=(1-p
 Use the pulsed setting in the even sector and the plain setting in the odd sector, measuring parity at boundaries. With $`\sigma_{i-1}`$ the preceding parity sign, every retained record ending even has the exact nuisance-independent phase
 
 ```math
-\Phi_R(\epsilon)
+\Phi_{\mathcal R}(\epsilon)
 =\sum_i\sigma_{i-1}
 \left[
 \mathbf1_{\rm stay}\theta_{j_i}(\epsilon)
@@ -109,22 +109,22 @@ Use the pulsed setting in the even sector and the plain setting in the odd secto
 This follows by commuting the known $`Z`$ rotations past successive flips; the shared $`N_\phi`$ factors cancel in pairs. The stationary phase-derivative drift at zero is
 
 ```math
-\mu_0=\frac{p_0f_{\rm e}-p_{\rm e}f_0}{p_{\rm e}+p_0}>0.
+\mu_{\delta_t}=\frac{p_{\rm p}f_{\rm e}-p_{\rm e}f_{\rm p}}{p_{\rm e}+p_{\rm p}}>0.
 ```
 
-For completeness, a parameter-independent acceptance event can be certified as follows. Freeze each transition reward at zero and let $`D_R^0`$ be its sum over $`L`$ cells. By continuity, shrink the frequency band, independently of $`L`$, so that the two-state parity chain has $`p_{\rm e}<p_0<1/2`$, the stationary mean of this frozen reward is at least $`3\mu_0/4`$, and its even-minus-odd conditional mean is positive. Its mean starting even is then at least $`3\mu_0L/4`$, including the nonnegative transient term.
+For completeness, a parameter-independent acceptance event can be certified as follows. Freeze each transition reward at zero and let $`D_{\mathcal R}^0`$ be its sum over $`L`$ cells. By continuity, shrink the frequency band, independently of $`L`$, so that the two-state parity chain has $`p_{\rm e}<p_{\rm p}<1/2`$, the stationary mean of this frozen reward is at least $`3\mu_{\delta_t}/4`$, and its even-minus-odd conditional mean is positive. Its mean starting even is then at least $`3\mu_{\delta_t}L/4`$, including the nonnegative transient term.
 
 The frozen transition reward is uniformly bounded by a constant $`M`$. If $`\rho<1`$ bounds the chain's nontrivial eigenvalue uniformly on the band, conditioning across the intervening transitions bounds its covariance sum by $`VL`$, where one may take $`V=M^2[1+2/(1-\rho)]`$. Thus Chebyshev's inequality and the final-even probability of at least $`1/2`$ imply
 
 ```math
-\Pr\{\text{final even and }D_R^0\ge\mu_0L/2\}
+\Pr\{\text{final even and }D_{\mathcal R}^0\ge\mu_{\delta_t}L/2\}
 \ge\frac14
-\qquad \left(L\ge\frac{64V}{\mu_0^2}\right).
+\qquad \left(L\ge\frac{64V}{\mu_{\delta_t}^2}\right).
 ```
 
-Shrink the same fixed band further so every actual derivative reward differs from its frozen value by at most $`\mu_0/4`$. Every accepted record then obeys $`\mu_0L/4\le\Phi'_R(\epsilon)\le\beta L`$ throughout the band, for a fixed finite $`\beta`$. The [recorded-phase estimation theorem](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md) applies directly to these known record-dependent phase functions, giving $`O(B^{-2})`$ worst-case risk with a hard budget of $`B`$ active cells. Its repetitions, rejected records and multiscale ambiguity resolution are all included in that budget.
+Shrink the same fixed band further so every actual derivative reward differs from its frozen value by at most $`\mu_{\delta_t}/4`$. Every accepted record then obeys $`\mu_{\delta_t}L/4\le\Phi'_{\mathcal R}(\epsilon)\le\beta L`$ throughout the band, for a fixed finite $`\beta`$. The [recorded-phase estimation theorem](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/recorded_phase_estimation.md) applies directly to these known record-dependent phase functions, giving $`O(B_{\rm act}^{-2})`$ worst-case risk with a hard budget of $`B_{\rm act}`$ active cells. Its repetitions, rejected records and multiscale ambiguity resolution are all included in that budget.
 
-An active cell uses at most one interior pulse and one boundary instrument. Taking $`B=\min\{m,\lfloor(n-1)/2\rfloor\}`$ charges the last active readout as an early contact and fits at most $`n-1`$ total contacts over the full horizon $`nh`$; at most $`B\le m`$ are interior pulses. Store the estimate through the remaining physical cells. This proves the quadratic global order when $`m=\Theta(n)`$. It does not authorize ignoring an unknown systematic displacement.
+An active cell uses at most one interior pulse and one boundary instrument. Taking $`B_{\rm act}=\min\{m,\lfloor(n-1)/2\rfloor\}`$ charges the last active readout as an early contact and fits at most $`n-1`$ total contacts over the full horizon $`nh`$; at most $`B_{\rm act}\le m`$ are interior pulses. Store the estimate through the remaining physical cells. This proves the quadratic global order when $`m=\Theta(n)`$. It does not authorize ignoring an unknown systematic displacement.
 
 
 ## Global precision with hidden jitter
@@ -184,8 +184,8 @@ For the jittered cell set $`p=w^2+x^2`$ and $`a=uv'-vu'`$. In the three-Kraus re
 For $`\epsilon>0`$ on the chosen interval, $`w,x>0`$: indeed $`0<2Rd<Rh<\pi/4`$ and $`\cos(2Rd)>\cos(Rh)`$. The two odd Kraus operators obey $`L_1^\dagger L_2=iwxZ_S`$. An environment gauge with Hermitian matrix entries
 
 ```math
-G_{12}=it,\qquad G_{21}=-it,\qquad
-t=\frac{a-pk}{2wx},
+G_{12}=it_G,\qquad G_{21}=-it_G,\qquad
+t_G=\frac{a-pk}{2wx},
 ```
 
 and all other entries zero makes the derivative overlap vanish. In the convention $`\widetilde{\dot L}=\dot L-iGL`$, the gauged derivatives before an irrelevant common environment rotation are
@@ -195,21 +195,21 @@ and all other entries zero makes the derivative overlap vanish. In the conventio
 ```
 
 ```math
-\widetilde{\dot L}_1=-i\left[w'N_\phi+(wk+tx)N'_\phi\right],
+\widetilde{\dot L}_1=-i\left[w'N_\phi+(wk+t_Gx)N'_\phi\right],
 \qquad
-\widetilde{\dot L}_2=-i\left[x'N'_\phi-(xk+tw)N_\phi\right].
+\widetilde{\dot L}_2=-i\left[x'N'_\phi-(xk+t_Gw)N_\phi\right].
 ```
 
 Consequently
 
 ```math
-\widetilde\beta=(a-pk-2wxt)Z_S=0,
+\widetilde\beta=(a-pk-2wxt_G)Z_S=0,
 ```
 
 ```math
 \widetilde\alpha
 =\left[(u')^2+(v')^2+(w')^2+(x')^2
-+(wk+tx)^2+(xk+tw)^2\right]I.
++(wk+t_Gx)^2+(xk+t_Gw)^2\right]I.
 ```
 
 All coefficients are bounded on the fixed compact prior interval. The gauge is a valid smooth change of purification: solve $`U'_E=-iU_EG`$ there and replace the Kraus vector by $`U_EL`$. It changes no accessible channel and grants no bath information to the controller.
@@ -259,46 +259,46 @@ A=\frac{\sin\chi}{g},\quad
 B=\frac{c-\cos\chi}{g}.
 ```
 
-The jittered cell has $`L_0=cI`$, $`L_1=-isN_\phi`$, $`L_2=0`$, with frequency derivatives $`-iAZ_S/2`$, $`0`$ and $`-iBN'_\phi/2`$. The last Kraus operator contributes only at second order to the output density. Thus the first-order parity instrument has no-flip phase derivative $`d_{\rm e}=A/c`$. A plain cell has $`p_0=\sin^2\chi`$ and $`d_0=\tan\chi/g`$. The information statements in this section concern pointwise classical score Fisher information at compensation; they assert neither continuity of a rank-changing quantum Fisher metric nor a uniform risk guarantee on a frequency interval.
+The jittered cell has $`L_0=cI`$, $`L_1=-isN_\phi`$, $`L_2=0`$, with frequency derivatives $`-iAZ_S/2`$, $`0`$ and $`-iBN'_\phi/2`$. The last Kraus operator contributes only at second order to the output density. Thus the first-order parity instrument has no-flip phase derivative $`d_{\rm e}=A/c`$. A plain cell has $`p_{\rm p}=\sin^2\chi`$ and $`d_{\rm p}=\tan\chi/g`$. The information statements in this section concern pointwise classical score Fisher information at compensation; they assert neither continuity of a rank-changing quantum Fisher metric nor a uniform risk guarantee on a frequency interval.
 
 Choose jittered echoes in the even sector and plain cells in the odd sector, retaining every boundary parity result. The local signed-phase drift is
 
 ```math
-v_d=\frac{p_0(1-p_{\rm e})d_{\rm e}
--p_{\rm e}(1-p_0)d_0}{h(p_0+p_{\rm e})}
+v_d=\frac{p_{\rm p}(1-p_{\rm e})d_{\rm e}
+-p_{\rm e}(1-p_{\rm p})d_{\rm p}}{h(p_{\rm p}+p_{\rm e})}
 =\frac{A\left[\sin^2\chi\,\cos(2gd)
--\sin^2(2gd)\,\cos\chi\right]}{h(p_0+p_{\rm e})}>0.
+-\sin^2(2gd)\,\cos\chi\right]}{h(p_{\rm p}+p_{\rm e})}>0.
 ```
 
-Positivity follows because $`\sin^2 z/\cos z`$ is strictly increasing on $`(0,\pi/4)`$ and $`2gd<\chi`$. The [retained-even-record local construction](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_sensing.md) therefore supplies $`v_d^2(Nh)^2+o(N^2)`$ information at compensation, with a charged finishing margin and retained failures. Its argument uses the first-order accessible instrument, not an imaginary record of the hidden timing sign.
+Positivity follows because $`\sin^2 z/\cos z`$ is strictly increasing on $`(0,\pi/4)`$ and $`2gd<\chi`$. The [retained-even-record local construction](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_sensing.md) therefore supplies $`v_d^2(Lh)^2+o(L^2)`$ information at compensation, with a charged finishing margin and retained failures. Its argument uses the first-order accessible instrument, not an imaginary record of the hidden timing sign.
 
-This protocol uses at most $`N`$ interior pulses and $`N-1`$ boundary measurements, hence at most $`2N-1`$ nonterminal contacts. It does not fit an $`N-1`$ contact budget at the same $`N`$. It can instead run for $`N=\min\{m,\lfloor(n-1)/2\rfloor\}`$ cells of an $`n`$-cell experiment, pay the extra early readout contact, and store its result until the full charged horizon $`nh`$. For $`m=\Theta(n)`$ this still has quadratic local order with at most $`n-1`$ total contacts.
+This protocol uses at most $`L`$ interior pulses and $`L-1`$ boundary measurements, hence at most $`2L-1`$ nonterminal contacts. It does not fit an $`L-1`$ contact budget at the same $`L`$. It can instead run for $`L=\min\{m,\lfloor(n-1)/2\rfloor\}`$ cells of an $`n`$-cell experiment, pay the extra early readout contact, and store its result until the full charged horizon $`nh`$. For $`m=\Theta(n)`$ this still has quadratic local order with at most $`n-1`$ total contacts.
 
 Thus this same timing menu can retain quadratic local information at $`\epsilon=0`$ while its optimal global risk on a fixed band is only of inverse-time order. Away from compensation both hidden odd Kraus operators are present; their unobserved mixing enables the global converse.
 
 ### The single repeated primitive
 
-For comparison, restrict every exposed cell to the same jittered-echo primitive and grant arbitrary boundary controls. Let $`\mathcal I^*_{\rm echo}(N,d)`$ denote its optimal efficient local information at compensation. For $`d>0`$,
+For comparison, restrict every exposed cell to the same jittered-echo primitive and grant arbitrary boundary controls. Let $`\mathcal I^*_{\rm echo}(L,d)`$ denote its optimal efficient local information at compensation. For $`d>0`$,
 
 ```math
-\frac{N^2A^2}{1+(N-1)p_{\rm e}}
-\le\mathcal I^*_{\rm echo}(N,d)
-\le\min\left\{N^2h^2,\,
-N\left(\frac{A^2}{p_{\rm e}}+B^2\right)\right\}.
+\frac{L^2A^2}{1+(L-1)p_{\rm e}}
+\le\mathcal I^*_{\rm echo}(L,d)
+\le\min\left\{L^2h^2,\,
+L\left(\frac{A^2}{p_{\rm e}}+B^2\right)\right\}.
 ```
 
-For the upper bound, the nuisance slope $`k=cA/(2p_{\rm e})`$ cancels the original three-Kraus derivative overlap at zero and gives $`4\alpha=A^2/p_{\rm e}+B^2`$. For the lower bound, perform parity detection and fixed $`X_S`$ recovery after each cell, with a recorded uniformly randomized equatorial terminal readout. The retained flip count is $`K\sim{\rm Binomial}(N,p_{\rm e})`$ at compensation. The conditional phase derivative vector is $`((N-K)A/c,-2K)`$; pooling its full Fisher matrix before eliminating the shared angle gives the displayed lower bound. The physical construction uses $`N`$ interior pulses and $`N-1`$ boundary instruments, exactly $`2N-1`$ contacts.
+For the upper bound, the nuisance slope $`k=cA/(2p_{\rm e})`$ cancels the original three-Kraus derivative overlap at zero and gives $`4\alpha=A^2/p_{\rm e}+B^2`$. For the lower bound, perform parity detection and fixed $`X_S`$ recovery after each cell, with a recorded uniformly randomized equatorial terminal readout. The retained flip count is $`K\sim{\rm Binomial}(L,p_{\rm e})`$ at compensation. The conditional phase derivative vector is $`((L-K)A/c,-2K)`$; pooling its full Fisher matrix before eliminating the shared angle gives the displayed lower bound. The physical construction uses $`L`$ interior pulses and $`L-1`$ boundary instruments, exactly $`2L-1`$ contacts.
 
-At $`d=0`$, use the continuous lower-bound value $`N^2A^2`$ and the signal cap $`N^2h^2`$. Since $`A^2+B^2\le h^2`$ and $`p_{\rm e}=\Theta_\chi((d/h)^2)`$,
+At $`d=0`$, use the continuous lower-bound value $`L^2A^2`$ and the signal cap $`L^2h^2`$. Since $`A^2+B^2\le h^2`$ and $`p_{\rm e}=\Theta_\chi((d/h)^2)`$,
 
 ```math
-\mathcal I^*_{\rm echo}(N,d)
+\mathcal I^*_{\rm echo}(L,d)
 =\Theta_\chi\left(
-\frac{h^2N^2}{1+N(d/h)^2}
+\frac{h^2L^2}{1+L(d/h)^2}
 \right).
 ```
 
-The need for $`d=O(h/\sqrt N)`$ to retain quadratic local order belongs to this single-primitive class. It does not apply to the richer timing menu's local construction above.
+The need for $`d=O(h/\sqrt L)`$ to retain quadratic local order belongs to this single-primitive class. It does not apply to the richer timing menu's local construction above.
 
 ## Scope and attribution
 

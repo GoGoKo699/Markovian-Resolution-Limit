@@ -6,7 +6,7 @@ The simulator constructed here reproduces the target channel exactly at every co
 
 ## 1. Generator, intrinsic rate, and scope
 
-Let $`S`$ have dimension $`d<\infty`$, set $`\hbar=1`$, and write
+Let $`S`$ have dimension $`d_S<\infty`$, set $`\hbar=1`$, and write
 
 ```math
 \mathcal L(X)=\sum_{a=1}^{r}\left(
@@ -56,7 +56,7 @@ This function is affine in $`\rho`$, convex in $`\alpha`$, and coercive in $`\al
 \subseteq\ker(Q-\nu I).
 ```
 
-Purify $`\rho_*`$ to $`P_*=|\Psi_*\rangle\langle\Psi_*|`$ on $`S R_0`$, with $`\dim R_0\le d`$. The vectors $`|\phi_a\rangle=(M_a\otimes I)|\Psi_*\rangle`$ are orthogonal to $`|\Psi_*\rangle`$, and
+Purify $`\rho_*`$ to $`P_*=|\Psi_*\rangle\langle\Psi_*|`$ on $`S R_0`$, with $`\dim R_0\le d_S`$. The vectors $`|\phi_a\rangle=(M_a\otimes I)|\Psi_*\rangle`$ are orthogonal to $`|\Psi_*\rangle`$, and
 
 ```math
 (\mathcal L\otimes\mathrm{id})(P_*)
@@ -104,13 +104,13 @@ For a binary tester $`\mathsf T`$, write $`p_D^{\mathsf T}`$ and $`p_M^{\mathsf 
 
 The first quantity asks for one signed witness that works against every admissible microscopic model. The second asks how well the best microscopic model withstands every allowed tester. Constant-output testers and weak minimax give $`0\le\Gamma_N\le\Delta_N\le1`$.
 
-**Theorem.** Let $`\Lambda\ge\nu>0`$, set $`T=1/\nu`$ and $`q=(\nu/\Lambda)^2\in(0,1]`$, and let $`N\ge0`$ be an integer. Then
+**Theorem.** Let $`\Lambda\ge\nu>0`$, set $`T=1/\nu`$ and $`q_{\rm res}=(\nu/\Lambda)^2\in(0,1]`$, and let $`N\ge0`$ be an integer. Then
 
 ```math
 \boxed{
-\frac1{64}\min\{1,Nq\}
+\frac1{64}\min\{1,Nq_{\rm res}\}
 \le\Gamma_N\le\Delta_N
-\le\min\{1,2\cosh^2(1)Nq\}.
+\le\min\{1,2\cosh^2(1)Nq_{\rm res}\}.
 }
 ```
 
@@ -121,13 +121,13 @@ In particular, $`\Gamma_0=\Delta_0=0`$. The constants are independent of the sys
 For $`N\ge1`$, set
 
 ```math
-\tau=\frac{q}{8\nu}=\frac{\nu}{8\Lambda^2},
-\qquad n=\min\{N,\lfloor1/q\rfloor\}.
+\tau=\frac{q_{\rm res}}{8\nu}=\frac{\nu}{8\Lambda^2},
+\qquad \ell=\min\{N,\lfloor1/q_{\rm res}\rfloor\}.
 ```
 
-Prepare $`P_*`$ and measure $`\{P_*,I-P_*\}`$ at $`\tau,2\tau,\ldots,n\tau`$. Store whether every outcome was successful, and read this binary record at $`T`$. The last contact occurs no later than $`T/8`$.
+Prepare $`P_*`$ and measure $`\{P_*,I-P_*\}`$ at $`\tau,2\tau,\ldots,\ell\tau`$. Store whether every outcome was successful, and read this binary record at $`T`$. The last contact occurs no later than $`T/8`$.
 
-After each success, the system-reference state is exactly the rank-one state $`P_*`$. Any joint state with the bath therefore factors as $`P_*\otimes\omega_E`$ on that branch. The conditional bath state may depend arbitrarily on previous successes. No bath reset or fresh-noise assumption is made.
+After each success, the system-reference state is exactly the rank-one state $`P_*`$. Any joint state with the bath therefore factors as $`P_*\otimes\sigma_E`$ on that branch. The conditional bath state may depend arbitrarily on previous successes. No bath reset or fresh-noise assumption is made.
 
 For $`\Pi=P_*\otimes I_E`$, bath-only evolution commutes with $`\Pi`$. The subspace leakage estimate from [the intervention bounds](intervention_bounds.md) gives
 
@@ -138,7 +138,7 @@ For $`\Pi=P_*\otimes I_E`$, bath-only evolution commutes with $`\Pi`$. The subsp
 It follows that every conditional microscopic failure probability is at most
 
 ```math
-\Lambda^2\tau^2=\frac q{64}.
+\Lambda^2\tau^2=\frac{q_{\rm res}}{64}.
 ```
 
 For the ideal process, let
@@ -159,15 +159,15 @@ The first derivative is $`p'(0)=-\nu`$. Since the semigroup is CPTP and $`\|\mat
 Therefore
 
 ```math
-p(\tau)\le1-\frac q8+\frac{q^2}{32}
-\le1-\frac q{16}.
+p(\tau)\le1-\frac{q_{\rm res}}8+\frac{q_{\rm res}^2}{32}
+\le1-\frac{q_{\rm res}}{16}.
 ```
 
 Each ideal success returns the state to $`P_*`$, so Markovianity fixes the next success probability to $`p(\tau)`$. For the all-success event,
 
 ```math
-p_D\ge(1-q/64)^n,
-\qquad p_M\le(1-q/16)^n.
+p_D\ge(1-q_{\rm res}/64)^\ell,
+\qquad p_M\le(1-q_{\rm res}/16)^\ell.
 ```
 
 The gap is uniform over microscopic models. The difference-of-powers identity and Bernoulli's inequality yield
@@ -175,25 +175,25 @@ The gap is uniform over microscopic models. The difference-of-powers identity an
 ```math
 \begin{aligned}
 p_D-p_M
-&\ge\frac{3nq}{64}(1-q/16)^{n-1}\\
-&\ge\frac{45nq}{1024}\\
-&\ge\frac1{64}\min\{1,Nq\}.
+&\ge\frac{3\ell q_{\rm res}}{64}(1-q_{\rm res}/16)^{\ell-1}\\
+&\ge\frac{45\ell q_{\rm res}}{1024}\\
+&\ge\frac1{64}\min\{1,Nq_{\rm res}\}.
 \end{aligned}
 ```
 
-The last line uses $`nq\ge\tfrac12\min\{Nq,1\}`$. This proves the lower bound for $`\Gamma_N`$, hence also for $`\Delta_N`$. When $`Nq\ge1`$, the protocol uses only $`\lfloor1/q\rfloor`$ contacts and gives a fixed positive gap. The saturation statement is an order-one guarantee; it does not assert that perfect discrimination is reached.
+The last line uses $`\ell q_{\rm res}\ge\tfrac12\min\{Nq_{\rm res},1\}`$. This proves the lower bound for $`\Gamma_N`$, hence also for $`\Delta_N`$. When $`Nq_{\rm res}\ge1`$, the protocol uses only $`\lfloor1/q_{\rm res}\rfloor`$ contacts and gives a fixed positive gap. The saturation statement is an order-one guarantee; it does not assert that perfect discrimination is reached.
 
 ## 4. Exact cells with bounded Hamiltonian action
 
 The upper bound uses an exact channel completion. We give the construction because the positivity of its distinguished Kraus operator, its parity, and its norm are all needed. Unitary channel completions and their eigenphase costs are established tools; the relevant precedent is [Fung et al.](../references/RELATED_WORK.md#fung2015). No minimization over all Kraus representations or claim of globally minimum channel cost is needed here.
 
-Fix a duration $`h>0`$ and define
+Fix a duration $`{\delta_{\rm c}}>0`$ and define
 
 ```math
-A_0=e^{-hQ/2}.
+A_0=e^{-{\delta_{\rm c}}Q/2}.
 ```
 
-The map $`e^{h\mathcal L}-A_0(\cdot)A_0`$ is completely positive. To see this, split $`\mathcal L=\mathcal G+\mathcal J`$ with
+The map $`e^{{\delta_{\rm c}}\mathcal L}-A_0(\cdot)A_0`$ is completely positive. To see this, split $`\mathcal L=\mathcal G+\mathcal J`$ with
 
 ```math
 \mathcal G(X)=-\tfrac12\{Q,X\},
@@ -202,7 +202,7 @@ The map $`e^{h\mathcal L}-A_0(\cdot)A_0`$ is completely positive. To see this, s
 
 The time-ordered Dyson expansion in $`\mathcal J`$ is a norm-convergent sum of completely positive maps, since $`e^{s\mathcal G}(X)=e^{-sQ/2}Xe^{-sQ/2}`$. Its zero-jump term is $`A_0(\cdot)A_0`$; every remaining term is completely positive. This is the standard no-jump decomposition, used here in a finite-dimensional channel construction.
 
-Choose Kraus operators $`B_1,\ldots,B_s`$ for that remainder, with $`s\le d^2`$, and stack them as the column operator $`B`$. Trace preservation gives
+Choose Kraus operators $`B_1,\ldots,B_s`$ for that remainder, with $`s\le d_S^2`$, and stack them as the column operator $`B`$. Trace preservation gives
 
 ```math
 B^\dagger B=I-A_0^2.
@@ -220,7 +220,7 @@ be the polar decomposition of $`B`$. The partial isometry $`J`$ has initial supp
 Decompose the cell Hilbert space into the vacuum sector $`S\otimes|0\rangle`$ and its excited sectors, and define
 
 ```math
-K_h=\frac1h
+K_{\delta_{\rm c}}=\frac1{\delta_{\rm c}}
 \begin{pmatrix}
 0&-i\Theta J^\dagger\\
 iJ\Theta&0
@@ -230,44 +230,44 @@ iJ\Theta&0
 Its action on the vacuum column is
 
 ```math
-e^{-ihK_h}
+e^{-i{\delta_{\rm c}}K_{\delta_{\rm c}}}
 \begin{pmatrix}I\\0\end{pmatrix}
 =\begin{pmatrix}\cos\Theta\\J\sin\Theta\end{pmatrix}
 =\begin{pmatrix}A_0\\B\end{pmatrix}.
 ```
 
-Tracing the cell therefore gives **exactly** $`e^{h\mathcal L}`$. Moreover,
+Tracing the cell therefore gives **exactly** $`e^{{\delta_{\rm c}}\mathcal L}`$. Moreover,
 
 ```math
-\|K_h\|=\frac{\|\Theta\|}{h}
-=\frac{\arccos(e^{-\nu h/2})}{h}
-\le\sqrt{\frac\nu h}.
+\|K_{\delta_{\rm c}}\|=\frac{\|\Theta\|}{{\delta_{\rm c}}}
+=\frac{\arccos(e^{-\nu {\delta_{\rm c}}/2})}{{\delta_{\rm c}}}
+\le\sqrt{\frac\nu {\delta_{\rm c}}}.
 ```
 
-For the final inequality, put $`\theta=\arccos(e^{-\nu h/2})`$ and use $`-\log\cos\theta\ge\theta^2/2`$ for $`0\le\theta<\pi/2`$. The Hamiltonian is odd under the bath parity
+For the final inequality, put $`\theta=\arccos(e^{-\nu {\delta_{\rm c}}/2})`$ and use $`-\log\cos\theta\ge\theta^2/2`$ for $`0\le\theta<\pi/2`$. The Hamiltonian is odd under the bath parity
 
 ```math
-Z=I_S\otimes\left(|0\rangle\langle0|
--\sum_{a=1}^{s}|a\rangle\langle a|\right),
-\qquad ZK_hZ=-K_h.
+Z_E=|0\rangle\langle0|
+-\sum_{a=1}^{s}|a\rangle\langle a|,
+\qquad (I_S\otimes Z_E)K_{\delta_{\rm c}}(I_S\otimes Z_E)=-K_{\delta_{\rm c}}.
 ```
 
-The cell needs at most $`d^2+1`$ bath levels. The construction asserts existence with a bounded operator norm; it does not claim a minimal bath, an efficient circuit synthesis, or an autonomous switching controller.
+The cell needs at most $`d_S^2+1`$ bath levels. The construction asserts existence with a bounded operator norm; it does not claim a minimal bath, an efficient circuit synthesis, or an autonomous switching controller.
 
 ## 5. Uniform error of an interrupted cell
 
 Choose
 
 ```math
-m=\lfloor1/q\rfloor,\qquad
-h=\frac{T}{m},\qquad x=\nu h=\frac1m.
+M=\lfloor1/q_{\rm res}\rfloor,\qquad
+{\delta_{\rm c}}=\frac{T}{M},\qquad x=\nu {\delta_{\rm c}}=\frac1M.
 ```
 
-Then $`x\le1`$, $`x\le2q`$, and $`\|K_h\|\le\nu\sqrt m\le\Lambda`$. Use $`m`$ fresh cells, initially in their vacuum states, with the preceding Hamiltonian during successive intervals of length $`h`$. Spent cells never interact again. The total bath dimension is at most $`(d^2+1)^m`$; bath size is not the resource optimized by this theorem.
+Then $`x\le1`$, $`x\le2q_{\rm res}`$, and $`\|K_{\delta_{\rm c}}\|\le\nu\sqrt M\le\Lambda`$. Use $`M`$ fresh cells, initially in their vacuum states, with the preceding Hamiltonian during successive intervals of length $`{\delta_{\rm c}}`$. Spent cells never interact again. The total bath dimension is at most $`(d_S^2+1)^M`$; bath size is not the resource optimized by this theorem.
 
 A cell with no interior system contact is exact, including on system-reference inputs. For an active cell, compare its controlled microscopic and controlled Markov outputs through a common controlled idle evolution.
 
-Every tester operation acts outside the cell bath and therefore commutes with $`Z`$. The even-Dyson lemma in [the intervention bounds](intervention_bounds.md) applies to all recorded instruments and classical feedforward inside that cell. With the **actual** action $`\theta=h\|K_h\|\le\sqrt{x}`$, it gives the half-diamond bound
+Every tester operation acts outside the cell bath and therefore commutes with $`Z_E`$. The even-Dyson lemma in [the intervention bounds](intervention_bounds.md) applies to all recorded instruments and classical feedforward inside that cell. With the **actual** action $`\theta={\delta_{\rm c}}\|K_{\delta_{\rm c}}\|\le\sqrt{x}`$, it gives the half-diamond bound
 
 ```math
 \tfrac12\|\mathcal F_D-\mathcal F_{\mathrm{idle}}\|_\diamond
@@ -281,7 +281,7 @@ For the controlled ideal cell, a Duhamel estimate with CPTP contractions gives
 
 ```math
 \tfrac12\|\mathcal F_M-\mathcal F_{\mathrm{idle}}\|_\diamond
-\le\frac h2\|\mathcal L\|_\diamond=x.
+\le\frac {\delta_{\rm c}}2\|\mathcal L\|_\diamond=x.
 ```
 
 Thus, independently of the number and placement of contacts inside an active cell,
@@ -303,15 +303,15 @@ Before the next contact with $`S`$, combine the controller's memory-only process
 Use a telescoping hybrid with a microscopic prefix and an ideal suffix. If $`p_j`$ is the probability that cell $`j`$ is active under the genuine microscopic experiment, the cell contributes at most $`p_j\cosh^2(1)x`$ to half trace distance. The common ideal suffix contracts the discrepancy. All $`p_j`$ belong to the same microscopic execution, and each history contains at most $`N`$ active cells, so
 
 ```math
-\sum_{j=1}^{m}p_j\le N.
+\sum_{j=1}^{M}p_j\le N.
 ```
 
 The final accessible quantum-plus-classical states therefore satisfy
 
 ```math
 \tfrac12\|\rho_D^{\mathsf T}-\rho_M^{\mathsf T}\|_1
-\le\frac{\cosh^2(1)N}{m}
-\le2\cosh^2(1)Nq.
+\le\frac{\cosh^2(1)N}{M}
+\le2\cosh^2(1)Nq_{\rm res}.
 ```
 
 This proves the upper bound for every binary final measurement. At $`N=0`$ every cell is inactive, and exact composition gives $`e^{T\mathcal L}`$ at the fixed final horizon. Hence $`\Delta_0=0`$. A readout at an earlier time would be an interior system contact under the present convention.
@@ -383,7 +383,7 @@ L_3&=0.5|1\rangle\langle0|.
 
 The top eigenspace of $`Q`$ lies in $`\mathrm{span}\,\{|1\rangle,|2\rangle\}`$, and every jump has zero expectation there. This analytically certifies optimal centering: the maximum variance equals $`\|Q\|`$. Dividing all jumps by $`\sqrt{\|Q\|}`$ sets $`\nu=1`$ while retaining off-diagonal entries of $`Q`$ and noncommutativity.
 
-The tester starts with a maximally entangled qutrit pair, applies two joint instruments, retains all four outcome histories, and selects its second contact time from the first outcome. Six cell durations were checked. The largest endpoint matrix-unit residual was $`3.59\times10^{-15}`$. Reversing the sign of the cell Hamiltonian produced identical reduced recorded outputs at the displayed numerical precision, consistent with odd-order cancellation. The microscopic-to-Markov half trace distance divided by $`x=\nu h`$ was
+The tester starts with a maximally entangled qutrit pair, applies two joint instruments, retains all four outcome histories, and selects its second contact time from the first outcome. Six cell durations were checked. The largest endpoint matrix-unit residual was $`3.59\times10^{-15}`$. Reversing the sign of the cell Hamiltonian produced identical reduced recorded outputs at the displayed numerical precision, consistent with odd-order cancellation. The microscopic-to-Markov half trace distance divided by $`x=\nu {\delta_{\rm c}}`$ was
 
 | $`x`$ | Recorded output distance divided by $`x`$ |
 | ---: | ---: |
