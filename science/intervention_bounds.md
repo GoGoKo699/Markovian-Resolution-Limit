@@ -30,14 +30,14 @@ Fix an operating point $`u=0`$ and a protocol with $`n`$ stages, a parameter-ind
 
 Let $`V_j(u)`$ be the stage isometry after its entrance instrument. It can include all remaining adaptive controls during that stage. Archive a copy of every activity flag and preserve those copies through all later stages. This is a purification of already classical records, not a new observation or a register granted to the tester. A tester may erase its accessible record without erasing this analytical archive. An instrument acting on the system counts as a contact even if its action is the identity on some quantum components of the input.
 
-Assume, at the operating point, that constants $`a,L\geq0`$ satisfy
+Assume, at the operating point, that constants $`a_0,b_0\geq0`$ satisfy
 
 ```math
 V_j^\dagger\dot V_jP_{j,0}=0,
 \qquad
-\|\dot V_jP_{j,0}x\|\leq a\|P_{j,0}x\|,
+\|\dot V_jP_{j,0}x\|\leq a_0\|P_{j,0}x\|,
 \qquad
-\|\dot V_jP_{j,1}x\|\leq L\|P_{j,1}x\|
+\|\dot V_jP_{j,1}x\|\leq b_0\|P_{j,1}x\|
 ```
 
 for every input vector $`x`$, uniformly over stage number and earlier records. A dot denotes the parameter derivative. Identities on previously retained environments and reference systems are implicit. Impose the **hard branchwise budget**
@@ -52,7 +52,7 @@ Then the quantum Fisher information of the actual output, including every retain
 
 ```math
 F_u^{\mathrm{out}}
-\leq4\left(a\sqrt n+Lm\right)^2.
+\leq4\left(a_0\sqrt n+b_0m\right)^2.
 ```
 
 The same bound applies to the classical information of every final readout. If $`u`$ is a common nuisance path with unit target derivative, it also bounds nuisance-adjusted target information. The initial state and every control policy are held fixed under differentiation.
@@ -77,8 +77,8 @@ For $`i<j`$, cancel the common future isometries in $`\langle C_i,C_j\rangle`$. 
 ```math
 \left\|\sum_j C_j\right\|^2
 =\sum_j\|C_j\|^2
-\leq a^2\sum_j(1-p_j)
-\leq na^2.
+\leq a_0^2\sum_j(1-p_j)
+\leq na_0^2.
 ```
 
 This remains true when the incoming state is correlated with the retained bath or protected memory. It uses an operator identity, not independence of different stages.
@@ -93,14 +93,14 @@ Let $`Q_z`$ project the final purification onto an archived activity string $`z=
 &=\sum_z\left\|\sum_{j:z_j=1}Q_zD_j\right\|^2\\
 &\leq m\sum_z\sum_j\|Q_zD_j\|^2
 =m\sum_j\|D_j\|^2\\
-&\leq mL^2\sum_jp_j
-\leq m^2L^2.
+&\leq mb_0^2\sum_jp_j
+\leq m^2b_0^2.
 \end{aligned}
 ```
 
 The final inequality uses the expected number of active stages under the same undifferentiated protocol: $`\sum_jp_j=\mathbb E\sum_jz_j\leq m`$. The preceding history-wise inequality is the essential additional step. Summing square roots of separate activity probabilities would lose the hard-budget dependence.
 
-Combining the two source groups by the triangle inequality yields $`\|\dot\Psi_{\mathrm{out}}\|\leq a\sqrt n+Lm`$. Pure-state quantum Fisher information is at most $`4\|\dot\Psi_{\mathrm{out}}\|^2`$; tracing inaccessible purification registers and performing a final measurement cannot increase it. This proves the bound without identifying the derivative norm with quantum Fisher information.
+Combining the two source groups by the triangle inequality yields $`\|\dot\Psi_{\mathrm{out}}\|\leq a_0\sqrt n+b_0m`$. Pure-state quantum Fisher information is at most $`4\|\dot\Psi_{\mathrm{out}}\|^2`$; tracing inaccessible purification registers and performing a final measurement cannot increase it. This proves the bound without identifying the derivative norm with quantum Fisher information.
 
 Parameter-independent classical mixtures obey the same estimate: retain the random seed as an additional classical label, apply the uniform bound conditionally, and average. The following subsection gives sufficient conditions for limits of finite protocols; the derivative statement does not automatically inherit a probability-only closure at one parameter value.
 
@@ -155,11 +155,11 @@ First pass to the interaction picture of the free bath motion. Its propagator co
 
 Indeed, only the off-diagonal Hamiltonian block between the two projector subspaces contributes, and its norm is at most $`\Lambda`$. Integrating the scalar comparison from $`q(0)=0`$ bounds the angle $`\arcsin\sqrt{q(s)}`$ by $`\Lambda s`$. The result follows.
 
-After a successful projective measurement, the normalized conditional state is again supported on the same projector. Thus, for successive waiting times $`s_1,\ldots,s_n`$ satisfying the same restriction,
+After a successful projective measurement, the normalized conditional state is again supported on the same projector. Thus, for successive waiting times $`s_1,\ldots,s_\ell`$ satisfying the same restriction,
 
 ```math
 \Pr\{\text{every measurement succeeds}\}
-\geq\prod_{j=1}^n\cos^2(\Lambda s_j).
+\geq\prod_{j=1}^\ell\cos^2(\Lambda s_j).
 ```
 
 The environment can change and become correlated after every contact. No environment reset, fixed conditional bath state, or independence between the outcomes is assumed.
@@ -168,12 +168,12 @@ The lemma also holds with a free Hamiltonian that is block diagonal in $`\Pi`$ a
 
 ## A controlled cell with odd bath parity
 
-Let a cell of duration $`h`$ start with a fresh environmental subsystem in a state $`\eta`$ invariant under a Hermitian unitary $`Z_E`$. Suppose that the cell Hamiltonian satisfies
+Let a cell of duration $`{\delta_{\rm c}}`$ start with a fresh environmental subsystem in a state $`\sigma_E`$ invariant under a Hermitian unitary $`Z_E`$. Suppose that the cell Hamiltonian satisfies
 
 ```math
 Z_EH(t)Z_E=-H(t),
 \qquad
-a=\int_0^h\|H(t)\|_\infty\,dt.
+a=\int_0^{\delta_{\rm c}}\|H(t)\|_\infty\,dt.
 ```
 
 The tester may apply any permitted subroutine during this cell, including quantum references, instruments, record-dependent choices, and classically adaptive contact times. Let $`\mathcal F_H`$ be the resulting channel from the input tester state to its full output state and records after tracing the cell environment. Let $`\mathcal F_0`$ use the same tester subroutine with the cell Hamiltonian removed. Then
@@ -220,34 +220,34 @@ The estimate is independent of the tester memory dimension, number of branches, 
 
 ## A controlled Markov cell compared with idle
 
-Let the target generator satisfy $`\|\mathcal L\|_\diamond\leq2\kappa`$. The same tester subroutine, subjected either to Markov evolution or to idle evolution over a cell of duration $`h`$, obeys
+Let the target generator satisfy $`\|\mathcal L\|_\diamond\leq2\nu`$. The same tester subroutine, subjected either to Markov evolution or to idle evolution over a cell of duration $`{\delta_{\rm c}}`$, obeys
 
 ```math
 \frac12\|\mathcal F_{\mathcal L}-\mathcal F_0\|_\diamond
-\leq\kappa h.
+\leq\nu {\delta_{\rm c}}.
 ```
 
-For a fixed finite protocol tree, use the same union of branch contact times as above. A Duhamel expansion replaces the evolution by idle one infinitesimal interval at a time. The propagators and complete instruments before and after each replacement are trace-norm contractions, including in the presence of an arbitrary reference. The integral of the generator norm is at most $`2\kappa h`$. Division by two gives the claim.
+For a fixed finite protocol tree, use the same union of branch contact times as above. A Duhamel expansion replaces the evolution by idle one infinitesimal interval at a time. The propagators and complete instruments before and after each replacement are trace-norm contractions, including in the presence of an arbitrary reference. The integral of the generator norm is at most $`2\nu {\delta_{\rm c}}`$. Division by two gives the claim.
 
-For qubit amplitude damping, $`\kappa=\gamma`$ is valid: the jump term has diamond norm $`\gamma`$, and the two anticommutator terms together have norm at most $`\gamma`$.
+For qubit amplitude damping, $`\nu=\gamma`$ is valid: the jump term has diamond norm $`\gamma`$, and the two anticommutator terms together have norm at most $`\gamma`$.
 
 Combining the two cell estimates gives
 
 ```math
 \frac12\|\mathcal F_H-\mathcal F_{\mathcal L}\|_\diamond
-\leq\sinh^2(a)+\kappa h.
+\leq\sinh^2(a)+\nu {\delta_{\rm c}}.
 ```
 
-If $`a\leq1`$ and $`a^2\leq\kappa h`$, convexity of $`\sinh`$ on $`[0,1]`$ yields
+If $`a\leq1`$ and $`a^2\leq\nu {\delta_{\rm c}}`$, convexity of $`\sinh`$ on $`[0,1]`$ yields
 
 ```math
-\sinh^2(a)+\kappa h
-\leq\cosh^2(1)\kappa h.
+\sinh^2(a)+\nu {\delta_{\rm c}}
+\leq\cosh^2(1)\nu {\delta_{\rm c}}.
 ```
 
 ## Why only cells containing contacts need to be charged
 
-Suppose a simulator is built from finitely many cells, each starting with an independent fresh bath subsystem. Each cell bath is retained but never coupled again after its cell. Assume that, in the absence of an interior system contact, the endpoint channel of the cell equals the target channel exactly. Suppose also that the controlled cell discrepancy is at most $`\varepsilon_j`$ for every permitted subroutine.
+Suppose a simulator is built from finitely many cells, each starting with an independent fresh bath subsystem. Each cell bath is retained but never coupled again after its cell. Assume that, in the absence of an interior system contact, the endpoint channel of the cell equals the target channel exactly. Suppose also that the controlled cell discrepancy is at most $`e_j`$ for every permitted subroutine.
 
 The unused future bath subsystems remain in their initial product states. Spent subsystems can be traced out for the purpose of computing future tester statistics because they never interact again. This is an analytical reduction of the explicit construction; it does not assume that an arbitrary environment can be physically discarded or reset between cells.
 
@@ -255,7 +255,7 @@ Use the memory-only normal form to define a classical activity flag at cell entr
 
 ```math
 \frac12\|(\Phi_j-\Psi_j)(\rho)\|_1
-\leq\varepsilon_j\,p_j(\rho),
+\leq e_j\,p_j(\rho),
 ```
 
 where $`\Phi_j`$ is the simulator cell, $`\Psi_j`$ the target cell, and $`p_j(\rho)`$ the probability that the flag is active. The entrance flag instrument is common to both cells.
@@ -263,9 +263,9 @@ where $`\Phi_j`$ is the simulator cell, $`\Psi_j`$ the target cell, and $`p_j(\r
 For an initial tester state $`\rho_0`$, expand the difference of the complete evolutions as
 
 ```math
-\Phi_m\cdots\Phi_1-\Psi_m\cdots\Psi_1
-=\sum_{j=1}^m
-\Psi_m\cdots\Psi_{j+1}
+\Phi_M\cdots\Phi_1-\Psi_M\cdots\Psi_1
+=\sum_{j=1}^M
+\Psi_M\cdots\Psi_{j+1}
 (\Phi_j-\Psi_j)
 \Phi_{j-1}\cdots\Phi_1.
 ```
@@ -274,7 +274,7 @@ The suffix in each term is a target channel and contracts the trace norm. The pr
 
 ```math
 \frac12\|\rho_{\mathrm{sim}}-\rho_{\mathrm{target}}\|_1
-\leq\sum_{j=1}^m\varepsilon_j\,\Pr_{\mathrm{sim}}\{j\text{ is active}\}.
+\leq\sum_{j=1}^Me_j\,\Pr_{\mathrm{sim}}\{j\text{ is active}\}.
 ```
 
 On every realized branch, at most $`N`$ cells can contain a system contact. Therefore
@@ -285,7 +285,7 @@ On every realized branch, at most $`N`$ cells can contain a system contact. Ther
 \leq N.
 ```
 
-For a uniform cell bound $`\varepsilon_j\leq\varepsilon`$, the final distance is at most $`N\varepsilon`$. Applying the tester's final binary decision cannot increase it.
+For a uniform cell bound $`e_j\leq e`$, the final distance is at most $`Ne`$. Applying the tester's final binary decision cannot increase it.
 
 This argument accommodates classically adaptive timing without counting the union of all cells that could be active on different branches. Such a union could be much larger than $`N`$ and would give the wrong bound.
 

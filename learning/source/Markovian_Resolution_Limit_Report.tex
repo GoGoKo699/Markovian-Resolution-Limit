@@ -13,7 +13,7 @@
 \usepackage{hyperref}
 \definecolor{ink}{HTML}{143C53}
 \definecolor{accent}{HTML}{267A88}
-\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=accent,pdftitle={Markovian Resolution Limit: Explanatory Report},pdfauthor={},pdfsubject={Temporal access to bounded microscopic quantum dynamics},pdfkeywords={},bookmarksnumbered=true}
+\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=accent,pdftitle={Markovian Resolution Limit: Explanatory Report},pdfauthor={Ruge Lin},pdfsubject={Temporal access to bounded microscopic quantum dynamics},pdfkeywords={},bookmarksnumbered=true}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small\color{ink}Markovian Resolution Limit}
@@ -43,7 +43,13 @@
 \vspace{0.45em}
 {\large What access in time reveals about quantum noise\par}
 \vspace{0.65em}
-{\small Explanatory report}
+{\small Explanatory report\par}
+\vspace{0.7em}
+{\normalsize Ruge Lin\par}
+\vspace{0.3em}
+{\small Thrust of Artificial Intelligence, Information Hub,\\
+The Hong Kong University of Science and Technology (Guangzhou),\\
+Guangzhou 511453, China\par}
 \end{center}
 \vspace{0.4em}
 
@@ -442,11 +448,11 @@ $M=\sqrt\gamma\,\sigma_-$ and $\nu=\gamma$.
 
 Take $\Lambda\ge\nu$, set the horizon to one intrinsic lifetime
 $T=1/\nu$, and define the dimensionless ratio
-$q=(\nu/\Lambda)^2\in(0,1]$. Then, for every integer $N\ge0$,
+$q_{\rm res}=(\nu/\Lambda)^2\in(0,1]$. Then, for every integer $N\ge0$,
 \begin{equation}
- \boxed{\frac1{64}\min\{1,Nq\}
+ \boxed{\frac1{64}\min\{1,Nq_{\rm res}\}
  \le\Gamma_N\le\Delta_N
- \le\min\{1,2\cosh^2(1)Nq\}.}
+ \le\min\{1,2\cosh^2(1)Nq_{\rm res}\}.}
  \label{eq:resolution-law}
 \end{equation}
 Here $\cosh x=(e^x+e^{-x})/2$. The constants are universal and independent
@@ -456,8 +462,8 @@ example, the lower coefficient can be improved to $5/64$.
 The notation $\Theta(f)$ means bounded above and below by positive constant
 multiples of $f$ throughout the stated asymptotic regime. Equation
 \eqref{eq:resolution-law} says that both game values have order
-$\min\{1,Nq\}$. If $Nq$ tends to zero, one admissible device makes every
-tester ineffective. If $N$ is proportional to $1/q$, one universal test
+$\min\{1,Nq_{\rm res}\}$. If $Nq_{\rm res}$ tends to zero, one admissible device makes every
+tester ineffective. If $N$ is proportional to $1/q_{\rm res}$, one universal test
 has a fixed positive advantage. Saturation at order one does not claim
 perfect identification. With $N=0$, both values are exactly zero because
 one admissible device reproduces the final channel exactly. It does not
@@ -524,30 +530,30 @@ system--reference subspace, tensored with the identity on the bath. The
 initial joint state is supported on that subspace. Pass to the
 interaction picture of the bath-only Hamiltonian. This changes the
 description of the bath motion while leaving $\Pi$ fixed and preserving
-the bound $\|K(t)\|\leq\Lambda$ on the remaining Hamiltonian. A mixed
+the bound $\|K(s)\|\leq\Lambda$ on the remaining Hamiltonian. A mixed
 initial state can be represented as part of a larger pure state; the
 additional purifying system is only a mathematical device.
 
-Let $\ell(t)$ be the probability outside $\Pi$. Splitting the evolving
+Let $q(s)$ be the probability outside $\Pi$. Splitting the evolving
 state vector into its components inside and outside that subspace gives
 \begin{equation}
- \left|\frac{\dd\ell}{\dd t}\right|
- \leq 2\Lambda\sqrt{\ell(t)[1-\ell(t)]},
- \qquad \ell(0)=0.
+ \left|\frac{\dd q}{\dd s}\right|
+ \leq 2\Lambda\sqrt{q(s)[1-q(s)]},
+ \qquad q(0)=0.
  \label{wit:leakage-speed}
 \end{equation}
 Only the Hamiltonian block connecting the two subspaces can change their
 probabilities. Its norm is at most $\Lambda$; the two component lengths
-are $\sqrt{\ell}$ and $\sqrt{1-\ell}$, which explains the right-hand
-side. Write $\ell=\sin^2\vartheta$ with $0\leq\vartheta\leq\pi/2$.
+are $\sqrt{q}$ and $\sqrt{1-q}$, which explains the right-hand
+side. Write $q=\sin^2\vartheta$ with $0\leq\vartheta\leq\pi/2$.
 The differential inequality bounds the growth of this angle by
-$\dd\vartheta/\dd t\leq\Lambda$. Integrating from the initial angle zero,
+$\dd\vartheta/\dd s\leq\Lambda$. Integrating from the initial angle zero,
 with the same comparison at the endpoints, gives
 \begin{equation}
- \ell(t)\leq\sin^2(\Lambda t),\qquad
- p_{\mathrm D}(t)\geq\cos^2(\Lambda t)
- \geq1-\Lambda^2t^2,
- \quad 0\leq\Lambda t\leq\frac\pi2.
+ q(s)\leq\sin^2(\Lambda s),\qquad
+ p_{\mathrm D}(s)\geq\cos^2(\Lambda s)
+ \geq1-\Lambda^2s^2,
+ \quad 0\leq\Lambda s\leq\frac\pi2.
  \label{wit:survival-lemma}
 \end{equation}
 The subscript $\mathrm D$ denotes any admissible microscopic device.
@@ -557,12 +563,12 @@ After a successful projective measurement, the conditional joint state is
 again supported on $\Pi$. The bath may have changed, and its conditional
 state may depend on the whole preceding record. Nevertheless,
 \eqref{wit:survival-lemma} applies again because it uses only support in
-the subspace and the same Hamiltonian bound. For gaps $t_1,\ldots,t_k$
-satisfying $0\le\Lambda t_j\le\pi/2$ for every $j$,
+the subspace and the same Hamiltonian bound. For gaps $s_1,\ldots,s_\ell$
+satisfying $0\le\Lambda s_j\le\pi/2$ for every $j$,
 the probability of success at every measurement is therefore at least
 \begin{equation}
- \Pr_{\mathrm D}\{\text{all $k$ successes}\}
- \geq\prod_{j=1}^{k}\cos^2(\Lambda t_j).
+ \Pr_{\mathrm D}\{\text{all $\ell$ successes}\}
+ \geq\prod_{j=1}^{\ell}\cos^2(\Lambda s_j).
  \label{wit:conditional-product}
 \end{equation}
 This is the multiplication rule for conditional probabilities, followed
@@ -570,7 +576,7 @@ by a bound on each factor. It is not an independence assumption. No bath
 reset occurs between measurements.
 
 Balancing the two leading failure probabilities,
-$\gamma t$ and $\Lambda^2t^2$, suggests a waiting time of order
+$\gamma s$ and $\Lambda^2s^2$, suggests a waiting time of order
 $\gamma/\Lambda^2$. A lifetime $1/\gamma$ contains order
 $(\Lambda/\gamma)^2$ such gaps. This identifies the scale to investigate;
 the following explicit calculation turns that intuition into a uniform
@@ -581,14 +587,14 @@ decision rule.
 Set $r=\Lambda/\gamma\geq1$ and retain the fixed final horizon
 $T=1/\gamma$. Given a contact allowance $N\geq1$, choose
 \begin{equation}
- k=\min\{N,\lfloor r^2\rfloor\},\qquad
+ \ell=\min\{N,\lfloor r^2\rfloor\},\qquad
  \tau=\frac{\gamma}{4\Lambda^2}
       =\frac{1}{4\gamma r^2}.
  \label{wit:qubit-schedule}
 \end{equation}
 The floor $\lfloor r^2\rfloor$ is the largest integer not exceeding
 $r^2$. Prepare $|1\rangle$ at zero and measure $\{P,I-P\}$ at
-$\tau,2\tau,\ldots,k\tau$. Store a classical bit equal to one exactly
+$\tau,2\tau,\ldots,\ell\tau$. Store a classical bit equal to one exactly
 when every measurement succeeded, and read that stored bit at $T$.
 The last system contact occurs by $T/4$. Waiting until the prescribed
 terminal time still counts toward the full run duration, even though no
@@ -600,12 +606,12 @@ outcome of the experiment. We do not keep only successful runs or
 renormalize their probabilities.
 
 Under any microscopic device, \eqref{wit:conditional-product} and the
-elementary inequality $(1-x)^k\geq1-kx$ for $0\leq x\leq1$ imply
+elementary inequality $(1-x)^\ell\geq1-\ell x$ for $0\leq x\leq1$ imply
 \begin{equation}
  p_{\mathrm D}
- \geq\cos^{2k}\!\left(\frac1{4r}\right)
- \geq\left(1-\frac1{16r^2}\right)^k
- \geq1-\frac{k}{16r^2}.
+ \geq\cos^{2\ell}\!\left(\frac1{4r}\right)
+ \geq\left(1-\frac1{16r^2}\right)^\ell
+ \geq1-\frac{\ell}{16r^2}.
  \label{wit:qubit-micro}
 \end{equation}
 Here $p_{\mathrm D}$ means the probability that the stored bit is one,
@@ -614,10 +620,10 @@ Under the Markov process, each successful measurement restores the
 excited state, and the next interval has survival probability
 $e^{-\gamma\tau}$. Thus
 \begin{equation}
- p_{\mathrm M}=e^{-\gamma k\tau}=e^{-k/(4r^2)}.
+ p_{\mathrm M}=e^{-\gamma \ell\tau}=e^{-\ell/(4r^2)}.
  \label{wit:qubit-markov}
 \end{equation}
-Define $y=k/r^2$, so $0<y\leq1$. The inequality
+Define $y=\ell/r^2$, so $0<y\leq1$. The inequality
 $e^{-z}\leq1-z+z^2/2$ for $z\geq0$ now gives
 \begin{align}
  p_{\mathrm D}-p_{\mathrm M}
@@ -638,7 +644,7 @@ signed-witness quantity.
 
 \paragraph{A numerical scale, without a simulation.}
 Take $\gamma=1\,\mathrm{s}^{-1}$, $\Lambda=10\,\mathrm{s}^{-1}$ and
-$N=100$. Then $T=1\,\mathrm{s}$, $k=100$, and
+$N=100$. Then $T=1\,\mathrm{s}$, $\ell=100$, and
 $\tau=0.0025\,\mathrm{s}$. The last contact is at
 $0.25\,\mathrm{s}$. Equations \eqref{wit:qubit-micro} and
 \eqref{wit:qubit-markov} give
@@ -861,24 +867,24 @@ over arbitrary uncharged coherent drift.
 
 \subsection{The general lower bound with its constants}
 
-Set $q=(\nu/\Lambda)^2\in(0,1]$ and $T=1/\nu$. For $N\geq1$, use
+Set $q_{\rm res}=(\nu/\Lambda)^2\in(0,1]$ and $T=1/\nu$. For $N\geq1$, use
 \begin{equation}
- k=\min\{N,\lfloor1/q\rfloor\},\qquad
- \tau=\frac{q}{8\nu}=\frac{\nu}{8\Lambda^2}.
+ \ell=\min\{N,\lfloor1/q_{\rm res}\rfloor\},\qquad
+ \tau=\frac{q_{\rm res}}{8\nu}=\frac{\nu}{8\Lambda^2}.
  \label{wit:general-schedule}
 \end{equation}
-Prepare $P_*$ and measure $\{P_*,I-P_*\}$ at the $k$ times
-$\tau,2\tau,\ldots,k\tau$. Report the all-success bit at $T$.
+Prepare $P_*$ and measure $\{P_*,I-P_*\}$ at the $\ell$ times
+$\tau,2\tau,\ldots,\ell\tau$. Report the all-success bit at $T$.
 Every contact is a joint system--reference measurement; its time is
-strictly interior because $k\tau\leq T/8$.
+strictly interior because $\ell\tau\leq T/8$.
 
 After a success, the joint system--reference state is the rank-one
 state $P_*$. A larger state with this pure marginal must factor as
-$P_*\otimes\omega_E$. The conditional bath state $\omega_E$ can depend
+$P_*\otimes\sigma_E$. The conditional bath state $\sigma_E$ can depend
 on the previous record, but the survival lemma bounds the next
 microscopic failure probability by
 \begin{equation}
- \Lambda^2\tau^2=\frac q{64}.
+ \Lambda^2\tau^2=\frac{q_{\rm res}}{64}.
 \end{equation}
 For the Markov process we need a finite-time remainder bound, not only
 the initial slope. Twice integrating the derivative of the exponential
@@ -898,33 +904,33 @@ The channel $e^{s\mathcal L}$ has diamond norm one, and
 \end{equation}
 At the chosen gap,
 \begin{equation}
- p(\tau)\leq1-\frac q8+\frac{q^2}{32}
- \leq1-\frac q{16}.
+ p(\tau)\leq1-\frac{q_{\rm res}}8+\frac{q_{\rm res}^2}{32}
+ \leq1-\frac{q_{\rm res}}{16}.
 \end{equation}
-The last inequality uses $0<q\leq1$. Conditional survival probabilities
+The last inequality uses $0<q_{\rm res}\leq1$. Conditional survival probabilities
 under the microscopic device can vary, while those under the target
 repeat the same $p(\tau)$. Both statements suffice to give
 \begin{equation}
- p_{\mathrm D}\geq(1-q/64)^k,
- \qquad p_{\mathrm M}\leq(1-q/16)^k.
+ p_{\mathrm D}\geq(1-q_{\rm res}/64)^\ell,
+ \qquad p_{\mathrm M}\leq(1-q_{\rm res}/16)^\ell.
 \end{equation}
 For $A\geq B\geq0$, the identity
-$A^k-B^k=(A-B)\sum_{j=0}^{k-1}A^{k-1-j}B^j$
-is at least $k(A-B)B^{k-1}$. Apply it here and use $kq\leq1$:
+$A^\ell-B^\ell=(A-B)\sum_{j=0}^{\ell-1}A^{\ell-1-j}B^j$
+is at least $\ell(A-B)B^{\ell-1}$. Apply it here and use $\ell q_{\rm res}\leq1$:
 \begin{align}
  p_{\mathrm D}-p_{\mathrm M}
- &\geq\frac{3kq}{64}(1-q/16)^{k-1}
- \geq\frac{45kq}{1024} \nonumber\\
- &\geq\frac1{64}\min\{1,Nq\}.
+ &\geq\frac{3\ell q_{\rm res}}{64}(1-q_{\rm res}/16)^{\ell-1}
+ \geq\frac{45\ell q_{\rm res}}{1024} \nonumber\\
+ &\geq\frac1{64}\min\{1,Nq_{\rm res}\}.
  \label{wit:general-lower}
 \end{align}
 The second inequality uses
-$(1-q/16)^{k-1}\geq1-(k-1)q/16\geq15/16$.
+$(1-q_{\rm res}/16)^{\ell-1}\geq1-(\ell-1)q_{\rm res}/16\geq15/16$.
 For the last one,
-$kq\geq\tfrac12\min\{1,Nq\}$ and $45/2048>1/64$.
+$\ell q_{\rm res}\geq\tfrac12\min\{1,Nq_{\rm res}\}$ and $45/2048>1/64$.
 This proves the universal lower bound with dimension-independent
-constant $1/64$. If $Nq\geq1$, the experiment uses only
-$\lfloor1/q\rfloor$ contacts and already guarantees a fixed positive
+constant $1/64$. If $Nq_{\rm res}\geq1$, the experiment uses only
+$\lfloor1/q_{\rm res}\rfloor$ contacts and already guarantees a fixed positive
 gap. The saturation at this scale means an order-one advantage, not
 perfect discrimination.
 
@@ -935,41 +941,41 @@ each actual gap, possibly selected from previous records, lies in
 \begin{equation}
  \frac{\nu}{16\Lambda^2}\leq\tau_j
  \leq\frac{\nu}{8\Lambda^2},
- \qquad j=1,\ldots,k,
- \quad k=\min\{N,\lfloor1/q\rfloor\}.
+ \qquad j=1,\ldots,\ell,
+ \quad \ell=\min\{N,\lfloor1/q_{\rm res}\rfloor\}.
  \label{wit:spacing-range}
 \end{equation}
 The total duration of the measured prefix is at most $T/8$.
-Microscopic survival is at least $1-q/64$ in every gap. Put
-$x=\nu\tau_j\in[q/16,q/8]$. Equation \eqref{wit:taylor-bound}
+Microscopic survival is at least $1-q_{\rm res}/64$ in every gap. Put
+$x=\nu\tau_j\in[q_{\rm res}/16,q_{\rm res}/8]$. Equation \eqref{wit:taylor-bound}
 gives Markov failure at least
-$x-2x^2=x(1-2x)\geq(q/16)(3/4)\geq q/32$.
+$x-2x^2=x(1-2x)\geq(q_{\rm res}/16)(3/4)\geq q_{\rm res}/32$.
 Consequently
 \begin{align}
  p_{\mathrm D}-p_{\mathrm M}
- &\geq(1-q/64)^k-(1-q/32)^k \nonumber\\
- &\geq\frac{kq}{64}(1-q/32)^{k-1}
- \geq\frac{31kq}{2048}
- \geq\frac1{256}\min\{1,Nq\}.
+ &\geq(1-q_{\rm res}/64)^\ell-(1-q_{\rm res}/32)^\ell \nonumber\\
+ &\geq\frac{\ell q_{\rm res}}{64}(1-q_{\rm res}/32)^{\ell-1}
+ \geq\frac{31\ell q_{\rm res}}{2048}
+ \geq\frac1{256}\min\{1,Nq_{\rm res}\}.
  \label{wit:tolerant-gap}
 \end{align}
 The factor $31/32$ follows again from the inequality
-$(1-x)^j\geq1-jx$ and $kq\leq1$. Thus exact equality of all spacings
+$(1-x)^j\geq1-jx$ and $\ell q_{\rm res}\leq1$. Thus exact equality of all spacings
 is unnecessary. The interval itself is specified using the calibrated
 $\nu$ and certified bound $\Lambda$; arbitrary uncertainty in those
 parameters is not covered.
 
 Finally, suppose the actual complete instrument at contact $j$ differs
-from its ideal instrument by at most $\eta_j$ in half diamond norm,
+from its ideal instrument by at most $\zeta_j$ in half diamond norm,
 uniformly over inputs and protected references. Complete means that
 the output includes the outcome label as well as the conditional
 quantum state. Replace the instruments one at a time in the experiment.
 For either hypothesis, all later channels and instruments contract
 trace distance, so the final event probability changes by at most
-$\sum_j\eta_j$. Subtracting the two probabilities yields
+$\sum_j\zeta_j$. Subtracting the two probabilities yields
 \begin{equation}
  \text{implemented signed gap}
- \geq\text{ideal signed gap}-2\sum_j\eta_j.
+ \geq\text{ideal signed gap}-2\sum_j\zeta_j.
  \label{wit:instrument-errors}
 \end{equation}
 Preparation and readout errors can be included as additional terms in
@@ -1008,12 +1014,12 @@ two-qubit example, then build the general device.
 \label{sim:exchange}
 
 Let the sensor be a qubit and let a bath qubit begin in $|0\rangle_E$.
-During a cell of duration $h>0$, use the exchange Hamiltonian
+During a cell of duration $\delta_{\rm c}>0$, use the exchange Hamiltonian
 \begin{equation}
- K=\frac{\theta}{h}
+ K=\frac{\theta}{\delta_{\rm c}}
  \left(\sigma_+\otimes\sigma_-+
        \sigma_-\otimes\sigma_+\right),
- \qquad \cos\theta=e^{-\gamma h/2},
+ \qquad \cos\theta=e^{-\gamma \delta_{\rm c}/2},
  \qquad 0<\theta<\frac\pi2.
  \label{sim:exchange-hamiltonian}
 \end{equation}
@@ -1021,9 +1027,9 @@ Here $\sigma_-=|0\rangle\langle1|$ removes an excitation and
 $\sigma_+=\sigma_-^\dagger$ adds one. The tensor product places the first
 operator on the sensor and the second on the bath. The interaction can
 transfer an excitation between them; it does nothing to $|0\rangle|0\rangle$.
-Its norm is $\theta/h$, with units of inverse time.
+Its norm is $\theta/\delta_{\rm c}$, with units of inverse time.
 
-At the end of the cell, the unitary $U=e^{-ihK}$ acts on the two possible
+At the end of the cell, the unitary $U=e^{-i\delta_{\rm c}K}$ acts on the two possible
 sensor basis inputs as
 \begin{align}
  |0\rangle|0\rangle&\longmapsto |0\rangle|0\rangle,\nonumber\\
@@ -1040,17 +1046,17 @@ $\rho\mapsto A_0\rho A_0^\dagger+A_1\rho A_1^\dagger$, where
  \qquad A_1=-i\sin\theta\,|0\rangle\langle1|.
  \label{sim:exchange-kraus}
 \end{equation}
-The excited population is multiplied by $\cos^2\theta=e^{-\gamma h}$,
+The excited population is multiplied by $\cos^2\theta=e^{-\gamma \delta_{\rm c}}$,
 and a coherence between $|0\rangle$ and $|1\rangle$ is multiplied by
-$\cos\theta=e^{-\gamma h/2}$. These are exactly the amplitude-damping
-rules for time $h$. Checking population alone would not suffice: the
+$\cos\theta=e^{-\gamma \delta_{\rm c}/2}$. These are exactly the amplitude-damping
+rules for time $\delta_{\rm c}$. Checking population alone would not suffice: the
 coherence rule is also needed. The channel identity implies equality on
 every sensor state, including a sensor entangled with a protected reference.
 
 The joint evolution during the interval remains different. For example,
 an initially excited sensor has microscopic excited-state probability
-$\cos^2(\theta t/h)$ at intermediate time $t$, whereas the target has
-$e^{-\gamma t}$. The two formulas agree at $t=h$ by construction. They
+$\cos^2(\theta t/\delta_{\rm c})$ at intermediate time $t$, whereas the target has
+$e^{-\gamma t}$. The two formulas agree at $t=\delta_{\rm c}$ by construction. They
 have different initial slopes: zero for the microscopic model and
 $-\gamma$ for the target. The endpoint equality therefore leaves room
 for an interior intervention to expose the difference.
@@ -1065,14 +1071,14 @@ the interaction, and an interior pulse can change how it returns.
 
 Apply $Z=|0\rangle\langle0|-|1\rangle\langle1|$ to the sensor halfway
 through the cell. This pulse changes the sign of the exchange Hamiltonian:
-$(Z\otimes I)K(Z\otimes I)=-K$. If $U_{1/2}=e^{-ihK/2}$, then
+$(Z\otimes I)K(Z\otimes I)=-K$. If $U_{1/2}=e^{-i\delta_{\rm c}K/2}$, then
 \begin{equation}
  U_{1/2}(Z\otimes I)U_{1/2}=Z\otimes I.
  \label{sim:exact-echo}
 \end{equation}
 One way to verify the identity is to move $Z\otimes I$ through the
 right-hand exponential. Anticommutation changes that exponential to
-$e^{+ihK/2}$, which cancels the left-hand one. The excitation exchange
+$e^{+i\delta_{\rm c}K/2}$, which cancels the left-hand one. The excitation exchange
 is undone. Apart from the known $Z$ pulse, the sensor and bath return
 to their input state.
 
@@ -1081,21 +1087,21 @@ of $\sigma_-$ does not change its dissipator, since each noise term contains
 both $\sigma_-$ and its adjoint. Thus the amplitude-damping channel commutes
 with the phase flip, giving
 \begin{equation}
- e^{(h/2)\mathcal L_\gamma}\circ\operatorname{Ad}_Z
- \circ e^{(h/2)\mathcal L_\gamma}
- =\operatorname{Ad}_Z\circ e^{h\mathcal L_\gamma},
+ e^{(\delta_{\rm c}/2)\mathcal L_\gamma}\circ\operatorname{Ad}_Z
+ \circ e^{(\delta_{\rm c}/2)\mathcal L_\gamma}
+ =\operatorname{Ad}_Z\circ e^{\delta_{\rm c}\mathcal L_\gamma},
  \qquad \operatorname{Ad}_Z(\rho)=Z\rho Z.
  \label{sim:markov-echo}
 \end{equation}
 For an initially excited sensor, the microscopic output is still excited
 with probability one. The target output is excited with probability
-$e^{-\gamma h}$. Measuring the population therefore gives a probability
+$e^{-\gamma \delta_{\rm c}}$. Measuring the population therefore gives a probability
 gap, equal here to the output trace distance, of
 \begin{equation}
- 1-e^{-\gamma h}=\sin^2\theta.
+ 1-e^{-\gamma \delta_{\rm c}}=\sin^2\theta.
  \label{sim:echo-gap}
 \end{equation}
-For example, if $\gamma h=0.01$, the gap is approximately $0.00995$.
+For example, if $\gamma \delta_{\rm c}=0.01$, the gap is approximately $0.00995$.
 The example shows why a complete microscopic interaction cannot be replaced
 by its endpoint channel before inserting the pulse. It also shows a
 discrepancy quadratic in the small action $\theta$. It does not yet bound
@@ -1107,7 +1113,7 @@ contacts can accumulate.
 \begin{tikzpicture}[x=5.65cm,y=3.3cm,font=\small]
 \begin{scope}
 \node[font=\small\bfseries] at (0.5,1.22) {No interior pulse};
-\draw[->] (0,0) -- (1.08,0) node[right] {$t/h$};
+\draw[->] (0,0) -- (1.08,0) node[right] {$t/\delta_{\rm c}$};
 \draw[->] (0,0) -- (0,1.1);
 \node[rotate=90] at (-0.17,0.57) {Excited-state probability};
 \foreach \x/\lab in {0/0,0.5/{1/2},1/1}
@@ -1123,7 +1129,7 @@ contacts can accumulate.
 \end{scope}
 \begin{scope}[xshift=7.55cm]
 \node[font=\small\bfseries] at (0.5,1.22) {One midpoint $Z$ pulse};
-\draw[->] (0,0) -- (1.08,0) node[right] {$t/h$};
+\draw[->] (0,0) -- (1.08,0) node[right] {$t/\delta_{\rm c}$};
 \draw[->] (0,0) -- (0,1.1);
 \foreach \x/\lab in {0/0,0.5/{1/2},1/1}
  {\draw (\x,0) -- (\x,-0.025) node[below] {$\lab$};}
@@ -1145,7 +1151,7 @@ contacts can accumulate.
 {\small\textcolor{accent}{Solid: microscopic exchange}\qquad
 \textcolor{ink}{Dashed: Markov decay}}
 \caption{The same endpoint can conceal different dynamics.
-These are exact excited-population curves for the example $\gamma h=1$,
+These are exact excited-population curves for the example $\gamma \delta_{\rm c}=1$,
 with $\theta=\arccos(e^{-1/2})$. Without the pulse, both final populations
 are $e^{-1}$. With the pulse, the microscopic exchange is undone and its
 population returns to one; the Markov decay continues. The proof above
@@ -1159,13 +1165,13 @@ not just equality of these plotted populations.}
 
 Return to the centered, drift-free generator and its positive loss operator
 $Q=\sum_a M_a^\dagger M_a$, with $\|Q\|=\nu$. The system dimension is
-$d$. We seek a finite bath and a time-independent Hamiltonian for one cell
-whose reduced endpoint channel is exactly $e^{h\mathcal L}$. The same
+$d_S$. We seek a finite bath and a time-independent Hamiltonian for one cell
+whose reduced endpoint channel is exactly $e^{\delta_{\rm c}\mathcal L}$. The same
 Hamiltonian will also have the symmetry needed to bound interrupted cells.
 
 First isolate one particularly useful Kraus operator,
 \begin{equation}
- A_0=e^{-hQ/2}.
+ A_0=e^{-\delta_{\rm c}Q/2}.
  \label{sim:nojump}
 \end{equation}
 It is a positive operator: all its eigenvalues are positive real numbers.
@@ -1183,8 +1189,8 @@ The propagation $e^{s\mathcal G}(\rho)=e^{-sQ/2}\rho e^{-sQ/2}$
 and the map $\mathcal J$ are completely positive. Expanding the full
 propagator according to the number of inserted $\mathcal J$ maps yields
 \begin{equation}
- e^{h\mathcal L}=e^{h\mathcal G}
- +\int_0^h e^{(h-t)\mathcal G}\mathcal J e^{t\mathcal G}\,\dd t
+ e^{\delta_{\rm c}\mathcal L}=e^{\delta_{\rm c}\mathcal G}
+ +\int_0^{\delta_{\rm c}} e^{(\delta_{\rm c}-t)\mathcal G}\mathcal J e^{t\mathcal G}\,\dd t
  +\text{terms with two or more insertions}.
  \label{sim:positive-expansion}
 \end{equation}
@@ -1194,7 +1200,7 @@ subtracting $A_0(\cdot)A_0$ is completely positive. Nothing in this
 argument assumes that the jumps commute with one another or with $Q$.
 
 Choose Kraus operators $B_1,\ldots,B_s$ for this remainder, with
-$s\le d^2$, and regard them as one column operator $B$. In plain terms,
+$s\le d_S^2$, and regard them as one column operator $B$. In plain terms,
 $B$ sends a system vector to the column containing all the vectors $B_a$
 would produce. Because the entire channel preserves trace,
 \begin{equation}
@@ -1230,39 +1236,39 @@ $|1\rangle,\ldots,|s\rangle$. Decompose the joint Hilbert space into
 the vacuum sector and the direct sum of the excited sectors. On this
 space set
 \begin{equation}
- K_h=\frac1h
+ K_{\delta_{\rm c}}=\frac1{\delta_{\rm c}}
  \begin{pmatrix}
  0&-i\Theta J^\dagger\\
  iJ\Theta&0
  \end{pmatrix}.
  \label{sim:rotation-generator}
 \end{equation}
-The off-diagonal blocks are adjoints of one another, so $K_h$ is a
+The off-diagonal blocks are adjoints of one another, so $K_{\delta_{\rm c}}$ is a
 Hermitian Hamiltonian. For each eigenvector with angle $\vartheta>0$,
 it generates an ordinary two-dimensional rotation between that vector
 in the vacuum sector and its image under $J$. The zero-angle sector
 and unused excited directions are left fixed. Therefore
 \begin{equation}
- e^{-ihK_h}\begin{pmatrix}I\\0\end{pmatrix}
+ e^{-i\delta_{\rm c}K_{\delta_{\rm c}}}\begin{pmatrix}I\\0\end{pmatrix}
  =\begin{pmatrix}\cos\Theta\\J\sin\Theta\end{pmatrix}
  =\begin{pmatrix}A_0\\B\end{pmatrix}.
  \label{sim:rotation-column}
 \end{equation}
 This equation specifies the unitary's action for a vacuum bath and every
 system input. Taking the bath trace gives precisely the desired Kraus
-channel, and hence precisely $e^{h\mathcal L}$.
+channel, and hence precisely $e^{\delta_{\rm c}\mathcal L}$.
 
 Its norm is controlled by the largest rotation angle:
 \begin{equation}
- h\|K_h\|=\|\Theta\|
- =\arccos(e^{-\nu h/2})=:\theta_h,
- \qquad \theta_h^2\le\nu h.
+ \delta_{\rm c}\|K_{\delta_{\rm c}}\|=\|\Theta\|
+ =\arccos(e^{-\nu \delta_{\rm c}/2})=:\theta,
+ \qquad \theta^2\le\nu \delta_{\rm c}.
  \label{sim:angle-bound}
 \end{equation}
 For the last inequality, use
 $-2\log\cos\theta=2\int_0^\theta\tan u\,\dd u\ge\theta^2$,
 because $\tan u\ge u$ for $0\le u<\pi/2$. Here $\log$ is the natural
-logarithm. This proves $\|K_h\|\le\sqrt{\nu/h}$.
+logarithm. This proves $\|K_{\delta_{\rm c}}\|\le\sqrt{\nu/\delta_{\rm c}}$.
 
 Finally, let bath parity assign sign $+1$ to its vacuum and sign $-1$
 to every excited label:
@@ -1270,8 +1276,8 @@ to every excited label:
  Z_E=|0\rangle\langle0|-\sum_{a=1}^s|a\rangle\langle a|.
  \label{sim:bath-parity}
 \end{equation}
-Conjugating $K_h$ by $I_S\otimes Z_E$ changes the signs of both
-off-diagonal blocks, so it sends $K_h$ to $-K_h$. The initial bath
+Conjugating $K_{\delta_{\rm c}}$ by $I_S\otimes Z_E$ changes the signs of both
+off-diagonal blocks, so it sends $K_{\delta_{\rm c}}$ to $-K_{\delta_{\rm c}}$. The initial bath
 state is unchanged. This symmetry is the extra property that will
 control arbitrary interruptions; an arbitrary endpoint dilation would
 not automatically supply it.
@@ -1279,29 +1285,29 @@ not automatically supply it.
 \subsection{From one cell to one admissible finite bath}
 \label{sim:grid}
 
-Recall $T=1/\nu$, $\Lambda\ge\nu$ and $q=(\nu/\Lambda)^2$.
+Recall $T=1/\nu$, $\Lambda\ge\nu$ and $q_{\rm res}=(\nu/\Lambda)^2$.
 Choose the number of collision cells and their duration as
 \begin{equation}
- M_{\mathrm c}=\lfloor1/q\rfloor,\qquad
- h=\frac{T}{M_{\mathrm c}},\qquad
- x=\nu h=\frac1{M_{\mathrm c}}.
+ M=\lfloor1/q_{\rm res}\rfloor,\qquad
+ \delta_{\rm c}=\frac{T}{M},\qquad
+ x=\nu \delta_{\rm c}=\frac1{M}.
  \label{sim:grid-choice}
 \end{equation}
 The floor $\lfloor y\rfloor$ denotes the largest integer no larger
-than $y$. Since $1/q\ge1$, we have $M_{\mathrm c}\ge1$ and
-$x\le1$. Also $\lfloor y\rfloor\ge y/2$ for $y\ge1$, so $x\le2q$.
+than $y$. Since $1/q_{\rm res}\ge1$, we have $M\ge1$ and
+$x\le1$. Also $\lfloor y\rfloor\ge y/2$ for $y\ge1$, so $x\le2q_{\rm res}$.
 
-Prepare all $M_{\mathrm c}$ bath cells in their vacuum states at time
+Prepare all $M$ bath cells in their vacuum states at time
 zero. Couple the system to cell 1 for the first interval, to cell 2 for
 the second, and so on. Each cell is retained after use but never coupled
 again. ``Fresh'' here means previously unused, not newly supplied or
 reset during the experiment. The strength satisfies
 \begin{equation}
- \|K_h\|\le\sqrt{\frac\nu h}
- =\nu\sqrt{M_{\mathrm c}}\le\Lambda.
+ \|K_{\delta_{\rm c}}\|\le\sqrt{\frac{\nu}{\delta_{\rm c}}}
+ =\nu\sqrt{M}\le\Lambda.
  \label{sim:grid-strength}
 \end{equation}
-The model is therefore admissible. Crucially, neither $M_{\mathrm c}$
+The model is therefore admissible. Crucially, neither $M$
 nor the switching schedule depends on the contact budget $N$, the
 chosen input, or a measurement outcome. This one device will supply
 the upper bound for every $N$.
@@ -1336,32 +1342,32 @@ only a convenient representation for the following single-cell estimate.
 Multiply the microscopic Hamiltonian by a real scalar $\alpha$ and
 expand the resulting output channel as a power series,
 \begin{equation}
- \mathcal F_{\alpha K_h}
+ \mathcal F_{\alpha K_{\delta_{\rm c}}}
  =\sum_{k=0}^\infty\alpha^k\mathcal F^{(k)},
  \qquad \|\mathcal F^{(k)}\|_\diamond
- \le\frac{(2\theta_h)^k}{k!}.
+ \le\frac{(2\theta)^k}{k!}.
  \label{sim:dyson-bound}
 \end{equation}
 Each insertion of the Hamiltonian commutator has diamond norm at most
-$2\|K_h\|$. The maps between insertions have norm one. Integrating
-over ordered insertion times supplies the factor $h^k/k!$, which proves
+$2\|K_{\delta_{\rm c}}\|$. The maps between insertions have norm one. Integrating
+over ordered insertion times supplies the factor $\delta_{\rm c}^k/k!$, which proves
 the displayed estimate. The bound includes arbitrarily large finite
 protected references and all classical outputs.
 
 Bath parity changes $\alpha$ to $-\alpha$. It leaves the initial
 vacuum unchanged, commutes with every tester operation, and disappears
 when the bath is finally traced out. Hence
-$\mathcal F_{\alpha K_h}=\mathcal F_{-\alpha K_h}$. Every odd coefficient
+$\mathcal F_{\alpha K_{\delta_{\rm c}}}=\mathcal F_{-\alpha K_{\delta_{\rm c}}}$. Every odd coefficient
 in the power series must vanish. Since its zero-order term is the idle
 experiment, summing the remaining terms gives
 \begin{equation}
  \frac12\|\mathcal F_D-\mathcal F_0\|_\diamond
- \le\frac12\sum_{k=1}^\infty\frac{(2\theta_h)^{2k}}{(2k)!}
- =\sinh^2\theta_h.
+ \le\frac12\sum_{k=1}^\infty\frac{(2\theta)^{2k}}{(2k)!}
+ =\sinh^2\theta.
  \label{sim:even-bound}
 \end{equation}
 Here $\sinh u=(e^u-e^{-u})/2$ and $\cosh u=(e^u+e^{-u})/2$.
-The missing linear term matters: $\theta_h$ is of order $\sqrt{x}$,
+The missing linear term matters: $\theta$ is of order $\sqrt{x}$,
 whereas the desired discrepancy is of order $x$.
 
 For the target-to-idle comparison, replace the Markov evolution by idle
@@ -1369,17 +1375,17 @@ one infinitesimal interval at a time. The unchanged preceding and following
 physical maps contract trace distance. Integrating the generator norm
 $\|\mathcal L\|_\diamond=2\nu$ over the cell yields
 \begin{equation}
- \frac12\|\mathcal F_M-\mathcal F_0\|_\diamond\le\nu h=x.
+ \frac12\|\mathcal F_M-\mathcal F_0\|_\diamond\le\nu \delta_{\rm c}=x.
  \label{sim:markov-idle}
 \end{equation}
 The triangle inequality now bounds the actual cell discrepancy by
 \begin{equation}
  \frac12\|\mathcal F_D-\mathcal F_M\|_\diamond
- \le\sinh^2\theta_h+x
+ \le\sinh^2\theta+x
  \le\cosh^2(1)x=:\varepsilon_{\mathrm{cell}}.
  \label{sim:complete-cell-error}
 \end{equation}
-Indeed $\theta_h\le\sqrt{x}\le1$, and convexity gives
+Indeed $\theta\le\sqrt{x}\le1$, and convexity gives
 $\sinh u\le u\sinh1$ for $0\le u\le1$. Combining this with
 $\cosh^2 1=1+\sinh^2 1$ proves the last inequality.
 The estimate is independent of how many contacts the subroutine makes
@@ -1445,10 +1451,10 @@ blocks, so these weighted estimates add without discarding information.
 To compare the whole experiment, replace its cells one at a time using
 the telescoping identity
 \begin{equation}
- \Phi_{M_{\mathrm c}}\cdots\Phi_1-
- \Psi_{M_{\mathrm c}}\cdots\Psi_1
- =\sum_{j=1}^{M_{\mathrm c}}
- \Psi_{M_{\mathrm c}}\cdots\Psi_{j+1}
+ \Phi_{M}\cdots\Phi_1-
+ \Psi_{M}\cdots\Psi_1
+ =\sum_{j=1}^{M}
+ \Psi_{M}\cdots\Psi_{j+1}
  (\Phi_j-\Psi_j)\Phi_{j-1}\cdots\Phi_1.
  \label{sim:hybrid}
 \end{equation}
@@ -1458,9 +1464,9 @@ Thus every activity weight comes from one and the same probability law,
 the full microscopic experiment. Writing $p_j$ for those probabilities,
 \begin{align}
  \frac12\|\rho_D^{\mathsf T}-\rho_M^{\mathsf T}\|_1
- &\le\varepsilon_{\mathrm{cell}}\sum_{j=1}^{M_{\mathrm c}}p_j,
+ &\le\varepsilon_{\mathrm{cell}}\sum_{j=1}^{M}p_j,
  \nonumber\\
- \sum_{j=1}^{M_{\mathrm c}}p_j
+ \sum_{j=1}^{M}p_j
  &=\E_D[\text{number of active cells}]\le N.
  \label{sim:actual-budget}
 \end{align}
@@ -1468,12 +1474,12 @@ The expectation is bounded because every history obeys the hard contact
 budget. A rare branch does not receive free contacts, and mutually
 exclusive branches are not counted as though they occurred together.
 
-Finally, $x=1/M_{\mathrm c}\le2q$ and a final binary readout cannot
+Finally, $x=1/M\le2q_{\rm res}$ and a final binary readout cannot
 increase trace distance. The constructed device therefore obeys, for
 every allowed tester,
 \begin{equation}
  |p_D^{\mathsf T}-p_M^{\mathsf T}|
- \le\min\{1,2\cosh^2(1)Nq\}.
+ \le\min\{1,2\cosh^2(1)Nq_{\rm res}\}.
  \label{sim:global-upper}
 \end{equation}
 The argument directly covers finite protocol trees at arbitrary real
@@ -1488,9 +1494,9 @@ contact times or uncounted continuous monitoring.
 Combining this single-device upper bound with the universal survival
 witness gives
 \begin{equation}
- \frac1{64}\min\{1,Nq\}\le\Gamma_N\le\Delta_N
- \le\min\{1,2\cosh^2(1)Nq\},
- \qquad q=\frac{\nu^2}{\Lambda^2}.
+ \frac1{64}\min\{1,Nq_{\rm res}\}\le\Gamma_N\le\Delta_N
+ \le\min\{1,2\cosh^2(1)Nq_{\rm res}\},
+ \qquad q_{\rm res}=\frac{\nu^2}{\Lambda^2}.
  \label{sim:matched-law}
 \end{equation}
 The lower tester does not know the microscopic bath. The upper simulator
@@ -1508,26 +1514,26 @@ endpoint. An earlier system readout is a paid interior contact, even if
 its result is stored until $T$.
 
 The same theorem can be read as a strength requirement for simulation.
-Let $\Lambda_{\min}(N,\epsilon)$ be the infimum of allowed strengths
+Let $\Lambda_{\min}(N,\eta)$ be the infimum of allowed strengths
 for which some microscopic model keeps the worst permitted tester's
-probability gap at most $\epsilon$. For $N\ge1$ and
-$0<\epsilon<1/64$, the lower bound forces its unsaturated branch;
+probability gap at most $\eta$. For $N\ge1$ and
+$0<\eta<1/64$, the lower bound forces its unsaturated branch;
 otherwise its gap would already be at least $1/64$. Inverting the two
 inequalities gives
 \begin{equation}
- \nu\sqrt{\frac{N}{64\epsilon}}
- \le\Lambda_{\min}(N,\epsilon)
- \le\nu\sqrt{\frac{2\cosh^2(1)N}{\epsilon}}.
+ \nu\sqrt{\frac{N}{64\eta}}
+ \le\Lambda_{\min}(N,\eta)
+ \le\nu\sqrt{\frac{2\cosh^2(1)N}{\eta}}.
  \label{sim:strength-cost}
 \end{equation}
 In words, tolerating more interventions or demanding smaller error
 requires a larger microscopic strength, proportional to
-$\nu\sqrt{N/\epsilon}$ in this model.
+$\nu\sqrt{N/\eta}$ in this model.
 
 There are costs outside that statement. Each general cell has at most
-$d^2+1$ bath levels, so the complete bath used here has dimension at most
-$(d^2+1)^{M_{\mathrm c}}$. For the explicit qubit exchange construction it
-is $2^{M_{\mathrm c}}$. All those cells are prepared at time zero; the
+$d_S^2+1$ bath levels, so the complete bath used here has dimension at most
+$(d_S^2+1)^{M}$. For the explicit qubit exchange construction it
+is $2^{M}$. All those cells are prepared at time zero; the
 schedule is externally prescribed. The result neither bounds the effort
 of preparing that bath nor supplies an autonomous clock or finite-duration
 instruments. Independent repetitions of the whole duration-$T$ experiment
@@ -1806,7 +1812,7 @@ bath qubit evolve under
  \label{con:H}
 \end{equation}
 The coupling $g>0$ is fixed, and $\chi=gh$ lies in $(0,\pi/4)$.
-The same unknown direction $\phi$ applies throughout all cells and repeated
+The same unknown direction $\phi\in\mathbb R/\pi\mathbb Z$ applies throughout all cells and repeated
 trials. All bath qubits begin in $|0\rangle$ at time zero; after use they
 remain inaccessible and never interact again. Thus the construction uses
 new partners already present in the finite bath, not uncharged resets of
@@ -2092,12 +2098,12 @@ on that event the squared fluctuation is at least $t^2$.
 
 Let $X_i$ be the $i$th summand of $D_L^0$.
 Rewards in nearby cells are correlated, but their correlations decay.
-Put $M=\max\{A,d_p\}$ and $V_0=M^2[1+2/(1-\rho)]$.
+Put $M_0=\max\{A,d_p\}$ and $V_0=M_0^2[1+2/(1-\rho)]$.
 For rewards $X_i,X_j$ with $i<j$, conditioning on the parity after cell
 $i$ leaves a difference between the two possible future mean rewards of
-at most $2M\rho^{j-i-1}$. A variable of range length $2M$ has variance
-at most $M^2$. Cauchy--Schwarz therefore gives
-$|\Cov(X_i,X_j)|\le M^2\rho^{j-i-1}$, and summing the geometric series gives
+at most $2M_0\rho^{j-i-1}$. A variable of range length $2M_0$ has variance
+at most $M_0^2$. Cauchy--Schwarz therefore gives
+$|\Cov(X_i,X_j)|\le M_0^2\rho^{j-i-1}$, and summing the geometric series gives
 $\Var(D_L^0)\le V_0L$. The elementary variance tail bound now implies
 \begin{equation}
  \Pr(\text{accepted})\ge\frac12-\frac{16V_0}{A^2L}
@@ -2127,41 +2133,41 @@ records are flagged and charged the same block duration.
 
 A plain one-cell trial already identifies frequency on this band. Prepare
 $|+_L\rangle$, measure parity, and on an even result measure $Y_L$.
-Record a classical score $z=+1$ or $-1$ for that logical readout, and $z=0$
+Record a classical score $Z=+1$ or $-1$ for that logical readout, and $Z=0$
 for odd parity. This score is not the Pauli operator $Z_S$.
-With $b=\epsilon\sin r/(2R)$, its exact likelihood is
+Its exact likelihood is
 \begin{equation}
- \Pr(z=0)=p_p,\qquad
- \Pr(z=\pm1)=\tfrac12(\cos r\pm b)^2,\qquad
- F(\epsilon):=\mathbb E z=\frac{\epsilon\sin(2Rh)}{2R}.
+ \Pr(Z=0)=p_p,\qquad
+ \Pr(Z=\pm1)=\tfrac12[q_p\pm f(\epsilon)],\qquad
+ f(\epsilon):=\mathbb E Z=\frac{\epsilon\sin(2Rh)}{2R}.
 \end{equation}
 It is independent of $\phi$. For instance, at $\chi=\pi/6$ and
 $\epsilon=0$, the probabilities of $0,+1,-1$ are $1/4,3/8,3/8$.
 The zero scores are part of the data, not discarded shots.
 Differentiation gives
 \begin{equation}
- F'(\epsilon)=h\left[
+ f'(\epsilon)=h\left[
  \frac{g^2}{R^2}\frac{\sin(2r)}{2r}
  +\frac{\epsilon^2}{4R^2}\cos(2r)\right]
  \in[\kappa,h],\qquad \kappa=h\cos(2r_*)>0.
 \end{equation}
 The two weights sum to one, and $\sin x/x\ge\cos x$ on $(0,\pi/2)$.
-Therefore $F$ has a unique inverse on the promised band.
+Therefore $f$ has a unique inverse on the promised band.
 
-For $N_c$ independent trials, average the scores, clip their mean to
-$F([-E,E])$, and apply $F^{-1}$. Call the result $\widehat\epsilon_c$.
+For $b$ independent trials, average the scores, clip their mean to
+$f([-E,E])$, and apply $f^{-1}$. Call the result $\widehat\epsilon_b$.
 Clipping cannot increase its distance from the true mean, so
 \begin{align}
- \mathbb E(\widehat\epsilon_c-\epsilon)^2&\le\frac1{N_c\kappa^2},\nonumber\\
- \Pr(|\widehat\epsilon_c-\epsilon|\ge\delta)
- &\le2\exp[-N_c\kappa^2\delta^2/2].
+ \mathbb E(\widehat\epsilon_b-\epsilon)^2&\le\frac1{b\kappa^2},\nonumber\\
+ \Pr(|\widehat\epsilon_b-\epsilon|\ge\delta)
+ &\le2\exp[-b\kappa^2\delta^2/2].
  \label{con:coarse}
 \end{align}
-The first claim uses $\Var(z)\le1$; the second is the bounded-variable
+The first claim uses $\Var(Z)\le1$; the second is the bounded-variable
 concentration inequality for independent scores in $[-1,1]$.
 Each trial costs one full cell. An intermediate readout and the next
-preparation share one boundary instrument. A calibration prefix of $N_c$
-cells costs $N_c$ boundary contacts, because its last readout occurs before
+preparation share one boundary instrument. A calibration prefix of $b$
+cells costs $b$ boundary contacts, because its last readout occurs before
 the full experiment's deadline.
 
 \subsection{Resolve phase ambiguity with nested intervals}
@@ -2185,25 +2191,25 @@ more repetitions. The constants below make this rule quantitative.
 The following explicit schedule also controls rare mistakes. Set
 \begin{equation}
  s=\frac{\pi}{8\beta},\quad L_k=2^kL_0,\quad
- c_* =\min\left\{\frac{p_0^2}{2},
+ \gamma_* =\min\left\{\frac{p_0^2}{2},
                     \frac{p_0\alpha^2s^2}{8}\right\}>0.
 \end{equation}
 The quantity $s$ has units of frequency; $\alpha s$ and $\beta s$ are
 dimensionless. Fix a final stage $K\ge1$. Use
 \begin{equation}
- N_c(K)=\left\lceil\frac{2L_0^2}{\kappa^2s^2}
+ b_{\mathrm{loc}}(K)=\left\lceil\frac{2L_0^2}{\kappa^2s^2}
                      (K\log8+\log2)\right\rceil
 \end{equation}
 calibration trials, and form
-$C_0=[-E,E]\cap[\widehat\epsilon_c-s/L_0,
-\widehat\epsilon_c+s/L_0]$.
+$C_0=[-E,E]\cap[\widehat\epsilon_{b_{\mathrm{loc}}}-s/L_0,
+\widehat\epsilon_{b_{\mathrm{loc}}}+s/L_0]$.
 Equation~\eqref{con:coarse} bounds the chance that this misses the truth by
 $8^{-K}$. It is always nonempty because the coarse answer is clipped.
 All logarithms in this schedule are natural.
 
 At stage $k$, let $c$ be the midpoint of $C_{k-1}$ and attempt
 \begin{equation}
- r_k=\left\lceil\frac{(K-k)\log8+\log12}{c_*}\right\rceil
+ r_k=\left\lceil\frac{(K-k)\log8+\log12}{\gamma_*}\right\rceil
 \end{equation}
 independent blocks of length $L_k$. Each begins with a fresh
 $|+_L\rangle$ preparation and uses its own preinitialized bath partners.
@@ -2213,7 +2219,7 @@ For each accepted record $\mathcal R_i$,
 measure
 $\cos[\Phi_{\mathcal R_i}(c)]Y_L-
  \sin[\Phi_{\mathcal R_i}(c)]X_L$.
-Its outcome $y_i\in\{-1,+1\}$ has conditional mean
+Its outcome $Y_i\in\{-1,+1\}$ has conditional mean
 $\sin[\Phi_{\mathcal R_i}(\epsilon)-\Phi_{\mathcal R_i}(c)]$.
 If $G$ blocks pass, their known mean curve is
 \begin{equation}
@@ -2223,7 +2229,7 @@ If $G$ blocks pass, their known mean curve is
  \label{con:Hk}
 \end{equation}
 If $G<p_0r_k/2$, use the fallback $\widetilde\epsilon_k=c$.
-Otherwise clip the observed average of the $y_i$ to $H_k(C_{k-1})$
+Otherwise clip the observed average of the $Y_i$ to $H_k(C_{k-1})$
 and invert $H_k$, obtaining $\widetilde\epsilon_k\in C_{k-1}$.
 In either case set
 \begin{equation}
@@ -2256,7 +2262,7 @@ On the event $G\ge p_0r_k/2$, its probability is at most
 $2e^{-p_0r_k\alpha^2s^2/8}$. Averaging over records therefore gives
 \begin{equation}
  \Pr\{\epsilon\notin C_k\mid\hbox{earlier data with }\epsilon\in C_{k-1}\}
- \le3e^{-c_*r_k}\le\tfrac14\,8^{-(K-k)}.
+ \le3e^{-\gamma_*r_k}\le\tfrac14\,8^{-(K-k)}.
  \label{con:stagefailure}
 \end{equation}
 No assumption of frequency-independent record probabilities entered this
@@ -2278,15 +2284,15 @@ Longer blocks are repeated fewer times because their possible errors are
 smaller. This taper avoids an extra logarithmic cost. The deterministic
 number of cells is
 \begin{equation}
- B_K=N_c(K)+\sum_{k=1}^Kr_kL_k\le C_*L_K,
+ B_K=b_{\mathrm{loc}}(K)+\sum_{k=1}^Kr_kL_k\le C_*L_K,
 \end{equation}
 with a fixed constant $C_*$. Indeed,
 $\sum_kL_k\le2L_K$ and $\sum_k(K-k)L_k\le2L_K$, while
-$N_c(K)=O(K+1)=O(2^K)$.
-Choose the largest schedule that fits an assigned cell budget $Q$.
-Since $Q<B_{K+1}\le2C_*L_K$, \eqref{con:globalupper} is
-$O(1/Q^2)$, uniformly on the band. Rescaling frequency to $h\epsilon$
-writes this as $C_1/(h^2Q^2)$. A fixed clipped answer covers the finitely
+$b_{\mathrm{loc}}(K)=O(K+1)=O(2^K)$.
+Choose the largest schedule that fits an assigned cell budget $n_{\mathrm{use}}$.
+Since $n_{\mathrm{use}}<B_{K+1}\le2C_*L_K$, \eqref{con:globalupper} is
+$O(1/n_{\mathrm{use}}^2)$, uniformly on the band. Rescaling frequency to $h\epsilon$
+writes this as $C_1/(h^2n_{\mathrm{use}}^2)$. A fixed clipped answer covers the finitely
 many smaller budgets after increasing $C_1$.
 
 \subsection{Charge the complete experiment}
@@ -2294,7 +2300,7 @@ many smaller budgets after increasing $C_1$.
 
 For $n\ge3$ and $m\ge1$, allocate
 \begin{equation}
- Q=\min\left\{m,\left\lfloor\frac{n-1}{2}\right\rfloor\right\}
+ n_{\mathrm{use}}=\min\left\{m,\left\lfloor\frac{n-1}{2}\right\rfloor\right\}
 \end{equation}
 cells to the entire estimator, including calibration and every rejected
 block. Each used cell has at most one midpoint pulse and one endpoint
@@ -2302,11 +2308,11 @@ instrument. That endpoint combines frame correction, parity, conditional
 correction, any block readout and the next preparation. Count the last
 readout because it is early. Therefore
 \begin{equation}
- \#\hbox{ inside-cell contacts}\le Q\le m,
- \qquad \#\hbox{ all contacts}\le2Q\le n-1.
+ \#\hbox{ inside-cell contacts}\le n_{\mathrm{use}}\le m,
+ \qquad \#\hbox{ all contacts}\le2n_{\mathrm{use}}\le n-1.
 \end{equation}
 Store the classical estimate through the remaining charged cells.
-Every history still costs the prescribed $nh$ duration. Since $Q\ge m/3$,
+Every history still costs the prescribed $nh$ duration. Since $n_{\mathrm{use}}\ge m/3$,
 this gives risk at most $9C_1/(h^2m^2)$.
 
 There is also the plain-cell estimator using all $n$ cells. Its last
@@ -2339,9 +2345,9 @@ For the plain cell write
  a=\cos r,\quad b=\frac\epsilon{2R}\sin r,\quad
  c=\frac gR\sin r.
 \end{equation}
-With $p=c^2$, $q=a^2+b^2$ and $s_1=ab'-ba'=q\theta'_p/2$, choose
+With $p=c^2$, $q=a^2+b^2$ and $s_p=ab'-ba'=q\theta'_p/2$, choose
 \begin{equation}
- \phi'(\epsilon)=\frac{s_1}{p}
+ \phi'(\epsilon)=\frac{s_p}{p}
                 =\frac{q_p\theta'_p}{2p_p}.
  \label{con:nuisance}
 \end{equation}
@@ -2351,14 +2357,14 @@ A dot now includes differentiation of both $\epsilon$ and $\phi(\epsilon)$.
 Using $N_\phi N'_\phi=iZ_S$ gives
 \begin{equation}
  \sum_{r=0}^1K_r^\dagger\dot K_r
-   =i(-s_1+p\phi')Z_S=0,\qquad
+   =i(-s_p+p\phi')Z_S=0,\qquad
  \sum_{r=0}^1\dot K_r^\dagger\dot K_r
-   =\left(a'^2+b'^2+c'^2+\frac{s_1^2}{p}\right)I.
+   =\left(a'^2+b'^2+c'^2+\frac{s_p^2}{p}\right)I.
 \end{equation}
 The first identity removes coherent addition of derivatives across plain
 cells. At fixed direction, the time-integrated Hamiltonian derivative has
 norm at most $h/2$, hence $a'^2+b'^2+c'^2\le h^2/4$.
-Since $s_1^2\le q(a'^2+b'^2)$, the derivative norm of a plain-cell
+Since $s_p^2\le q(a'^2+b'^2)$, the derivative norm of a plain-cell
 isometry is at most
 \begin{equation}
  a_0=\frac{h}{2\sqrt{p_{\min}}}.
@@ -2416,14 +2422,14 @@ orthogonal, so
  \left\|\sum_jC_j\right\|^2\le na_0^2.
 \end{equation}
 For the active terms, let $Q_z$ project onto the archived complete activity
-history $z=(z_1,\ldots,z_n)$, and let $\pi_j$ be the probability that cell
+history $z=(z_1,\ldots,z_n)$, and let $p_j$ be the probability that cell
 $j$ is active. Since $Q_zD_j=0$ when $z_j=0$ and every history has at most
 $m$ active cells, Cauchy--Schwarz within each history gives
 \begin{align}
  \left\|\sum_jD_j\right\|^2
  &=\sum_z\left\|\sum_{j:z_j=1}Q_zD_j\right\|^2\nonumber\\
  &\le m\sum_j\|D_j\|^2
- \le mb_0^2\sum_j\pi_j\le m^2b_0^2.
+ \le mb_0^2\sum_jp_j\le m^2b_0^2.
  \label{con:historybound}
 \end{align}
 One must count histories this way; summing separate square roots of
@@ -2547,7 +2553,7 @@ nonterminal contacts and at most $m$ interior pulses over duration $nh$.
 
 \subsection{Derive the displaced cell before averaging it}
 
-Place the pulse at $h/2+\delta$, where $|\delta|<h/2$. The simultaneous
+Place the pulse at $h/2+\delta_t$, where $|\delta_t|<h/2$. The simultaneous
 Hamiltonians on the two sides of the pulse, after accounting for its known
 frame, are
 \begin{equation}
@@ -2563,7 +2569,7 @@ are Hermitian unitaries, and they anticommute.
 
 The corrected joint propagator is exactly
 \begin{equation}
- V_\delta=e^{-iH_-(h/2-\delta)}e^{-iH_+(h/2+\delta)}.
+ V_{\delta_t}=e^{-iH_-(h/2-\delta_t)}e^{-iH_+(h/2+\delta_t)}.
  \label{tim:propagator}
 \end{equation}
 The physical pulse frame is corrected within the already counted boundary
@@ -2575,10 +2581,10 @@ Because $H_\pm^2=R^2I$, expand each exponential as
 $\cos(Rt)I-i\sin(Rt)H_\pm/R$ and multiply. Define the real, dimensionless
 coefficients
 \begin{align}
- D&=\cos(2R\delta)-\cos(Rh),
+ D&=\cos(2R\delta_t)-\cos(Rh),
  &u&=\cos(Rh)+\frac{g^2}{R^2}D,\nonumber\\
  v&=\frac{\epsilon}{2R}\sin(Rh),
- &w&=\frac{g}{R}\sin(2R\delta),\nonumber\\
+ &w&=\frac{g}{R}\sin(2R\delta_t),\nonumber\\
  x&=\frac{\epsilon g}{2R^2}D.
  \label{tim:coefficients}
 \end{align}
@@ -2597,11 +2603,11 @@ unobserved mixture inside that branch.
 
 \subsection{A supplied fixed displacement can preserve global precision}
 
-Suppose $\delta$ is fixed, known and nonzero, with $0<|\delta|<h/2$.
+Suppose $\delta_t$ is fixed, known and nonzero, with $0<|\delta_t|<h/2$.
 The assertion is that a plain/displaced-pulse menu still attains
 inverse-square global risk on a sufficiently small fixed frequency band
 when $m$ is proportional to $n$. The band and constants may depend on this
-supplied displacement. Their uniformity as $\delta$ approaches zero or a
+supplied displacement. Their uniformity as $\delta_t$ approaches zero or a
 cell endpoint is not asserted. The exactly centered case is already covered
 by the ideal-contact construction.
 
@@ -2634,13 +2640,13 @@ The common unknown $\phi$ cancels in pairs. The known extra flip angles do
 not cancel in general; they must be included. Dropping their derivatives
 would give the wrong sensitivity calculation.
 
-Here is a direct check that these phases have useful drift. Put $z=2g\delta$,
+Here is a direct check that these phases have useful drift. Put $z=2g\delta_t$,
 so $0<|z|<\chi$. At compensation,
 \begin{align}
  p_e&=\sin^2z,& p_p&=\sin^2\chi,\nonumber\\
  d_e:=\theta'_e(0)&=\frac{\sin\chi}{g\cos z},&
  z_e:=\zeta'_e(0)&=\frac{\cos z-\cos\chi}{2g\sin z},\nonumber\\
- d_p:=\theta'_p(0)&=\frac{\tan\chi}{g}.&&
+ d_p:=\theta'_0(0)&=\frac{\tan\chi}{g}.&&
 \end{align}
 These derivatives have units of time. The mean derivative reward conditional
 on starting in the even sector is
@@ -2657,45 +2663,45 @@ The stationary even and odd probabilities are
 $p_p/(p_e+p_p)$ and $p_e/(p_e+p_p)$. Hence the mean phase derivative gained
 per cell is
 \begin{equation}
- \mu_\delta=\frac{p_pf_e-p_ef_p}{p_e+p_p}>0.
+ \mu_{\delta_t}=\frac{p_pf_e-p_ef_p}{p_e+p_p}>0.
 \end{equation}
 The stronger return from the odd sector again gives a net forward signal.
 
 To make a uniform estimator, compute from each length-$L$ record the
 \emph{frozen} reward
 \begin{equation}
- D_L^0=\sum_{i=1}^L\sigma_{i-1}
+ D_{\mathcal R}^0=\sum_{i=1}^L\sigma_{i-1}
  \left[\mathbf1_{\rm stay}\theta'_{j_i}(0)
        -2\mathbf1_{\rm flip}\zeta'_{j_i}(0)\right].
  \label{tim:frozen-reward}
 \end{equation}
 ``Frozen'' means that the coefficients are evaluated at the fixed nominal
 point, not at the unknown true frequency. The gate that accepts an even
-record with $D_L^0\ge\mu_\delta L/2$ is therefore implementable.
+record with $D_{\mathcal R}^0\ge\mu_{\delta_t} L/2$ is therefore implementable.
 
 Continuity allows one fixed band on which $p_e<p_p<1/2$, the stationary
-mean of this frozen reward is at least $3\mu_\delta/4$, and the difference
+mean of this frozen reward is at least $3\mu_{\delta_t}/4$, and the difference
 between its even- and odd-start conditional means is positive. Starting
-even then gives mean at least $3\mu_\delta L/4$. If $M$ bounds one reward
+even then gives mean at least $3\mu_{\delta_t} L/4$. If $M$ bounds one reward
 in magnitude and $\rho<1$ bounds the nontrivial eigenvalue of the two-state
 parity chain, conditioning across the intervening transitions yields
 \begin{equation}
- \operatorname{Var}(D_L^0)\le VL,
+ \operatorname{Var}(D_{\mathcal R}^0)\le VL,
  \qquad V=M^2\left(1+\frac{2}{1-\rho}\right).
 \end{equation}
 The variance grows linearly because correlations decay geometrically.
 Chebyshev's inequality gives probability at most
-$16V/(\mu_\delta^2L)$ of falling below the threshold. The final-even
+$16V/(\mu_{\delta_t}^2L)$ of falling below the threshold. The final-even
 probability is at least $1/2$. Thus
 \begin{equation}
- \Pr\{\text{final even},\ D_L^0\ge\mu_\delta L/2\}\ge\frac14,
- \qquad L\ge\frac{64V}{\mu_\delta^2}.
+ \Pr\{\text{final even},\ D_{\mathcal R}^0\ge\mu_{\delta_t} L/2\}\ge\frac14,
+ \qquad L\ge\frac{64V}{\mu_{\delta_t}^2}.
 \end{equation}
 Shrink the same fixed band so that every actual derivative reward differs
-from its frozen value by at most $\mu_\delta/4$. Every accepted record then
+from its frozen value by at most $\mu_{\delta_t}/4$. Every accepted record then
 satisfies, throughout that band,
 \begin{equation}
- \frac{\mu_\delta L}{4}\le\Phi'_{\mathcal R}(\epsilon)\le\beta L
+ \frac{\mu_{\delta_t} L}{4}\le\Phi'_{\mathcal R}(\epsilon)\le\beta L
 \end{equation}
 for a fixed finite time constant $\beta$. This supplies precisely the
 recorded-phase conditions: an observable gate, a nonvanishing acceptance
@@ -2714,27 +2720,27 @@ risk has order $n^{-2}$; the signal-generator bound gives the matching lower
 order. No retiming is needed for this construction.
 
 If a calibrated command offset is an additional permitted setting, shifting
-the command by $-\delta$ instead restores the midpoint. Neither argument
+the command by $-\delta_t$ instead restores the midpoint. Neither argument
 learns an unknown displacement. That would require an identifiable
 calibration experiment, an accuracy analysis and a charged calibration
 cost. An estimate of an offset is not an exact physical timing correction.
 
 \subsection{Hidden jitter produces an unresolved mixture}
 
-Now let every pulsed cell independently use $\delta=+d$ or $-d$ with equal
+Now let every pulsed cell independently use $\delta_t=+d$ or $-d$ with equal
 probability. The amplitude $0<d<h/2$ is known; the signs are never reported.
 They are independent of the unknown parameters, previous records and chosen
 controls. The controller may choose plain or jittered at cell entrance,
 but cannot learn the timing sign or add another interior pulse.
 
 Only $w$ in \eqref{tim:coefficients} changes sign. Averaging the physical
-channels at $\delta=\pm d$ cancels the cross terms between $w$ and $x$.
+channels at $\delta_t=\pm d$ cancels the cross terms between $w$ and $x$.
 An exact Kraus description is therefore
 \begin{equation}
  L_0=uI-ivZ_S,\qquad L_1=-iwN_\phi,\qquad L_2=-ixN'_\phi,
  \label{tim:jitter-kraus}
 \end{equation}
-with coefficients evaluated at $\delta=d$. Parity distinguishes the even
+with coefficients evaluated at $\delta_t=d$. Parity distinguishes the even
 branch $L_0$ from the combined odd branch, but it cannot distinguish $L_1$
 from $L_2$. Conditional on an odd result, an input density matrix $\rho_S$
 becomes
@@ -2773,16 +2779,16 @@ To prove the lower order, it is sufficient to exhibit a difficult subset
 of the allowed parameters. Choose a fixed compact residual-frequency
 interval strictly inside $(0,E)$. For a plain cell write
 \begin{equation}
- a_p=\cos(Rh),\quad b_p=\frac{\epsilon}{2R}\sin(Rh),\quad
- c_p=\frac{g}{R}\sin(Rh),\quad p_p=c_p^2.
+ a_0=\cos(Rh),\quad b_0=\frac{\epsilon}{2R}\sin(Rh),\quad
+ c_0=\frac{g}{R}\sin(Rh),\quad p_0=c_0^2.
 \end{equation}
 Define a mathematical nuisance curve by
 \begin{equation}
  \phi'(\epsilon)=k(\epsilon)
- =\frac{a_pb'_p-b_pa'_p}{p_p}.
+ =\frac{a_0b'_0-b_0a'_0}{p_0}.
  \label{tim:nuisance-curve}
 \end{equation}
-It is smooth because $p_p>0$. A dot below denotes differentiation along
+It is smooth because $p_0>0$. A dot below denotes differentiation along
 this curve, changing frequency and nuisance angle together. A prime on a
 scalar still means its ordinary derivative with respect to $\epsilon$.
 The controller is not told that nature follows this curve.
@@ -2791,7 +2797,7 @@ For the two plain-cell Kraus operators, direct differentiation gives
 \begin{align}
  \sum_jK_j^\dagger\dot K_j&=0,\nonumber\\
  \sum_j\dot K_j^\dagger\dot K_j
- &=\bigl[(a'_p)^2+(b'_p)^2+(c'_p)^2+p_pk^2\bigr]I.
+ &=\bigl[(a'_0)^2+(b'_0)^2+(c'_0)^2+p_0k^2\bigr]I.
  \label{tim:plain-derivative}
 \end{align}
 As in the contact converse, the zero overlap prevents coherent accumulation
@@ -2815,24 +2821,24 @@ the controller.
 Take a Hermitian $3\times3$ matrix $G$ acting on the Kraus labels, whose
 only nonzero entries are
 \begin{equation}
- G_{12}=i\eta_G,\qquad G_{21}=-i\eta_G,\qquad
- \eta_G=\frac{a-pk}{2wx}
+ G_{12}=it_G,\qquad G_{21}=-it_G,\qquad
+ t_G=\frac{a-pk}{2wx}
  \label{tim:gauge}
 \end{equation}
 Its entries have units of time. In the derivative convention
 $\widetilde{\dot L}=\dot L-iGL$, the three derivatives are
 \begin{align}
  \widetilde{\dot L}_0&=u'I-iv'Z_S,\nonumber\\
- \widetilde{\dot L}_1&=-i\bigl[w'N_\phi+(wk+\eta_Gx)N'_\phi\bigr],\nonumber\\
- \widetilde{\dot L}_2&=-i\bigl[x'N'_\phi-(xk+\eta_Gw)N_\phi\bigr].
+ \widetilde{\dot L}_1&=-i\bigl[w'N_\phi+(wk+t_Gx)N'_\phi\bigr],\nonumber\\
+ \widetilde{\dot L}_2&=-i\bigl[x'N'_\phi-(xk+t_Gw)N_\phi\bigr].
 \end{align}
 Consequently
 \begin{align}
- \widetilde\beta&=(a-pk-2wx\eta_G)Z_S=0,\nonumber\\
+ \widetilde\beta&=(a-pk-2wxt_G)Z_S=0,\nonumber\\
  \widetilde\alpha
  :=\sum_j\widetilde{\dot L}_j^\dagger\widetilde{\dot L}_j
  &=\bigl[(u')^2+(v')^2+(w')^2+(x')^2\nonumber\\
- &\hspace{1.5em}+(wk+\eta_Gx)^2+(xk+\eta_Gw)^2\bigr]I.
+ &\hspace{1.5em}+(wk+t_Gx)^2+(xk+t_Gw)^2\bigr]I.
  \label{tim:alpha}
 \end{align}
 This is a genuine smooth family of purifications: solve
@@ -2923,36 +2929,37 @@ The function $\sin^2z/\cos z$ increases strictly on $(0,\pi/4)$, and
 $0<2gd<\chi$, which proves positivity.
 
 A local information statement still needs an actual readout and a paid
-finishing rule. For an allocation of $N$ cells, put $q_p=1-p_p<1$ and reserve
+finishing rule. For an allocation of $L$ cells, put $q_p=1-p_p<1$ and reserve
 \begin{equation}
- k_N=\left\lceil\frac{3\log N}{-\log q_p}\right\rceil
+ k_L=\left\lceil\frac{3\log L}{-\log q_p}\right\rceil
 \end{equation}
-cells, for sufficiently large $N$ that $k_N<N$. Here $\log$ is the natural
-logarithm. Run the parity policy for the first $N-k_N$ cells. If parity is
+cells, for sufficiently large $L$ that $k_L<L$. Here $\log$ is the natural
+logarithm. Run the parity policy for the first $L-k_L$ cells. If parity is
 even, measure the logical $Y_L$ quadrature immediately and store the outcome.
 If parity is odd, use plain cells until the first return to even, or until
 the allocation ends. Read $Y_L$ on return; retain a failure flag if no return
 occurs. The failure probability at compensation is at most
-$q_p^{k_N}\le N^{-3}$. All reserved cells are part of the allocation, even
+$q_p^{k_L}\le L^{-3}$. All reserved cells are part of the allocation, even
 when readout occurs early.
 
-The accumulated phase derivative has mean $v_dNh+O(\log N)$ and fluctuations
-of order $\sqrt N$; the geometric mixing of the two-state chain gives its
-variance of order $N$. At an even endpoint the zero-frequency logical state
+The accumulated phase derivative has mean $v_dLh+O(\log L)$ and fluctuations
+of order $\sqrt L$; the geometric mixing of the two-state chain gives its
+variance of order $L$. At an even endpoint the zero-frequency logical state
 is independent of $\phi$. Conditional $Y_L$ probabilities are $1/2$ at zero,
 with opposite derivatives equal to one half of the recorded phase slope.
 Their conditional classical Fisher information is therefore the squared
-slope. Averaging complete records and retaining the small failure branch
+slope. Marginalizing the successful record and retaining the failure flag
 gives
 \begin{equation}
- \mathcal I_{\rm local}=v_d^2(Nh)^2+o(N^2).
+ \mathcal I_\omega^{\rm marginal}=v_d^2(Lh)^2+o(L^2).
 \end{equation}
-Here $o(N^2)$ denotes a correction whose ratio to $N^2$ tends to zero.
+Retaining the full record can only add information.
+Here $o(L^2)$ denotes a correction whose ratio to $L^2$ tends to zero.
 The nuisance has no first-order score on these even-readout branches, so the
 same leading information survives elimination of the shared angle.
 
-Take $N=\min\{m,\lfloor(n-1)/2\rfloor\}$. There are at most $N$ interior
-pulses and $N$ boundary contacts, including the early readout. Store the
+Take $L=\min\{m,\lfloor(n-1)/2\rfloor\}$. There are at most $L$ interior
+pulses and $L$ boundary contacts, including the early readout. Store the
 result through the remaining charged cells. For $m=\Theta(n)$ this is
 quadratic local information under the original total-contact budget.
 It coexists with inverse-linear optimal global risk because a readout's
@@ -2970,8 +2977,8 @@ $\xi$, while $x$ stays bounded below by a positive constant. The other
 coefficients and their frequency derivatives stay bounded. Thus
 \eqref{tim:gauge} grows at most as $h/\xi$, and the derivative costs satisfy
 \begin{equation}
- \alpha_{\rm plain}\le C_0h^2I,
- \qquad \widetilde\alpha_{\rm jitter}\le\frac{C_1h^2}{\xi^2}I.
+ \alpha_0\le C_0h^2I,
+ \qquad \widetilde\alpha\le\frac{C_1h^2}{\xi^2}I.
 \end{equation}
 The constants depend on fixed dimensionless hardware and the prior, not on
 $n,m,d$. Orthogonality now charges the expected number of jittered cells,
@@ -2997,41 +3004,41 @@ construct a globally optimal estimator for shrinking jitter or determine the
 best joint dependence on $n,m,d$.
 
 A separate local-information comparison helps locate the role of the
-menu. In this auxiliary comparison, $N$ counts uses of one repeated
+menu. In this auxiliary comparison, $L$ counts uses of one repeated
 primitive, and its contact cost is stated separately; we are not imposing
-the earlier $N-1$ total-contact allowance over an $N$-cell horizon.
+the earlier $L-1$ total-contact allowance over an $L$-cell horizon.
 If \emph{every}
 exposed cell repeats the same jittered echo, with arbitrary boundary
 controls but no plain-cell option, its optimal efficient local information
 at compensation satisfies
 \begin{equation}
- \frac{N^2A^2}{1+(N-1)p_e}
- \le\mathcal I^*_{\rm echo}(N,d)
- \le\min\left\{N^2h^2,
- N\left(\frac{A^2}{p_e}+B^2\right)\right\}
+ \frac{L^2A^2}{1+(L-1)p_e}
+ \le\mathcal I^*_{\rm echo}(L,d)
+ \le\min\left\{L^2h^2,
+ L\left(\frac{A^2}{p_e}+B^2\right)\right\}
  \qquad(d>0).
 \end{equation}
 For the upper bound, the nuisance slope $k=cA/(2p_e)$ already cancels the
 three-Kraus derivative overlap at zero. For the lower bound, measure parity
 and apply the same sensor $X_S$ recovery after each cell, then use a recorded
 uniformly randomized equatorial readout. At compensation the flip count
-$K$ is binomial with parameters $N,p_e$. Its conditional phase-derivative
-vector is $((N-K)A/c,-2K)$: the first component differentiates frequency,
+$K$ is binomial with parameters $L,p_e$. Its conditional phase-derivative
+vector is $((L-K)A/c,-2K)$: the first component differentiates frequency,
 and the second differentiates the shared angle. Pooling the full two-parameter Fisher matrices
 before eliminating $\phi$ gives the displayed lower expression.
-This implementation uses $N$ interior pulses and $N-1$ boundary instruments,
-so it costs $2N-1$ nonterminal contacts over its own $N$-cell horizon.
+This implementation uses $L$ interior pulses and $L-1$ boundary instruments,
+so it costs $2L-1$ nonterminal contacts over its own $L$-cell horizon.
 To fit this implementation into the original $n$-cell task, one may
-instead take $N\le\min\{m,\lfloor(n-1)/2\rfloor\}$, count its last
+instead take $L\le\min\{m,\lfloor(n-1)/2\rfloor\}$, count its last
 readout as an early contact, and store the answer until $nh$.
-The paid total is then $2N\le n-1$, with the unused duration still charged.
+The paid total is then $2L\le n-1$, with the unused duration still charged.
 
-At $d=0$ the lower expression continues to $N^2A^2$; the signal cap remains
-$N^2h^2$. Since $A^2+B^2\le h^2$ and
+At $d=0$ the lower expression continues to $L^2A^2$; the signal cap remains
+$L^2h^2$. Since $A^2+B^2\le h^2$ and
 $p_e=\Theta_\chi((d/h)^2)$, the single repeated primitive has
 \begin{equation}
- \mathcal I^*_{\rm echo}(N,d)
- =\Theta_\chi\left(\frac{h^2N^2}{1+N(d/h)^2}\right).
+ \mathcal I^*_{\rm echo}(L,d)
+ =\Theta_\chi\left(\frac{h^2L^2}{1+L(d/h)^2}\right).
 \end{equation}
 Its need for improving timing to preserve \emph{local} quadratic order does
 not apply to the richer plain/jittered menu, whose local protocol was just

@@ -26,7 +26,7 @@ Canonical entrypoints:
   dimension-independent law, examples and coherent-shift counterexample.
 - science/interpretation.md: principal proof chain, supporting derivations,
   shared-result ownership, controlled process versus endpoint channel,
-  coupling-strength cost at accuracy epsilon, timing and instrument robustness,
+  coupling-strength cost at accuracy eta, timing and instrument robustness,
   and the physical resources required by both constructions.
 - science/sensing_bridge.md: a separate rate-input device model, universal
   parity-record witness, finite-coupling collision approximation with signal,

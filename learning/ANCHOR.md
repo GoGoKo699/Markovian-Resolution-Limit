@@ -31,7 +31,7 @@ The topic labels in this table summarize the relevant material; they are not a s
 | $`A`$ and $`B`$ denote system and environment. | $`S`$ and $`E`$; $`R`$ is protected tester memory. The inaccessible bath is distinct from that memory. |
 | $`\mathcal E_{(t,s)}`$ denotes a dynamical map; $`\mathcal L_t`$ its time-local generator. | The target has a time-independent $`\mathcal L`$ and propagator $`e^{(t-s)\mathcal L}`$. Its use between interventions is part of the [operational definition](../science/model.md#a-noise-law-is-a-prediction-for-controlled-experiments). |
 | Eq. (46) uses rates $`\gamma_k(t)`$ and operators $`V_k(t)`$. | In the homogeneous case, first absorb rates as $`L_k=\sqrt{\gamma_k}\,V_k`$. The optimally centered jumps $`M_k`$ require a further step; see below. |
-| $`K_\alpha`$ are Kraus operators in §4.2. | $`A_0,B_j`$ label exact-cell Kraus operators; $`K(t)`$ or $`K_h`$ is instead a Hamiltonian. |
+| $`K_\alpha`$ are Kraus operators in §4.2. | $`A_0,B_j`$ label exact-cell Kraus operators; $`K(t)`$ or $`K_{\delta_{\rm c}}`$ is instead a Hamiltonian. |
 | §4.3 uses an induced trace norm. | Reference-assisted comparisons use the diamond norm, and observable distances include the factor $`1/2`$. |
 | §6 separates local Hamiltonians from $`V`$; weak coupling introduces $`\alpha V`$. | The bound $`\|K(t)\|_\infty\le\Lambda`$ charges **all** system-affecting terms. Only bath-only dynamics is free. |
 

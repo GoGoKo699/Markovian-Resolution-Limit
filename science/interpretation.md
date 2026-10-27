@@ -72,15 +72,15 @@ does not identify an exact critical contact count or optimize those constants.
 
 ## One universal decision rule
 
-Write $`q=\nu^2/\Lambda^2`$, with $`\Lambda\ge\nu`$. The ordinary minimax
+Write $`q_{\rm res}=\nu^2/\Lambda^2`$, with $`\Lambda\ge\nu`$. The ordinary minimax
 distance $`\Delta_N`$ permits the best tester for each fixed microscopic
 alternative. The guaranteed signed gap $`\Gamma_N`$ requires one binary tester
 whose orientation is correct for every alternative. The theorem proves
 
 ```math
-\frac1{64}\min\{1,Nq\}
+\frac1{64}\min\{1,Nq_{\rm res}\}
 \le\Gamma_N\le\Delta_N
-\le\min\{1,2\cosh^2(1)Nq\}.
+\le\min\{1,2\cosh^2(1)Nq_{\rm res}\}.
 ```
 
 The binary output 1 is the recorded event that every survival projection
@@ -96,15 +96,15 @@ use. It does not mean certain identification from one observed outcome.
 
 ## Coupling strength required for a controlled approximation
 
-Define $`\Lambda_{\min}(N,\epsilon)`$ as the infimum of admissible strengths
+Define $`\Lambda_{\min}(N,\eta)`$ as the infimum of admissible strengths
 $`\Lambda\ge\nu`$ for which some microscopic realization has worst-case
-$`N`$-contact distance at most $`\epsilon`$. Fix $`N\ge1`$ and
-$`0<\epsilon<1/64`$. The matching bounds imply
+$`N`$-contact distance at most $`\eta`$. Fix $`N\ge1`$ and
+$`0<\eta<1/64`$. The matching bounds imply
 
 ```math
-\nu\sqrt{\frac{N}{64\epsilon}}
-\le\Lambda_{\min}(N,\epsilon)
-\le\nu\sqrt{\frac{2\cosh^2(1)N}{\epsilon}}.
+\nu\sqrt{\frac{N}{64\eta}}
+\le\Lambda_{\min}(N,\eta)
+\le\nu\sqrt{\frac{2\cosh^2(1)N}{\eta}}.
 ```
 
 For the lower inequality, an error below $`1/64`$ forces
@@ -113,8 +113,8 @@ upper inequality, choose the explicit exact-cell simulator with the displayed
 strength and use its uniform error estimate. Hence
 
 ```math
-\Lambda_{\min}(N,\epsilon)
-=\Theta\!\left(\nu\sqrt{N/\epsilon}\right).
+\Lambda_{\min}(N,\eta)
+=\Theta\!\left(\nu\sqrt{N/\eta}\right).
 ```
 
 This is a coupling-strength requirement for approximating the entire
@@ -130,7 +130,7 @@ The witness does not require every waiting interval to be exactly equal.
 The following corollary concerns the instantaneous survival projections
 themselves; it does not replace them by finite-duration measurement pulses.
 
-Choose $`m=\min\{N,\lfloor1/q\rfloor\}`$ and allow each actual waiting time
+Choose $`\ell=\min\{N,\lfloor1/q_{\rm res}\rfloor\}`$ and allow each actual waiting time
 to satisfy
 
 ```math
@@ -139,13 +139,13 @@ to satisfy
 ```
 
 Their total duration is at most $`T/8`$. For every conditional bath state,
-microscopic survival in one interval is at least $`1-q/64`$. The target
+microscopic survival in one interval is at least $`1-q_{\rm res}/64`$. The target
 survival obeys the contractive semigroup Taylor estimate
 
 ```math
 p_{\mathrm M}(\tau)
 \le1-\nu\tau+2\nu^2\tau^2
-\le1-q/32.
+\le1-q_{\rm res}/32.
 ```
 
 The first inequality follows from
@@ -159,15 +159,15 @@ e^{t\mathcal L}-I-t\mathcal L
 Therefore the all-success probability gap is at least
 
 ```math
-(1-q/64)^m-(1-q/32)^m
-\ge\frac{31mq}{2048}
-\ge\frac{31}{4096}\min\{1,Nq\}
-\ge\frac1{256}\min\{1,Nq\}.
+(1-q_{\rm res}/64)^\ell-(1-q_{\rm res}/32)^\ell
+\ge\frac{31\ell q_{\rm res}}{2048}
+\ge\frac{31}{4096}\min\{1,Nq_{\rm res}\}
+\ge\frac1{256}\min\{1,Nq_{\rm res}\}.
 ```
 
 The first lower estimate uses the difference of powers and
-$`(1-q/32)^{m-1}\ge31/32`$. The next uses
-$`mq\ge\tfrac12\min\{1,Nq\}`$.
+$`(1-q_{\rm res}/32)^{\ell-1}\ge31/32`$. The next uses
+$`\ell q_{\rm res}\ge\tfrac12\min\{1,Nq_{\rm res}\}`$.
 
 This establishes a finite interval of acceptable spacings, rather than a
 requirement for exact equality of times. The interval endpoints scale with
@@ -177,13 +177,13 @@ about those parameters is not covered.
 ## Instrument errors
 
 Suppose the implemented record-preserving instrument at contact $`j`$ differs
-from its ideal version by at most $`\eta_j`$ in half diamond norm, uniformly
+from its ideal version by at most $`\zeta_j`$ in half diamond norm, uniformly
 over its inputs and any private reference. Replacing the instruments one
 at a time changes the final outcome probability under either hypothesis by
-at most $`\sum_j\eta_j`$. The implemented signed gap is consequently at least
+at most $`\sum_j\zeta_j`$. The implemented signed gap is consequently at least
 
 ```math
-\text{ideal signed gap}-2\sum_j\eta_j.
+\text{ideal signed gap}-2\sum_j\zeta_j.
 ```
 
 Errors in the initial preparation or final readout can be included as
@@ -215,7 +215,7 @@ These sensing statements have their own fixed-band and access assumptions. They 
 | Interaction strength | Every term affecting the system counts in $`\Lambda`$; bath-only evolution may be removed in an interaction picture. The explicit hiding model even has zero free bath Hamiltonian. |
 | Tester access | Initial preparation, the final readout at fixed $`T`$, and processing of protected private memory are free. Each interior contact with the system is counted. |
 | Timing and feedback | Real-valued contact times and classical adaptation are allowed. The tester class is the operational closure of finite decision trees described in the model. |
-| Environment | The lower bound is independent of bath size and conditional bath state. The upper construction uses $`M=\lfloor(\Lambda/\nu)^2\rfloor`$ fresh cells, retained throughout, of dimension at most $`d^2+1`$ each. |
+| Environment | The lower bound is independent of bath size and conditional bath state. The upper construction uses $`M=\lfloor(\Lambda/\nu)^2\rfloor`$ fresh cells, retained throughout, of dimension at most $`d_S^2+1`$ each. |
 | Switching and preparation | The simulator uses an externally prescribed switching schedule and initially prepared cells. Clock implementation, preparation work and optimal bath dimension are not charged. |
 | Coherent drift | The general theorem requires no coherent term in the optimally centered jump representation. Scalar jump shifts can alter that term; they cannot be used to remove it physically for free. |
 | Repetitions | The law concerns one process use over $`T=1/\nu`$. Independent experimental repetitions are an additional resource. |

@@ -134,16 +134,16 @@ For a calibrated target rate $`\nu>0`$, set
 
 ```math
 T=\frac1\nu,
-\qquad q=\left(\frac{\nu}{\Lambda}\right)^2.
+\qquad q_{\rm res}=\left(\frac{\nu}{\Lambda}\right)^2.
 ```
 
 For $`\Lambda\geq\nu`$ and every integer $`N\geq0`$, the theorem gives
 
 ```math
-\frac1{64}\min\{1,Nq\}
+\frac1{64}\min\{1,Nq_{\rm res}\}
 \leq\Gamma_N
 \leq\Delta_N
-\leq\min\{1,2\cosh^2(1)Nq\}.
+\leq\min\{1,2\cosh^2(1)Nq_{\rm res}\}.
 ```
 
 The constants are independent of system dimension and the number of jumps. The lower bound uses one survival test that does not depend on the microscopic device. The upper bound uses one externally scheduled collision model that is fixed independently of both the tester and its contact budget. Its channel is exactly the target channel at every collision boundary.

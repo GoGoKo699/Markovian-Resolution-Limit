@@ -109,7 +109,7 @@ K=g\left(\sigma_+\otimes\sigma_-
 ```
 
 An excitation oscillates between system and environment. Over an interval
-of length $`h`$, write $`\theta=gh`$. Joint unitary evolution gives
+of length $`{\delta_{\rm c}}`$, write $`\theta=g{\delta_{\rm c}}`$. Joint unitary evolution gives
 
 ```math
 |1\rangle_S|0\rangle_E
@@ -126,8 +126,8 @@ A_0=|0\rangle\langle0|+\cos\theta\,|1\rangle\langle1|,
 A_1=-i\sin\theta\,|0\rangle\langle1|.
 ```
 
-Choosing $`\cos\theta=e^{-\gamma h/2}`$ makes this channel equal to
-the Markov channel at time $`h`$. It matches coherences as well as the
+Choosing $`\cos\theta=e^{-\gamma {\delta_{\rm c}}/2}`$ makes this channel equal to
+the Markov channel at time $`{\delta_{\rm c}}`$. It matches coherences as well as the
 excited-state population, and it works on entangled inputs. It need not
 match the target at intermediate times or after an intervention.
 
@@ -255,24 +255,24 @@ small effect would not establish this quantifier order.
 Assume $`\Lambda\ge\nu>0`$ and divide the lifetime into
 
 ```math
-m=\lfloor(\Lambda/\nu)^2\rfloor,
-\qquad h=\frac{1}{\nu m}
+M=\lfloor(\Lambda/\nu)^2\rfloor,
+\qquad {\delta_{\rm c}}=\frac{1}{\nu M}
 ```
 
 cells. All bath cells are prepared at time zero. Each interacts once and
 is then retained without further coupling. The exact construction uses at
-most $`d^2+1`$ bath levels per cell for a system of dimension $`d`$.
+most $`d_S^2+1`$ bath levels per cell for a system of dimension $`d_S`$.
 
 For the general dissipator, the distinguished no-jump Kraus operator is
-$`A_0=e^{-hQ/2}`$, where $`Q`$ is the sum of the centered jumps'
+$`A_0=e^{-{\delta_{\rm c}}Q/2}`$, where $`Q`$ is the sum of the centered jumps'
 $`M_a^\dagger M_a`$. The remaining completely positive map supplies the
 other Kraus operators. A unitary completion then realizes the **entire**
 target cell channel with
 
 ```math
-\|K_h\|_\infty
-=\frac{\arccos(e^{-\nu h/2})}{h}
-\le\sqrt{\frac\nu h}\le\Lambda.
+\|K_{\delta_{\rm c}}\|_\infty
+=\frac{\arccos(e^{-\nu {\delta_{\rm c}}/2})}{{\delta_{\rm c}}}
+\le\sqrt{\frac\nu {\delta_{\rm c}}}\le\Lambda.
 ```
 
 The [exact-cell proof](../science/dissipators.md#4-exact-cells-with-bounded-hamiltonian-action)
@@ -300,21 +300,21 @@ process bound.
    cells, even if different branches contact different cells.
 
 These are the [controlled-interval lemmas](../science/intervention_bounds.md).
-They give a cell error at most $`\cosh^2(1)/m`$ and a total error at most
-$`N\cosh^2(1)/m`$. The bound applies to complete records and arbitrary
+They give a cell error at most $`\cosh^2(1)/M`$ and a total error at most
+$`N\cosh^2(1)/M`$. The bound applies to complete records and arbitrary
 protected references. Many contacts inside one cell do not multiply its
 uniform error bound.
 
 ## The complete law and its scope
 
-Put $`q=(\nu/\Lambda)^2`$, take $`\Lambda\ge\nu>0`$, and observe one
+Put $`q_{\rm res}=(\nu/\Lambda)^2`$, take $`\Lambda\ge\nu>0`$, and observe one
 run over $`T=1/\nu`$. The universal survival test and the single hiding
 construction give
 
 ```math
-\frac1{64}\min\{1,Nq\}
+\frac1{64}\min\{1,Nq_{\rm res}\}
 \le\Gamma_N\le\Delta_N
-\le\min\{1,2\cosh^2(1)Nq\}.
+\le\min\{1,2\cosh^2(1)Nq_{\rm res}\}.
 ```
 
 Thus a sufficiently small fixed positive distinguishing gap has contact cost of order
@@ -329,19 +329,19 @@ measurement is an interior contact, even if its result is saved until the
 end. The zero-contact statement depends on that fixed terminal convention.
 
 Solving the same bounds for the strength needed to attain worst-case
-accuracy $`\epsilon`$ gives
+accuracy $`\eta`$ gives
 
 ```math
-\Lambda_{\min}(N,\epsilon)
-=\Theta\!\left(\nu\sqrt{N/\epsilon}\right),
-\qquad N\ge1,\quad 0<\epsilon<1/64.
+\Lambda_{\min}(N,\eta)
+=\Theta\!\left(\nu\sqrt{N/\eta}\right),
+\qquad N\ge1,\quad 0<\eta<1/64.
 ```
 
 The [interpretation page](../science/interpretation.md) derives the explicit
 constants and two robustness statements: a factor-two window of waiting
 intervals preserves the survival witness's scaling, and instrument errors
-bounded by $`\eta_j`$ in half diamond norm reduce its signed gap by at most
-$`2\sum_j\eta_j`$.
+bounded by $`\zeta_j`$ in half diamond norm reduce its signed gap by at most
+$`2\sum_j\zeta_j`$.
 
 The theorem charges coupling strength and system contacts. Its hiding
 construction can use an exponentially large finite bath and an externally
@@ -457,16 +457,16 @@ For $`n\ge3`$ and $`m\ge1`$, use the entire temporal-menu estimator,
 including calibration and repetitions, within
 
 ```math
-Q=\min\!\left\{m,\left\lfloor\frac{n-1}{2}\right\rfloor\right\}
+n_{\mathrm{use}}=\min\!\left\{m,\left\lfloor\frac{n-1}{2}\right\rfloor\right\}
 ```
 
-cells, when $`Q`$ is sufficiently large for that construction. For smaller
-$`Q`$, use the plain-cell calibration design described below. The temporal
-construction uses at most $`Q`$ interior pulses and $`Q`$ boundary instruments,
+cells, when $`n_{\mathrm{use}}`$ is sufficiently large for that construction. For smaller
+$`n_{\mathrm{use}}`$, use the plain-cell calibration design described below. The temporal
+construction uses at most $`n_{\mathrm{use}}`$ interior pulses and $`n_{\mathrm{use}}`$ boundary instruments,
 including its final early readout. Each boundary instrument combines frame
 correction, parity measurement, any conditional correction, readout and reset
 as needed. Thus the protocol fits both budgets on every history. Store the
-estimate during the remaining charged cells. Since $`Q\ge m/3`$, this gives
+estimate during the remaining charged cells. Since $`n_{\mathrm{use}}\ge m/3`$, this gives
 error of order $`1/(h^2m^2)`$. A separate design uses all $`n`$ plain cells
 for calibration and gives order $`1/(h^2n)`$; choose the better design from
 the known budgets. These are alternatives, not two allocations of the same
@@ -495,9 +495,9 @@ branches; an expected contact count would be a different model.
 
 ### What the timing record reveals
 
-A known fixed displacement $`\delta`$ of the pulse from the midpoint, with
-$`0<|\delta|<h/2`$, and hidden random jitter do not supply the same channel.
-The midpoint case $`\delta=0`$ is covered by the ideal contact theorem above.
+A known fixed displacement $`\delta_t`$ of the pulse from the midpoint, with
+$`0<|\delta_t|<h/2`$, and hidden random jitter do not supply the same channel.
+The midpoint case $`\delta_t=0`$ is covered by the ideal contact theorem above.
 For a fixed displacement, each parity
 branch remains proportional to a unitary. Its axis shift is a known function
 of frequency, so the retained record still specifies a known phase function to which the
