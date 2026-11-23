@@ -26,15 +26,13 @@ Let $`\mathfrak D_\Lambda(T)`$ be the following class of microscopic models. A m
 
 1. A finite-dimensional environment $`E`$, with no common dimension bound across the class.
 2. An initial environment state $`\eta_E`$, independent of the tester's initial system and reference state.
-3. Predetermined Hamiltonian functions
+3. A predetermined joint Hamiltonian with the following bound for almost every $`t\in[0,T]`$.
 
-   ```math
-   H_{SE}(t)=I_S\otimes H_E(t)+K(t),
-   \qquad
-   \|K(t)\|_\infty\leq\Lambda
-   ```
-
-   for almost every $`t\in[0,T]`$.
+```math
+H_{SE}(t)=I_S\otimes H_E(t)+K(t),
+\qquad
+\|K(t)\|_\infty\leq\Lambda.
+```
 
 We set $`\hbar=1`$. The Hamiltonians are measurable and integrable enough to define their unitary propagators. For example, piecewise continuous functions satisfy this requirement. The environment Hamiltonian $`H_E(t)`$ can have an arbitrarily large norm: bath-only motion is not charged to $`\Lambda`$. Passing to its interaction picture preserves $`\|K(t)\|_\infty`$ and does not affect any tester operation.
 
