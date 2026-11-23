@@ -50,14 +50,15 @@ Start with [the operational model](science/model.md), then follow the constructi
 | What does the law imply for observation and simulation resources? | [Physical interpretation, accuracy cost and robustness](science/interpretation.md) |
 | How does the resolution mechanism constrain an actual sensing record? | [Controlled-noise sensing bridge](science/sensing_bridge.md) |
 | How many resolved collisions change global estimation precision? | [Global contact law](science/global_contact_precision.md) |
-| Which timing imperfections preserve that precision? | [Systematic displacement and hidden jitter](science/timing_precision.md) |
+| How does a limited pulse budget interact with hidden jitter? | [Sharp global timing-jitter law](science/hidden_jitter_precision.md) |
+| Why do known displacement and hidden jitter behave differently? | [Timing instruments and local precision](science/timing_precision.md) |
 | Which ingredients are inherited and which operational models differ? | [Related work](references/RELATED_WORK.md) and [bibliography](references/references.bib) |
 
 The [scientific synthesis](science/interpretation.md#principal-argument-and-supporting-results) identifies the principal proof chain, the separate sensing consequence and their supporting derivations. The [LLM reading guide](llms.txt) maps these routes and records the distinctions that must survive a summary.
 
 ## Learn the project
 
-[**Read the explanatory report (PDF)**](learning/report/Markovian_Resolution_Limit_Report.pdf): a continuous account from quantum states and measurement to temporal resolution, the global contact law and timing information, with worked examples and full explanations of the proof mechanisms.
+[**Read the explanatory report (PDF)**](learning/report/Markovian_Resolution_Limit_Report.pdf): a continuous account from quantum states and measurement to temporal resolution, the global contact law and timing information, with worked examples from the earlier analysis. The [sharp hidden-jitter theorem](science/hidden_jitter_precision.md) supplies the subsequent matching result.
 
 The single educational anchor, shared with Noise-Rate-Activated Sensing, is **Ángel Rivas and Susana F. Huelga, _Open Quantum Systems: An Introduction_ (2012)**, using the [open author version, arXiv:1104.5242v2](https://arxiv.org/abs/1104.5242v2). It supplies the dynamical-map, semigroup and microscopic-model foundations. The learning route connects those foundations to the operational law and its separately proved sensing consequence. The companion's [source bridge](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/learning/ANCHOR.md) develops the same foundation toward the coupling-menu precision separation.
 
@@ -65,7 +66,7 @@ The single educational anchor, shared with Noise-Rate-Activated Sensing, is **Á
 |---|---|
 | Follow the physical mechanism through a complete example | [From a decay curve to an intervention law](learning/TUTORIAL.md), including a one-pulse experiment with equal uncontrolled endpoints. |
 | Connect the selected source to this project's notation and assumptions | [Rivas–Huelga anchor bridge](learning/ANCHOR.md). Section numbers refer to the specified open version. |
-| Study the full conceptual structure | [30-milestone map](learning/MILESTONES.md): 11 background/preliminary targets and 19 narrative/innovation targets, including the global contact law and restricted timing distinction, each with dependencies and scientific sources. |
+| Study the full conceptual structure | [30-milestone map](learning/MILESTONES.md): 11 background/preliminary targets and 19 narrative/innovation targets, including the global contact law and hidden-jitter crossover, each with dependencies and scientific sources. |
 
 The [learning guide](learning/README.md) connects these routes. The map is common to every reader. The exact theorem statements, complete proofs and scholarly attribution remain in the scientific pages above.
 
@@ -78,7 +79,7 @@ python3 -m pip install -r verification/requirements.txt
 python3 verification/run_all.py
 ~~~
 
-The checks compare independent channel constructions and exercise reference-assisted adaptive instruments. They cover an exact qubit echo and a centered qutrit example with three nonnormal, noncommuting jumps. The [verification account](verification/README.md) gives the recorded outputs, tolerances and limits. The universal statements follow from the written proofs, not from these finite examples.
+The checks compare independent channel constructions and exercise reference-assisted adaptive instruments. They cover an exact qubit echo, a centered qutrit example with three nonnormal, noncommuting jumps, and the signed coherence from physical pulse-time fluctuations. The [verification account](verification/README.md) gives the recorded outputs, tolerances and limits. The universal statements follow from the written proofs, not from these finite examples.
 
 ## Resource boundaries
 
@@ -86,7 +87,11 @@ The interaction bound includes all system-affecting terms; bath-only evolution i
 
 For the explicit collision sensor, the separate [global contact theorem](science/global_contact_precision.md) gives worst-case mean-square error of order $`1/[h^2(n+m^2)]`$: coupling, cell duration $`h`$ and nominal compensation are fixed; there are $`n`$ cells, at most $`n-1`$ total contacts and at most $`m`$ inside-cell contacts. The result is uniform over the unknown noise direction on a sufficient fixed frequency band. Its own estimator and adaptive converse charge calibration, rejected records, frame corrections, early readout and the full duration. The [sensing bridge](science/sensing_bridge.md) explains the distinct local-information and bounded-loss comparisons; its [frequency aliases](science/sensing_bridge.md#frequency-aliases-of-the-collision-clock) explain why the band restriction matters.
 
-The [timing theorem](science/timing_precision.md) concerns a plain/one-pulse menu. A supplied known systematic displacement preserves quadratic global precision when the inside-cell allowance is linear in $`n`$; learning the offset is not included. Fixed nonzero hidden independent two-point jitter instead gives inverse-linear global risk, despite quadratic local information at compensation. Shrinking jitter as $`d=O(h/\sqrt n)`$ is necessary for quadratic global precision with a linear inside-cell allowance; sufficiency and arbitrary pulse menus are not covered.
+The [hidden-jitter theorem](science/hidden_jitter_precision.md) uses the same collision clock and contact ledger. The controller can choose a plain cell or one echo whose displacement is independently $`\pm d`$ with known magnitude and an unobserved sign. On a sufficiently small fixed frequency band, the optimal worst-case mean-square error is
+```math
+R^*_{n,m}(d)=\Theta\!\left(\frac{1}{h^2\left[n+\min\{m^2,m(h/d)^2\}\right]}\right).
+```
+At zero jitter the minimum is read as $`m^2`$. For a pulse allowance proportional to $`n`$, quadratic global precision is possible exactly at $`d=O(h/\sqrt n)`$. The estimator uses the observed parity path, accounting for the coherence lost when the sign is hidden. Fixed nonzero jitter gives inverse-linear global risk even though [local information at compensation](science/timing_precision.md#why-the-local-calculation-gives-a-different-answer) can still grow quadratically. A [known systematic displacement](science/timing_precision.md#calibrated-systematic-displacement) preserves quadratic global precision in the same linear-allowance regime.
 
 The hiding construction initializes all bath cells at time zero, retains spent cells, and uses an externally prescribed switching schedule. Its bath dimension can grow exponentially in $`(\Lambda/\nu)^2`$. The result is a coupling-and-contact bound, with no claim of efficient bath preparation, autonomous clock implementation or finite-duration control. Independent repetitions of the whole experiment are a separate resource.
 

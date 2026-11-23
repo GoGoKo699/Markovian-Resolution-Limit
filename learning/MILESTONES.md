@@ -12,7 +12,7 @@ There are exactly thirty project-defined milestones: **M01–M11 cover backgroun
 | Resolution theorem | M12–M16 | Resource model, optimization order, intrinsic rate and universal witness |
 | Matching construction | M17–M23 | Exact cells, control-uniform bounds, adaptive counting and the resolution law |
 | Global sensing consequence | M24–M27 | Fixed-band estimation, retained phases, paid contacts and a matching converse |
-| Timing and synthesis | M28–M30 | Supplied timing information, restricted jitter obstruction and complete physical scope |
+| Timing and synthesis | M28–M30 | Supplied timing information, sharp jitter crossover and complete physical scope |
 
 Each phase proceeds from local objects to a global explanation. The final sensing results require their own estimator and converse; they are not consequences of endpoint agreement or reciprocal local information. This is a reader-independent dependency map, not a schedule or record of personal progress. The sister route uses the same foundation while following the distinct coupling-menu comparison.
 
@@ -302,20 +302,20 @@ Each phase proceeds from local objects to a global explanation. The final sensin
 
 <a id="m29"></a>
 
-### M29 — Hidden jitter and the local/global separation
+### M29 — The sharp precision law with hidden timing jitter
 
-- **Central question:** Why does unobserved random timing have a different precision consequence from a known fixed displacement?
-- **Understanding target:** In each pulsed cell, independently choose $`\delta_t=\pm d`$ with equal probability and hide the sign. The observed odd-parity branch mixes distinct operations. On a prior interval away from compensation, an environment gauge cancels the derivative overlap for both plain and jittered cells along one nuisance curve, giving optimal fixed-band risk $`\Theta(n^{-1})`$ for fixed $`0<d<h/2`$. The same menu can retain quadratic pointwise classical score information at compensation. For $`m=\Theta(n)`$, quadratic global precision requires $`d=O(h/\sqrt n)`$; sufficiency is not proved.
-- **Earlier dependencies and story role:** Uses [M24](#m24), [M27](#m27), and [M28](#m28). It exposes both the information content of timing records and the limits of local precision.
-- **Conceptual connection:** The converse is a worst-case obstruction for the specified plain/jittered-one-pulse menu, not a bound at every frequency or for arbitrary pulse sequences. A hidden timing sign cannot be added to the accessible record.
-- **Sources:** [Hidden-jitter global theorem](../science/timing_precision.md#global-precision-with-hidden-jitter); [necessary accuracy](../science/timing_precision.md#a-necessary-accuracy-scale); [compensated local information](../science/timing_precision.md#why-the-local-calculation-gives-a-different-answer).
+- **Central question:** How do the hidden timing fluctuations and the number of allowed pulses jointly set the precision?
+- **Understanding target:** In each pulsed cell, independently draw $`\delta_t=\pm d`$ with equal probability and hide the sign. In the mixed odd-parity branch, the two operations add in probability and contribute opposite signs to the logical coherence. Bound the resulting loss of phase sensitivity and invert the unconditional readout mean on successively smaller frequency intervals. When echoed blocks improve the all-plain baseline, the longest block in the construction has length proportional to $`\min\{m,(h/d)^2\}`$. A nuisance-curve gauge gives the complementary converse. On a sufficiently small fixed band the matching squared-error order is $`\Theta([h^2(n+\min\{m^2,m(h/d)^2\})]^{-1})`$, with $`m^2`$ as the contact contribution at $`d=0`$.
+- **Earlier dependencies and story role:** Uses [M03](#m03) and [M24](#m24)–[M28](#m28). It extends paid multiscale estimation to a mixed branch and identifies when the ideal contact law survives.
+- **Conceptual connection:** With $`m=\Theta(n)`$, the condition $`d=O(h/\sqrt n)`$ is necessary and sufficient for quadratic global precision. At fixed $`d>0`$ the global risk scales as $`n^{-1}`$, even though the same menu can retain quadratic pointwise classical score information at compensation.
+- **Sources:** [Hidden-jitter global theorem](../science/hidden_jitter_precision.md); [compensated local information](../science/timing_precision.md#why-the-local-calculation-gives-a-different-answer).
 
 <a id="m30"></a>
 
 ### M30 — The complete temporal-resource story and its evidence
 
-- **Central question:** How do the resolution law, sensing consequence and timing limitation form one coherent contribution?
-- **Understanding target:** Explain the matching controlled-process law using one universal witness and one universally hiding construction. Then explain the separately proved global contact law and its restricted timing limitation. Assign the noise-strength menu separation and shared recorded-phase estimator to the sister paper. Keep the centered drift-free class, sufficient fixed band, ideal contacts, protected memory, bath preparation and external switching assumptions visible.
+- **Central question:** How do the resolution law, sensing consequence and timing crossover form one coherent contribution?
+- **Understanding target:** Explain the matching controlled-process law using one universal witness and one universally hiding construction. Then explain the separately proved global contact law and the finite timing precision needed to attain it in the one-pulse jitter menu. Assign the noise-strength menu separation and shared recorded-phase estimator to the sister repository. Keep the centered drift-free class, sufficient fixed band, instantaneous contacts, protected memory, bath preparation and external switching assumptions visible.
 - **Earlier dependencies and story role:** Synthesizes [M11](#m11), [M23](#m23), [M27](#m27), and [M29](#m29), with their earlier dependencies. It closes both theorem chains and their attribution boundaries.
 - **Conceptual connection:** Temporal resolution as a resource is established prior context. The project adds quantitative matching laws under precise access assumptions. Analytical proofs, finite identity checks and reviewer judgments have different evidential roles; none supplies automatic independent certification or priority.
 - **Sources:** [Principal argument](../science/interpretation.md#principal-argument-and-supporting-results); [Berk and corrected monotones](../references/RELATED_WORK.md#berk2023); [proof ingredients](../references/RELATED_WORK.md#how-the-ingredients-enter-the-proof); [verification scope](../verification/README.md); [sister scientific synthesis](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/interpretation.md).
