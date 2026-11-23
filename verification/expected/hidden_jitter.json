@@ -1,0 +1,17 @@
+{
+  "signed_displacement_checks": 495,
+  "resolved_paths_through_five_cells": 16740,
+  "maximum_propagator_comparison_error": {
+    "kraus": 3.331565686979729e-16,
+    "probability": 2.9976021664879227e-15,
+    "coherence": 2.9976021664879227e-15,
+    "mean": 3.8163916471489756e-16
+  },
+  "maximum_dynamic_program_vs_enumeration_error": 2.7755575615628914e-17,
+  "local_mean": {
+    "minimum_slope_per_cell": 0.8299009957690265,
+    "minimum_gate_acceptance": 0.9790964529625715,
+    "maximum_slope_step_difference": 2.933001397309454e-07,
+    "maximum_slope_difference_vs_propagators": 1.5266010677805752e-11
+  }
+}

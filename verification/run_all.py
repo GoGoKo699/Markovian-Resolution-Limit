@@ -16,6 +16,7 @@ CHECKS = (
     ("verify_amplitude_cell.py", "amplitude_cell.json"),
     ("verify_dissipator_cell.py", "dissipator_cell.json"),
     ("verify_sensing_bridge.py", "sensing_bridge.json"),
+    ("verify_hidden_jitter.py", "hidden_jitter.json"),
 )
 # Near-zero Choi eigenvalues can cross a numerical Kraus truncation threshold.
 # These diagnostics are still reported and bounded by the calculation itself.

@@ -2,7 +2,7 @@
 
 [Controlled sensing](sensing_bridge.md) · [Ideal contact law](global_contact_precision.md) · [Companion global sensing proof](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_global_precision.md)
 
-A timing error is not specified by its magnitude alone. A fixed pulse displacement gives a definite conditional quantum operation; unobserved independent timing fluctuations mix different operations. This page separates those experiments and proves a global limitation for one precisely defined timing menu. The controller may select plain cells or cells containing one imperfect echo, but may not insert further pulses inside a cell.
+A timing error is not specified by its magnitude alone. A fixed pulse displacement gives a definite conditional quantum operation; unobserved independent timing fluctuations mix different operations. This page derives the timing instruments and the adaptive converse for one precisely defined timing menu. The [sharp global law and estimator](hidden_jitter_precision.md) complete the hidden-jitter analysis. The controller may select plain cells or cells containing one imperfect echo, but may not insert further pulses inside a cell.
 
 ## Timing model and counted resources
 
@@ -129,6 +129,8 @@ An active cell uses at most one interior pulse and one boundary instrument. Taki
 
 ## Global precision with hidden jitter
 
+The [matching minimax law](hidden_jitter_precision.md) gives the dependence on jitter size and pulse allowance jointly. This section supplies the gauge used in its converse and explains the fixed-jitter regime.
+
 Use the companion's [fixed identifiable band](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_identifiability.md). Choose fixed $`\chi<r_*<\pi/4`$ and put
 
 ```math
@@ -246,7 +248,7 @@ R^*_{n,m}(d;\Omega)
 \right\}.
 ```
 
-The first bound uses the fixed-angle signal generator norm $`nh/2`$, with a separate prior if needed. For $`m=\Theta(n)`$, a global $`O(n^{-2})`$ risk would therefore require $`d=O(h/\sqrt n)`$. This is a necessary condition for the stated jittered timing menu. It is not a sufficiency theorem or an optimized joint law in $`n,m,d`$.
+The first bound uses the fixed-angle signal generator norm $`nh/2`$, with a separate prior if needed. For $`m=\Theta(n)`$, a global $`O(n^{-2})`$ risk would therefore require $`d=O(h/\sqrt n)`$. The [matching estimator and joint law](hidden_jitter_precision.md) show that this scale is also sufficient, and quantify the risk for intermediate timing accuracies and pulse allowances.
 
 ## Why the local calculation gives a different answer
 

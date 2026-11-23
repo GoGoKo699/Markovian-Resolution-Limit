@@ -25,7 +25,7 @@ the linked pages under `science/`.
 | [A test that works without identifying the bath](#a-test-that-works-without-identifying-the-bath) | [M14–M16](MILESTONES.md#m14) | Short-time loss and a retained survival record give a universal witness. |
 | [A model that hides from every permitted tester](#a-model-that-hides-from-every-permitted-tester) | [M17–M22](MILESTONES.md#m17) | Exact cells, parity and adaptive composition give the converse. |
 | [The complete law and its scope](#the-complete-law-and-its-scope) | [M23](MILESTONES.md#m23) | The two bounds determine the contact scale and coupling cost. |
-| [Temporal access changes global sensing precision](#temporal-access-changes-global-sensing-precision) | [M24–M29](MILESTONES.md#m24) | An explicit collision sensor gives a global contact law and a timing limitation. |
+| [Temporal access changes global sensing precision](#temporal-access-changes-global-sensing-precision) | [M24–M29](MILESTONES.md#m24) | An explicit collision sensor gives a global contact law and a sharp crossover with hidden timing jitter. |
 
 The one-pulse example can be read before the formal rate construction. It
 illustrates one particular microscopic model. The universal result requires
@@ -495,45 +495,56 @@ branches; an expected contact count would be a different model.
 
 ### What the timing record reveals
 
-A known fixed displacement $`\delta_t`$ of the pulse from the midpoint, with
-$`0<|\delta_t|<h/2`$, and hidden random jitter do not supply the same channel.
-The midpoint case $`\delta_t=0`$ is covered by the ideal contact theorem above.
-For a fixed displacement, each parity
-branch remains proportional to a unitary. Its axis shift is a known function
-of frequency, so the retained record still specifies a known phase function to which the
-record-selection and estimation argument applies. A plain/pulsed-cell menu preserves quadratic global precision on a suitable
-band when the interior-contact allowance is linear in $`n`$. Here the fixed
-displacement is supplied as known device information. Learning an unknown
-offset would require an additional model and charged calibration; this
-claim does not provide that procedure.
+For a known fixed displacement $`\delta_t`$ from the midpoint, with
+$`|\delta_t|<h/2`$, each parity branch remains proportional to a unitary.
+Its axis shift is a known function of frequency. The retained record still
+specifies the phase, and the plain/pulsed menu preserves quadratic global
+precision on a suitable band when the interior-contact allowance is linear
+in $`n`$. The device supplies the fixed displacement. Learning an unknown
+offset would require its own model and charged calibration.
 
-For the [hidden-jitter model](../science/timing_precision.md), every pulsed
-cell instead has displacement $`+d`$ or $`-d`$ with equal probabilities,
-independently, with $`0<d<h/2`$ known and the realized signs unobserved.
-Away from compensation, the odd-parity branch generally mixes two different
-operations. Parity does not reveal which one occurred, so it cannot be used
-as a pure labelled trajectory.
-For the permitted menu of plain cells and one such pulse per pulsed cell,
-fixed nonzero jitter gives optimal fixed-band worst-case error
-$`\Theta(n^{-1})`$ at fixed hardware. Additional interior pulses, selectable
-couplings and retuned compensation lie outside this converse.
+In the [hidden-jitter model](../science/hidden_jitter_precision.md),
+each pulsed cell independently receives a displacement $`+d`$ or $`-d`$
+with equal probability. The controller knows the amplitude $`d`$ and
+observes parity. Away from compensation, two different operations can
+produce odd parity. Their probabilities add. Their contributions to
+logical coherence have opposite signs, so the estimator tracks a signed
+weight for each observed parity record.
 
-With $`m=\Theta(n)`$, at exact compensation the same menu can retain
-quadratic pointwise classical Fisher information. This does not contradict the global limitation: a prior
-on a fixed subinterval away from compensation supplies the minimax lower
-bound. It does not bound risk at every individual frequency. If jitter
-shrinks with the experiment and $`m=\Theta(n)`$, the proved necessary
-condition for quadratic global precision is
+Each block uses a quadrature centered on the current frequency estimate.
+The measured bit supplies a signed score on an accepted record, and a
+rejected record scores zero. Averaging this score keeps the dependence on
+both the parity probabilities and the hidden mixture. Over the current
+frequency interval, its mean can be inverted whenever the block length
+is at most a small constant times $`(h/d)^2`$. Short blocks establish the
+frequency interval, and longer blocks refine it. The estimator counts
+every attempt against the cell and contact budgets.
+
+The longest block in the construction has length proportional to
+$`\min\{m,(h/d)^2\}`$ when echoed blocks improve the all-plain baseline.
+The adaptive converse allows a supply of protected memory. Along a
+nuisance curve away from compensation, the hidden mixture permits an
+environment gauge that bounds the information from the pulsed cells by
+order $`m(h/d)^2`$ in dimensionless frequency. The ideal-contact converse
+also limits that contribution to order $`m^2`$. With the plain-cell
+contribution included, the minimax squared-frequency error on a sufficiently
+small fixed band is
 
 ```math
-d=O(h/\sqrt n).
+R^*_{n,m}(d)=\Theta\!\left(
+\frac{1}{h^2[n+\min\{m^2,m(h/d)^2\}]}
+\right).
 ```
 
-Sufficiency of this accuracy scale is not proved. The distinction is about
-the controller's available timing information and its precise control menu,
-not a universal law for all imperfect pulse sequences. These sensing results
-have their own device assumptions; they neither extend the centered-generator
-resolution theorem to arbitrary signals nor replace its proof.
+Use the ideal contact term $`m^2`$ at $`d=0`$. For $`m=\Theta(n)`$, the two
+terms in the minimum cross at $`d`$ of order $`h/\sqrt n`$. This establishes
+that $`d=O(h/\sqrt n)`$ is both necessary and sufficient for quadratic global
+precision. Fixed positive jitter gives inverse-linear global risk, even
+though the same timing menu can retain quadratic pointwise classical
+Fisher information at compensation. The sharp law concerns the specified
+plain/one-pulse collision menu, with fixed coupling and compensation. The
+centered-generator resolution theorem remains a separate discrimination
+result.
 
 Return to the [milestone map](MILESTONES.md), the
 [anchor bridge](ANCHOR.md), or the [main reading routes](../README.md).

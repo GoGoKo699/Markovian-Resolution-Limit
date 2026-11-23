@@ -39,13 +39,14 @@ Canonical entrypoints:
   1/[h²(n+m²)] on a fixed sufficient band for the explicit sensor. Exact
   echo/plain temporal menu, charged frame corrections and early readout,
   recorded-phase estimator, and a uniform full-adaptive nuisance-curve converse.
-- science/timing_precision.md: a supplied known fixed pulse displacement preserves
-  quadratic global precision through the corresponding temporal menu with a
-  linear inside-cell contact allowance; learning an unknown offset is not
-  supplied by that theorem. Independent
-  unobserved two-point jitter gives inverse-time global risk for the specified
-  plain/one-pulse menu despite quadratic local information at compensation;
-  shrinking jitter accuracy is necessary, with no sufficiency claim.
+- science/timing_precision.md: exact displaced and averaged echo instruments,
+  known-displacement attainability, the hidden-jitter gauge and the distinction
+  between pointwise local information and fixed-band global risk.
+- science/hidden_jitter_precision.md: sharp fixed-band minimax risk of order
+  1/[h²(n+min{m²,m(h/d)²})] for iid hidden symmetric displacements ±d in the
+  plain/one-echo menu. With a linear pulse allowance, d=O(h/sqrt(n)) exactly
+  characterizes quadratic precision. Uses signed parity transfer, charged
+  multiscale localization, fresh-block refinement and two adaptive converses.
 - learning/ANCHOR.md: the single common educational anchor, Rivas and Huelga's
   Open Quantum Systems: An Introduction, using arXiv:1104.5242v2 (2012);
   shared with Noise Sensing; verified section pointers, notation translation,
@@ -66,6 +67,8 @@ Canonical entrypoints:
   reference outputs and the distinction between computation and proof.
 - verification/verify_sensing_bridge.py: bounded two-rate cells, complete
   parity records, retained-bath survival and direct local-response checks.
+- verification/verify_hidden_jitter.py: microscopic sign averaging, signed
+  parity propagation and quadrature-mean checks for the jittered echo menu.
 - verification/run_all.py: executes all checks without rewriting expected
   outputs unless --record is explicitly passed.
 - verification/build_report.py: separately builds the report from its source

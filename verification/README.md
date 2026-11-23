@@ -15,7 +15,7 @@ python3 -m pip install -r verification/requirements.txt
 python3 verification/run_all.py
 ```
 
-The runner executes all three scripts with assertions enabled, checks their
+The runner executes all four scripts with assertions enabled, checks their
 results against the committed reference quantities, and exits unsuccessfully
 if a scientific assertion or comparison fails. A normal run does not modify
 the reference files. Each script can also be run directly to print its full
@@ -53,6 +53,7 @@ The fresh PDF and corresponding final log establish that the relocated source co
 | [Qubit cell](verify_amplitude_cell.py) | Exchange-unitary reduction versus the amplitude-damping Kraus channel on all four matrix units; an exact midpoint phase echo; a Bell-input instrument tree with three contacts and eight retained histories | Checks endpoint equality, the attained quadratic cell discrepancy and one adaptive ancilla-assisted example |
 | [General dissipative cell](verify_dissipator_cell.py) | Exponentiated Lindblad superoperator versus the positive-no-jump-Kraus direct rotation on all nine qutrit matrix units; parity and sign reversal; two joint qutrit-reference instruments with four histories and an outcome-dependent second time | Checks the exact-cell completion for three nonnormal, noncommuting jumps and a non-diagonal loss operator |
 | [Sensing bridge](verify_sensing_bridge.py) | Direct joint unitary versus analytic Kraus operators; independently exponentiated Markov channel; 128-history adaptive parity trees; reuse of one correlated bath; finite-difference readout response versus a classical reward recursion | Checks the explicit two-rate device, complete-record bounds, parity witness, and microscopic local coefficient at sampled parameters |
+| [Hidden jitter](verify_hidden_jitter.py) | Exact 4-by-4 joint propagators at both displacements; resolved probability and coherence on 16,740 parity paths; signed dynamic program versus enumeration; finite differences of the local quadrature mean | Checks the mixed-state estimator identity, its implementation by signed transfer, and representative local slopes. The [recorded output](expected/hidden_jitter.json) includes zero and near-half-cell jitter in the instrument comparison. |
 
 The general example is analytically optimally centered, as shown in
 [the dissipator account](../science/dissipators.md#9-numerical-check-of-the-exact-general-cell).
@@ -99,7 +100,7 @@ advantage, or optimization against every microscopic controller.
 The companion repository supplies the following additional checks. Run
 `python scripts/check.py` in the Noise-Rate-Activated-Sensing checkout to
 include them in its 144-test suite; they are not part of this repository's
-three-script runner.
+four-script runner.
 
 | Companion suite | Checks | What is exercised |
 |---|---|---|
@@ -107,7 +108,7 @@ three-script runner.
 | [Contact precision](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_contact_precision.py) | 8 | The [hard-activity derivative lemma](../science/intervention_bounds.md#a-derivative-bound-with-a-hard-activity-budget): rare signal-dependent histories, derivative-source decomposition, inactive orthogonality and the hard active-history budget. Measured outputs exclude the bath; early-readout checks retain the original total-contact count. Arbitrary boundary control is a converse relaxation only. |
 | [Identifiability](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_identifiability.py) | 7 | [Clock aliases](../science/sensing_bridge.md#frequency-aliases-of-the-collision-clock) on entangled inputs and complete adaptive boundary records, plus fixed-band calibration risk and tails with odd outcomes and early readout charged. |
 | [Global microscopic precision](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_global_microscopic.py) | 11 | The [global contact theorem](../science/global_contact_precision.md) and shared recorded-phase method: physical parity trees with echo frame and conditional correction, independent probability and reward recursions, conditional inversion, wrong-stage interval containment and deterministic budgets. Every branch pays its pulses and early readout. |
-| [Timing](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_timing_precision.py) | 8 | [Systematic displacement and hidden jitter](../science/timing_precision.md): pure versus mixed parity branches, the exact known-offset record phase, common nuisance-curve gauge and complete local readout derivatives. The small-jitter gauge envelope supports the converse, not sufficiency of the timing scale. |
+| [Timing](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/tests/test_timing_precision.py) | 8 | [Systematic displacement and hidden jitter](../science/timing_precision.md): pure versus mixed parity branches, the exact known-offset record phase, common nuisance-curve gauge and complete local readout derivatives. The small-jitter gauge envelope supports the converse. The [new local checks](verify_hidden_jitter.py) exercise the signed mean used by the attaining estimator. |
 
 The global contact and jitter lower bounds use the companion's [bounded-loss closure](https://github.com/GoGoKo699/Noise-Rate-Activated-Sensing/blob/main/science/microscopic_global_precision.md#global-risk-under-controlled-limits). This is an analytical argument for operational limits, not an inference from sampled channel continuity or local Fisher information. Known systematic displacement is a supplied input; these checks do not establish a calibration cost for an unknown offset.
 
